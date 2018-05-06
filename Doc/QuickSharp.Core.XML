@@ -1,0 +1,2783 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>QuickSharp.Core</name>
+    </assembly>
+    <members>
+        <member name="T:QuickSharp.Core.PluginManager">
+            <summary>
+            Manages the loading of plugins.
+            </summary>
+        </member>
+        <member name="M:QuickSharp.Core.PluginManager.GetInstance">
+            <summary>
+            Retrieves a reference to the PluginManager singleton.
+            </summary>
+            <returns>A reference to the PluginManager.</returns>
+        </member>
+        <member name="M:QuickSharp.Core.PluginManager.LoadPlugins">
+            <summary>
+            Loads the plugins available to the application.
+            These must be located in the application directory and must
+            implement IQuickSharpPlugin.
+            </summary>
+        </member>
+        <member name="M:QuickSharp.Core.PluginManager.RegisterPlugins">
+            <summary>
+            Registers the loaded plugins. RegisterPlugins checks the dependencies
+            of each plugin making sure each one exists and adds each to list of
+            registered plugins sorted into the correct loading order. Any unsatisfied
+            dependency (either the dependency doesn't exist or is an insufficient
+            version number) will cause a fatal error and the application will aborted.
+            </summary>
+        </member>
+        <member name="M:QuickSharp.Core.PluginManager.ActivatePlugins(QuickSharp.Core.MainForm)">
+            <summary>
+            Activates the registered plugins. ActivatePlugins works through the list
+            of registed plugins and calls the Activate method on each one passing a
+            reference to the application main form. 
+            </summary>
+            <param name="mainForm">The application main form.</param>
+        </member>
+        <member name="M:QuickSharp.Core.PluginManager.HavePlugin(System.String)">
+            <summary>
+            Determine if a plugin has been registered.
+            </summary>
+            <param name="pluginID">The plugin ID.</param>
+            <returns>True if the plugin has been registered.</returns>
+        </member>
+        <member name="E:QuickSharp.Core.PluginManager.PluginPreActivate">
+            <summary>
+            Raises the PluginPreActivate event. PreActivation handlers can be
+            registered to perform tasks before any plugins are activated.
+            As plugins aren't active until the activation phase PreActivation
+            tasks can only be registered by non-plugin application code, typically
+            the application driver.
+            </summary>
+        </member>
+        <member name="E:QuickSharp.Core.PluginManager.PluginPostActivate">
+            <summary>
+            Raises the PluginPostActivate event. PostActivation handlers can be
+            registered to perform post activation tasks. Plugins can register
+            handlers during their activation phase. Typically this is used where
+            a plugin needs to wait until all the plugins have loaded
+            before performing some task.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Core.PluginManager.RegisteredPlugins">
+            <summary>
+            Stores a list of the registered plugins.
+            </summary>
+        </member>
+        <member name="T:QuickSharp.Core.ErrorForm">
+            <summary>
+            Provides an application-wide error reporting form.
+            </summary>
+        </member>
+        <member name="M:QuickSharp.Core.ErrorForm.#ctor(System.Exception,System.Boolean)">
+            <summary>
+            Create an instance of the form to display the details of an exception.
+            </summary>
+            <param name="ex">The exception to display in the form.</param>
+            <param name="allowContinue">Allow the application to continue once
+            the error form has been closed. Set to false to force the application
+            to exit.</param>
+        </member>
+        <member name="T:QuickSharp.Core.VS2010ThemeEnhanced">
+            <summary>
+            The Visual Studio 2010 enhanced theme provider.
+            </summary>
+        </member>
+        <member name="T:QuickSharp.Core.VS2010Theme">
+            <summary>
+            The Visual Studio 2010 abstract base theme provider.
+            </summary>
+        </member>
+        <member name="M:QuickSharp.Core.VS2010Theme.ApplyTheme">
+            <summary>
+            Applies the theme to the relevant UI elements.
+            </summary>
+            <param name="mainForm">The application main form.</param>
+        </member>
+        <member name="T:QuickSharp.Core.IQuickSharpTheme">
+            <summary>
+            Defines the interface to a theme provider.
+            </summary>
+        </member>
+        <member name="M:QuickSharp.Core.IQuickSharpTheme.GetID">
+            <summary>
+            Get the provider ID. This must be unique and is
+            usually a GUID.
+            </summary>
+            <returns>The provider ID.</returns>
+        </member>
+        <member name="M:QuickSharp.Core.IQuickSharpTheme.GetName">
+            <summary>
+            Get the display name of the theme provider.
+            </summary>
+            <returns>The provider display name.</returns>
+        </member>
+        <member name="M:QuickSharp.Core.IQuickSharpTheme.GetKey">
+            <summary>
+            Get the provider key. This is optional and a provider
+            may return a null or empty key. The key is used to locate
+            theme-specific locations (such as sub-folders) allowing the
+            theme to provide it's own resources for various application
+            features. Returning a null or empty key will cause the
+            provider to be treated the same as for the default theme in
+            cases where the key is used.
+            </summary>
+            <returns>The provider key.</returns>
+        </member>
+        <member name="M:QuickSharp.Core.IQuickSharpTheme.ApplyTheme">
+            <summary>
+            Applies the theme to the relevant UI elements.
+            </summary>
+        </member>
+        <member name="M:QuickSharp.Core.VS2010ThemeEnhanced.GetID">
+            <summary>
+            Get the provider ID. This must be unique and is
+            usually a GUID.
+            </summary>
+            <returns>The provider ID.</returns>
+        </member>
+        <member name="M:QuickSharp.Core.VS2010ThemeEnhanced.GetName">
+            <summary>
+            Get the display name of the theme provider.
+            </summary>
+            <returns>The provider display name.</returns>
+        </member>
+        <member name="M:QuickSharp.Core.VS2010ThemeEnhanced.GetKey">
+            <summary>
+            Get the provider key.
+            </summary>
+            <returns>The provider key.</returns>
+        </member>
+        <member name="T:QuickSharp.Core.OptionsPage">
+            <summary>
+            Base class for options editor pages.
+            </summary>
+        </member>
+        <member name="M:QuickSharp.Core.OptionsPage.#ctor">
+            <summary>
+            Create a new option page. Option pages are 430 by 250 pixels.
+            </summary>
+        </member>
+        <member name="M:QuickSharp.Core.OptionsPage.Validate">
+            <summary>
+            Override to provides validation for the option page content.
+            Called when the user click save to exit the options editor.
+            Return true to accept the values, false to cancel and
+            prevent the options editor from closing.
+            </summary>
+            <returns>True to accept and save the values, false to cancel.</returns>
+        </member>
+        <member name="M:QuickSharp.Core.OptionsPage.Save">
+            <summary>
+            Save the option page content. 
+            All option pages must implement the Save method.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Core.OptionsPage.PageText">
+            <summary>
+            The title for the page. Appears as the text of the tree node
+            when the page appears as a child node of a group in the options
+            editor.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Core.OptionsPage.GroupText">
+            <summary>
+            The title of the group the page belongs to. When more than one
+            page belongs to the group each page appears as a child node of
+            a group. Where only one page exists in the group the page appears
+            as a single node with the group title as its text.
+            </summary>
+        </member>
+        <member name="T:QuickSharp.Core.DockedToolStrip">
+            <summary>
+            Provides a container for docked toolbars.
+            </summary>
+        </member>
+        <member name="M:QuickSharp.Core.DockedToolStrip.#ctor(System.Windows.Forms.ToolStrip,System.Int32,System.Int32)">
+            <summary>
+            Create a docked toolbar container.
+            </summary>
+            <param name="toolStrip">The toolbar.</param>
+            <param name="rowHint">A row hint.</param>
+            <param name="colHint">A column hint.</param>
+        </member>
+        <member name="P:QuickSharp.Core.DockedToolStrip.ToolStrip">
+            <summary>
+            The toolbar.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Core.DockedToolStrip.RowHint">
+            <summary>
+            The intial row the toolbar is to be docked in. This is just a hint, the
+            actual contents of the toolbar panel will determine the position
+            of the toolbar when it is displayed.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Core.DockedToolStrip.ColHint">
+            <summary>
+            The initial horizontal position of the toolbar; the higher the value
+            the further to the right the toolbar will appear. This is just a hint, the
+            actual contents of the toolbar panel will determine the position
+            of the toolbar when it is displayed.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Core.DockedToolStrip.HideOnRestore">
+            <summary>
+            Hide the toolbar on startup. (Internal use only.)
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Core.DockedToolStrip.Name">
+            <summary>
+            The name of the toolbar.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Core.DockedToolStrip.Text">
+            <summary>
+            The text of the toolbar View menu item.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Core.DockedToolStrip.Visible">
+            <summary>
+            Get or set the toolbar visibility.
+            </summary>
+        </member>
+        <member name="T:QuickSharp.Core.UpdateCheckFormProxy">
+            <summary>
+            Provides a means to access the controls of the form.
+            </summary>
+        </member>
+        <member name="T:QuickSharp.Core.BaseFormProxy">
+            <summary>
+            Provides a means to access the controls of a form for customization.
+            </summary>
+        </member>
+        <member name="M:QuickSharp.Core.BaseFormProxy.UpdateFormControls(System.Windows.Forms.Control.ControlCollection)">
+            <summary>
+            Raise the FormControlUpdate event. Called by the form to allow its
+            controls to be customized.
+            </summary>
+            <param name="controls">The form's control collection.</param>
+        </member>
+        <member name="E:QuickSharp.Core.BaseFormProxy.FormControlUpdate">
+            <summary>
+            Attach handlers to this event to gain access to the form's control
+            collection each time it is invoked. The handlers can modify the
+            controls to create customized forms.
+            </summary>
+        </member>
+        <member name="M:QuickSharp.Core.UpdateCheckFormProxy.GetInstance">
+            <summary>
+            Get a reference to the form proxy singleton.
+            </summary>
+            <returns>A reference to the form proxy.</returns>
+        </member>
+        <member name="T:QuickSharp.Core.AboutForm">
+            <summary>
+            Provides the default About box form.
+            </summary>
+        </member>
+        <member name="F:QuickSharp.Core.AboutForm.m_okButton">
+            <summary>
+            Name used to access the form control collection member.
+            </summary>
+        </member>
+        <member name="F:QuickSharp.Core.AboutForm.m_pluginListBox">
+            <summary>
+            Name used to access the form control collection member.
+            </summary>
+        </member>
+        <member name="F:QuickSharp.Core.AboutForm.m_installedPluginsLabel">
+            <summary>
+            Name used to access the form control collection member.
+            </summary>
+        </member>
+        <member name="F:QuickSharp.Core.AboutForm.m_pluginDescriptionTextBox">
+            <summary>
+            Name used to access the form control collection member.
+            </summary>
+        </member>
+        <member name="F:QuickSharp.Core.AboutForm.m_pluginDetailsLabel">
+            <summary>
+            Name used to access the form control collection member.
+            </summary>
+        </member>
+        <member name="F:QuickSharp.Core.AboutForm.m_coreCopyrightLabel">
+            <summary>
+            Name used to access the form control collection member.
+            </summary>
+        </member>
+        <member name="F:QuickSharp.Core.AboutForm.m_clientCopyrightLabel">
+            <summary>
+            Name used to access the form control collection member.
+            </summary>
+        </member>
+        <member name="F:QuickSharp.Core.AboutForm.m_dockpanelCopyrightLabel">
+            <summary>
+            Name used to access the form control collection member.
+            </summary>
+        </member>
+        <member name="M:QuickSharp.Core.AboutForm.#ctor">
+            <summary>
+            Create an instance of the default about box form.
+            </summary>
+        </member>
+        <member name="T:QuickSharp.Core.UserContent">
+            <summary>
+            Deploys user data items to the user's application data folder on first-time startup.
+            The items are stored within a subfolder of the common user data area within the
+            application installation directory. The common area is named 'User' and contains
+            subfolders containing files and folders that are to be copied to the user's local
+            data folder the first time they run the application. The name of the subfolder is
+            passed as a key to the DeployContent method.
+            </summary>
+        </member>
+        <member name="M:QuickSharp.Core.UserContent.DeployContent(System.String)">
+            <summary>
+            Copy the files in the named content folder to the user data folder.
+            </summary>
+            <param name="contentName">The name of the content folder to deploy.
+            </param>
+        </member>
+        <member name="T:QuickSharp.Core.ClientFlags">
+            <summary>
+            Provides access to the ClientFlag strings available within the QuickSharp core plugins.
+            </summary>
+        </member>
+        <member name="T:QuickSharp.Core.VS2008Theme">
+            <summary>
+            The Visual Studio 2008 built-in theme provider.
+            </summary>
+        </member>
+        <member name="M:QuickSharp.Core.VS2008Theme.GetID">
+            <summary>
+            Get the provider ID. This must be unique and is
+            usually a GUID.
+            </summary>
+            <returns>The provider ID.</returns>
+        </member>
+        <member name="M:QuickSharp.Core.VS2008Theme.GetName">
+            <summary>
+            Get the display name of the theme provider.
+            </summary>
+            <returns>The provider display name.</returns>
+        </member>
+        <member name="M:QuickSharp.Core.VS2008Theme.GetKey">
+            <summary>
+            Get the provider key.
+            </summary>
+            <returns>The provider key.</returns>
+        </member>
+        <member name="M:QuickSharp.Core.VS2008Theme.ApplyTheme">
+            <summary>
+            Applies the theme to the relevant UI elements.
+            </summary>
+        </member>
+        <member name="T:QuickSharp.Core.DisplayInformation">
+            <summary>
+            Utility class for theme color tables.
+            </summary>
+        </member>
+        <member name="M:QuickSharp.Core.DisplayInformation.#cctor">
+            <summary>
+            Enable the UserPreferenceChanged event handler and set the ColorScheme.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Core.DisplayInformation.ColorScheme">
+            <summary>
+            The color scheme.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Core.DisplayInformation.IsLunaTheme">
+            <summary>
+            Is Luna the current theme.
+            </summary>
+        </member>
+        <member name="T:QuickSharp.Core.QuickSharpPlugins">
+            <summary>
+            Provides the IDs of the core QuickSharp plugins. This is simply for convenience
+            when listing dependencies in other plugins.
+            </summary>
+        </member>
+        <member name="T:QuickSharp.Core.Document">
+            <summary>
+            The base class for documents managed by the QuickSharp document
+            management system. A document is a form used to present and manage
+            data within the application. Document presentation is managed by the docking
+            window system. Documents often represent files (but don't have to) and are
+            created using new and open document handlers. Document operations are
+            controlled by action and actionstate handlers.
+            </summary>
+        </member>
+        <member name="F:QuickSharp.Core.Document.documentFileName">
+            <summary>
+            The document's file name.
+            </summary>
+        </member>
+        <member name="F:QuickSharp.Core.Document.documentFilePath">
+            <summary>
+            The document's file path.
+            </summary>
+        </member>
+        <member name="F:QuickSharp.Core.Document.documentTimeStamp">
+            <summary>
+            The document's file timestamp.
+            </summary>
+        </member>
+        <member name="M:QuickSharp.Core.Document.#ctor">
+            <summary>
+            Create a new document.
+            </summary>
+        </member>
+        <member name="M:QuickSharp.Core.Document.GetContent">
+            <summary>
+            Get the document content. Override in derived classes to return the
+            actual data content of the document.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:QuickSharp.Core.Document.SetContent(System.Object)">
+            <summary>
+            Set the document content. Override in derived classes to set the
+            actual data content of the document.
+            </summary>
+            <param name="content"></param>
+        </member>
+        <member name="M:QuickSharp.Core.Document.SetLocation(System.Int32,System.Int32)">
+            <summary>
+            Set a location within the document. Override in derived classes to
+            set an actual location within the document.
+            </summary>
+            <param name="x">The X coordinate of the location.</param>
+            <param name="y">The Y coordinate of the location.</param>
+        </member>
+        <member name="M:QuickSharp.Core.Document.AllowDuplicates">
+            <summary>
+            Determine if the document type allows multiple loading
+            of the same document. This is false by default.
+            </summary>
+            <returns>True if multiple loading is allowed.</returns>
+        </member>
+        <member name="M:QuickSharp.Core.Document.GetPersistString">
+            <summary>
+            Get a string representing the document for storing in the
+            docking window manager configuration file. Override in derived
+            classes as required. This defaults to the file path of the document.
+            Return an empty string to prevent the document from being reloaded
+            at the start of a new session.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:QuickSharp.Core.Document.RegisterActionStateHandler(System.String,QuickSharp.Core.ActionStateHandler)">
+            <summary>
+            Register an ActionState handler for the document. ActionState
+            handlers allow a document to register callback methods with document
+            management system. Each callback responds to a particular action
+            available from a MainForm UI element (menu and toolbar). When a
+            document becomes active the document manager calls each method
+            registered for that document to determine the state of each available
+            UI element. If the callback returns false or no callback has been
+            registered the corresponding UI element will be disabled.
+            </summary>
+            <param name="action">The name of the action.</param>
+            <param name="handler">The ActionState event handler.</param>
+        </member>
+        <member name="M:QuickSharp.Core.Document.RegisterActionHandler(System.String,QuickSharp.Core.ActionHandler)">
+            <summary>
+            Register an Action handler for the document. Action handlers allow
+            callback methods to be associated with the UI elements in the MainForm.
+            If a callback is available for a particular action when the document
+            is active, invoking the action will invoke the callback.
+            </summary>
+            <param name="action">The name of the action.</param>
+            <param name="handler">The Action event handler.</param>
+        </member>
+        <member name="M:QuickSharp.Core.Document.IsMenuItemEnabled(System.Windows.Forms.ToolStripMenuItem)">
+            <summary>
+            Determine if a menu item is enabled. This uses the registered
+            ActionState handlers to determine if the menu item should be
+            enabled when the document is active.
+            </summary>
+            <param name="menuItem">The menu item.</param>
+            <returns>True if the menu is enabled.</returns>
+        </member>
+        <member name="M:QuickSharp.Core.Document.IsToolbarButtonEnabled(System.Windows.Forms.ToolStripButton)">
+            <summary>
+            Determine if a toolbar button is enabled. This uses the registered
+            ActionState handlers to determine if the button should be
+            enabled when the document is active.
+            </summary>
+            <param name="button">The toolbar button.</param>
+            <returns>True if the button is enabled.</returns>
+            
+        </member>
+        <member name="M:QuickSharp.Core.Document.IsActionEnabled(System.String)">
+            <summary>
+            Determine if an action should be enabled.
+            </summary>
+            <param name="actionName">The action name.</param>
+            <returns>True if the action should be enabled. False if not or
+            the action doesn't exist.</returns>
+        </member>
+        <member name="M:QuickSharp.Core.Document.PerformMenuAction(System.Windows.Forms.ToolStripMenuItem)">
+            <summary>
+            Perform the action associated with the menu item for the
+            current document.
+            </summary>
+            <param name="menuItem">The menu item.</param>
+            <returns>The result of the action or true if it doesn't exist
+            (cannot fail to perfom something it can't do).</returns>
+        </member>
+        <member name="M:QuickSharp.Core.Document.PerformToolbarAction(System.Windows.Forms.ToolStripButton)">
+            <summary>
+            Perform the action associated with the toolbar button
+            for the current document.
+            </summary>
+            <param name="button">The toolbar button.</param>
+            <returns>The result of the action or true if it doesn't exist
+            (cannot fail to perfom something it can't do).</returns>
+        </member>
+        <member name="M:QuickSharp.Core.Document.PerformAction(System.String)">
+            <summary>
+            Perform the specified action.
+            </summary>
+            <param name="actionName">The name of the action.</param>
+            <returns>The result of the action or true if it doesn't exist
+            (cannot fail to perfom something it can't do).</returns>
+        </member>
+        <member name="P:QuickSharp.Core.Document.FileName">
+            <summary>
+            The document filename.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Core.Document.FilePath">
+            <summary>
+            The document file path. This is null for an unsaved document.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Core.Document.FileTimeStamp">
+            <summary>
+            The latest saved time of the document.
+            </summary>
+        </member>
+        <member name="T:QuickSharp.Core.MainForm">
+            <summary>
+            The application main form.
+            </summary>
+        </member>
+        <member name="M:QuickSharp.Core.MainForm.#ctor">
+            <summary>
+            Create the main form.
+            </summary>
+        </member>
+        <member name="M:QuickSharp.Core.MainForm.NewDocument">
+            <summary>
+            Create a document. Uses the registered new document handler to
+            create a new document.
+            </summary>
+        </member>
+        <member name="M:QuickSharp.Core.MainForm.OpenDocument">
+            <summary>
+            Open a document. Presents a file open dialog to get the path of the document
+            and uses the open document handler registered for the file's document type
+            to open the file.
+            </summary>
+        </member>
+        <member name="M:QuickSharp.Core.MainForm.SaveAllDocuments">
+            <summary>
+            Save all the currently active documents.
+            </summary>
+            <returns>True if all documents were saved successfully.</returns>
+        </member>
+        <member name="M:QuickSharp.Core.MainForm.HaveDockedFormContent(System.String)">
+            <summary>
+            Determines if a docked form has been loaded.
+            </summary>
+            <param name="key">The docked form key.</param>
+            <returns>True if the docked form is present.</returns>
+        </member>
+        <member name="M:QuickSharp.Core.MainForm.GetMainMenuItemIndexByName(System.String)">
+            <summary>
+            Get the index of a main menu item. This provides access to the top
+            level menus only.
+            </summary>
+            <param name="name">The name of the menu.</param>
+            <returns>The index of the menu or -1 if not found.</returns>
+        </member>
+        <member name="M:QuickSharp.Core.MainForm.GetMenuItemByName(System.String)">
+            <summary>
+            Get a menu item by name. This provides access to all the menu items
+            present in the application main menu.
+            </summary>
+            <param name="name">The name of the menu item.</param>
+            <returns>The menu item or null if not found.</returns>
+        </member>
+        <member name="M:QuickSharp.Core.MainForm.IsMenuEnabled(System.Windows.Forms.ToolStripMenuItem)">
+            <summary>
+            Determine if a menu item is enabled for the active document.
+            Calls the document's ActionState handler to determine the menu state.
+            </summary>
+            <param name="menuItem">The name of the menu item.</param>
+            <returns>True if the menu is enabled. False if not or if
+            there is no active document.</returns>
+        </member>
+        <member name="M:QuickSharp.Core.MainForm.IsToolbarButtonEnabled(System.Windows.Forms.ToolStripButton)">
+            <summary>
+            Determine if a toolbar button is enabled for the active document.
+            Calls the document's ActionState handler to determine the button state.
+            </summary>
+            <param name="button">The name of the button.</param>
+            <returns>True if the button is enabled. False if not or if
+            there is no active document.</returns>
+        </member>
+        <member name="M:QuickSharp.Core.MainForm.HaveDocument(System.String)">
+            <summary>
+            Determine if a file with the specified path has been loaded
+            into a document.
+            </summary>
+            <param name="path">The file path.</param>
+            <returns>True if the document has been loaded.</returns>
+        </member>
+        <member name="M:QuickSharp.Core.MainForm.LoadDocumentIntoWindow(System.String,System.Boolean)">
+            <summary>
+            Call LoadDocument with the specified path and display the loaded file
+            in a document window. Can optionally add the loaded file path to the most
+            recently used (MRU) file list (if enabled).
+            </summary>
+            <param name="path">The path of the document.</param>
+            <param name="useMRUList">Use the MRU document list.</param>
+            <returns>True if the document is loaded successfully.</returns>
+        </member>
+        <member name="M:QuickSharp.Core.MainForm.LoadDocument(System.String)">
+            <summary>
+            Loads a document from the specified path. This performs several steps in the following
+            order. The path is converted to a DocumentType. Next, each of the registered
+            document preload handlers is called, if any return false the load is cancelled.
+            The document type is used to retrieve the open document handler registered for that
+            type and the handler is used to open the document.
+            If no handler is available the document is (otionally) passed to the Windows shell
+            to be opened externally. If this fails the unknown document handler is
+            retrieved and used to open the document. If this is not available
+            an optional message is shown and the load fails.
+            </summary>
+            <param name="path">The path of the document.</param>
+            <returns>The loaded document.</returns>
+        </member>
+        <member name="M:QuickSharp.Core.MainForm.AddDockedToolStrip(System.Windows.Forms.ToolStrip,System.Int32,System.Int32)">
+            <summary>
+            Add a toolbar to the toolbar panel. The initial location
+            is determined by the row and column hints. Note the hints are
+            just that: there is no guarantee that the specified row or column
+            will be available. The actual row and column positions will be
+            determined by the number of toolbars in the toolbar panel.
+            </summary>
+            <param name="toolStrip">The toolbar.</param>
+            <param name="rowHint">The row the toolbar should initially appear on.</param>
+            <param name="colHint">The 'column' the toolbar should intially appear on. The
+            column is determined by the number of toolbars on a row; the higher the hint the
+            more to the right the toolbar will appear.</param>
+        </member>
+        <member name="M:QuickSharp.Core.MainForm.GetDockedToolStrip(System.String)">
+            <summary>
+            Get a reference to a toolbar in the toolbar panel.
+            </summary>
+            <param name="name">The name of the toolbar.</param>
+            <returns>A reference to the toolbar or null if the
+            name is not found.</returns>
+        </member>
+        <member name="M:QuickSharp.Core.MainForm.SetStatusBarMessage(System.String)">
+            <summary>
+            Display a text message in the status bar message area.
+            </summary>
+            <param name="text">The message.</param>
+        </member>
+        <member name="M:QuickSharp.Core.MainForm.SetStatusBarMessage(System.String,System.Int32)">
+            <summary>
+            Display a temporary text message in the status bar message area.
+            The message is cleared after the specified time period.
+            </summary>
+            <param name="text">The message.</param>
+            <param name="clearAfterSeconds">The time period to display the message
+            in seconds. The message is cleared after the period has elapsed; set a
+            period of 0 seconds to prevent the message from being cleared by
+            the timeout.</param>
+        </member>
+        <member name="E:QuickSharp.Core.MainForm.ThemeActivated">
+            <summary>
+            Event raised when the theme has been activated.
+            </summary>
+        </member>
+        <member name="E:QuickSharp.Core.MainForm.DockPanelPostLoad">
+            <summary>
+            Event raised when the docking window manager has restored
+            the window layout.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Core.MainForm.MainMenu">
+            <summary>
+            The application main menu.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Core.MainForm.MainToolbar">
+            <summary>
+            The application main toolbar.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Core.MainForm.DockedToolbars">
+            <summary>
+            The application toolbars.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Core.MainForm.ClientWindow">
+            <summary>
+            The docking window manager.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Core.MainForm.StatusBar">
+            <summary>
+            The application status bar.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Core.MainForm.StatusBarMessage">
+            <summary>
+            The status bar text message.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Core.MainForm.ActiveDocument">
+            <summary>
+            The currently active document.
+            </summary>
+        </member>
+        <member name="T:QuickSharp.Core.VSColorTable">
+            <summary>
+            Base class for Visual Studio themes color tables.
+            </summary>
+        </member>
+        <member name="T:QuickSharp.Core.GeneralOptionsPage">
+            <summary>
+            Provides an options page to allow some general application settings to be set.
+            </summary>
+        </member>
+        <member name="F:QuickSharp.Core.GeneralOptionsPage.m_documentGroupBox">
+            <summary>
+            Form control name.
+            </summary>
+        </member>
+        <member name="F:QuickSharp.Core.GeneralOptionsPage.m_restoreLastSessionCheckBox">
+            <summary>
+            Form control name.
+            </summary>
+        </member>
+        <member name="F:QuickSharp.Core.GeneralOptionsPage.m_showNoHandlerCheckBox">
+            <summary>
+            Form control name.
+            </summary>
+        </member>
+        <member name="F:QuickSharp.Core.GeneralOptionsPage.m_allowShellOpenCheckBox">
+            <summary>
+            Form control name.
+            </summary>
+        </member>
+        <member name="F:QuickSharp.Core.GeneralOptionsPage.m_showDocumentPathCheckBox">
+            <summary>
+            Form control name.
+            </summary>
+        </member>
+        <member name="F:QuickSharp.Core.GeneralOptionsPage.m_themeGroupBox">
+            <summary>
+            Form control name.
+            </summary>
+        </member>
+        <member name="F:QuickSharp.Core.GeneralOptionsPage.m_themeComboBox">
+            <summary>
+            Form control name.
+            </summary>
+        </member>
+        <member name="F:QuickSharp.Core.GeneralOptionsPage.m_restartRequiredLabel">
+            <summary>
+            Form control name.
+            </summary>
+        </member>
+        <member name="M:QuickSharp.Core.GeneralOptionsPage.#ctor">
+            <summary>
+            Initialize a new instance of the GeneralOptionsPage.
+            </summary>
+        </member>
+        <member name="M:QuickSharp.Core.GeneralOptionsPage.Save">
+            <summary>
+            Writes the setting to the persistence manager.
+            </summary>
+        </member>
+        <member name="T:QuickSharp.Core.ApplicationManager">
+            <summary>
+            Provides global access to various application properties and
+            functionality. Uses a singleton; use the GetInstance() method
+            to access.
+            </summary>
+        </member>
+        <member name="M:QuickSharp.Core.ApplicationManager.GetInstance">
+            <summary>
+            Provides access to the ApplicationManager singleton.
+            </summary>
+            <returns>A reference to the ApplicationManager.</returns>
+        </member>
+        <member name="M:QuickSharp.Core.ApplicationManager.AddCommandLineSwitch(System.String)">
+            <summary>
+            Process a string argument as a command line switch and
+            add it to the list of switches. (Internal use only).
+            </summary>
+            <param name="arg">The argument to be processed.</param>
+        </member>
+        <member name="M:QuickSharp.Core.ApplicationManager.HaveCommandLineSwitch(System.String)">
+            <summary>
+            Determine if an argument has been passed at startup. This is
+            used for command line switches consisting of a single text value.
+            The argument is case-insensitive and can be supplied using a '-' or
+            '/' prefix.
+            </summary>
+            <param name="name">The name of the argument.</param>
+            <returns>True if the switch was provided at startup.</returns>
+        </member>
+        <member name="M:QuickSharp.Core.ApplicationManager.GetCommandLineSwitchValue(System.String)">
+            <summary>
+            Get the value from a command line switch provided at startup.
+            Command line values are passed as a name/value pair separated by
+            ':'. Requesting the name returns the value (or null if not found).
+            Values containing spaces should be surrounded with double-quotes.
+            </summary>
+            <param name="name">The name of the switch.</param>
+            <returns>The value of the switch or null if not found.</returns>
+        </member>
+        <member name="M:QuickSharp.Core.ApplicationManager.RegisterPersistenceProvider(System.String,QuickSharp.Core.PersistenceManagerFactoryHandler)">
+            <summary>
+            Register a persistence provider. Associates the provider name
+            with a persistence manager factory method.
+            </summary>
+            <param name="provider">The name of the provider.</param>
+            <param name="handler">A factory method for creating instances of the provider
+            persistence manager.</param>
+        </member>
+        <member name="M:QuickSharp.Core.ApplicationManager.GetPersistenceManager(System.String)">
+            <summary>
+            Gets a persistence manager for the storage key specified.
+            </summary>
+            <param name="key">The storage key.</param>
+            <returns>A persistence manager object.</returns>
+        </member>
+        <member name="M:QuickSharp.Core.ApplicationManager.RegisterThemeProvider(QuickSharp.Core.IQuickSharpTheme)">
+            <summary>
+            Registers a theme provider. The provider ID is the registration
+            key: if a provider with the same key has already been registered
+            it will be replaced with the new provider.
+            </summary>
+            <param name="provider">A theme provider (implements IThemeProvider).</param>
+        </member>
+        <member name="M:QuickSharp.Core.ApplicationManager.GetThemeProvider(System.String)">
+            <summary>
+            Get the theme provider with the specified ID.
+            </summary>
+            <param name="providerId">The provider ID.</param>
+            <returns>A reference to the provider or null if the ID
+            was not found.
+            </returns>
+        </member>
+        <member name="M:QuickSharp.Core.ApplicationManager.GetSelectedThemeProvider">
+            <summary>
+            Get the currently selected theme provider.
+            </summary>
+            <returns>A reference to the selected provider or the
+            default provider if the selected provider has not been
+            registered.
+            </returns>
+        </member>
+        <member name="M:QuickSharp.Core.ApplicationManager.GetSelectedThemeProviderKey">
+            <summary>
+            Gets the key of the currently selected theme provider.
+            </summary>
+            <returns>The key of the selected provider or the
+            default provider if the selected provider has not been
+            registered.
+            </returns>
+        </member>
+        <member name="M:QuickSharp.Core.ApplicationManager.RegisterOpenDocumentHandler(QuickSharp.Core.DocumentType,QuickSharp.Core.OpenDocumentHandler)">
+            <summary>
+            Registers an open document handler for a document type provided as a DocumentType object.
+            A handler will be rejected if a handler has already been registered for the document type.
+            </summary>
+            <param name="documentType">The document type to be opened by the handler.</param>
+            <param name="handler">The handler used to open documents of the registered type.</param>
+            <returns>True if the handler was registered successfully.</returns>
+        </member>
+        <member name="M:QuickSharp.Core.ApplicationManager.RegisterOpenDocumentHandler(System.String,QuickSharp.Core.OpenDocumentHandler)">
+            <summary>
+            Registers an open document handler for a document type provided as a string.
+            A handler will be rejected if a handler has already been registered for the document type.
+            </summary>
+            <param name="documentType">The document type to be opened by the handler.</param>
+            <param name="handler">The handler used to open documents of the registered type.</param>
+            <returns>True if the handler was registered successfully.</returns>
+        </member>
+        <member name="M:QuickSharp.Core.ApplicationManager.GetOpenDocumentHandler(QuickSharp.Core.DocumentType)">
+            <summary>
+            Gets the open document handler registered for a document type specified
+            as a DocumentType object.
+            </summary>
+            <param name="documentType">The document type.</param>
+            <returns>The open document handler registered for the document type.</returns>
+        </member>
+        <member name="M:QuickSharp.Core.ApplicationManager.GetOpenDocumentHandler(System.String)">
+            <summary>
+            Gets the open document handler registered for a document type specified
+            as a string.
+            </summary>
+            <param name="documentType">The document type.</param>
+            <returns>The open document handler registered for the document type.</returns>
+        </member>
+        <member name="M:QuickSharp.Core.ApplicationManager.RemoveOpenDocumentHandler(QuickSharp.Core.DocumentType)">
+            <summary>
+            Unregisters the handler registered for a document type specified as a
+            DocumentType object.
+            </summary>
+            <param name="documentType">The document type.</param>
+            <returns>The open document handler or null if the document type is invalid or
+            no handler exists for the type.</returns>
+        </member>
+        <member name="M:QuickSharp.Core.ApplicationManager.RemoveOpenDocumentHandler(System.String)">
+            <summary>
+            Unregisters the handler registered for a document type specified as a
+            string.
+            </summary>
+            <param name="documentType">The document type.</param>
+            <returns>The open document handler or null if the document type is invalid or
+            no handler exists for the type.</returns>
+        </member>
+        <member name="M:QuickSharp.Core.ApplicationManager.RegisterOptionsPageFactory(QuickSharp.Core.OptionsPageFactoryHandler)">
+            <summary>
+            Register an OptionsPage factory handler.
+            </summary>
+            <param name="handler">The factory handler.</param>
+        </member>
+        <member name="M:QuickSharp.Core.ApplicationManager.NotifyFileSystemChange">
+            <summary>
+            Send a file system change notification to all registered handlers.
+            </summary>
+        </member>
+        <member name="M:QuickSharp.Core.ApplicationManager.RegisterDockedForm(QuickSharp.Core.BaseDockedForm)">
+            <summary>
+            Register a docked form. The form is registered using the key
+            provided by its FormKey property.
+            </summary>
+            <param name="form">The form.</param>
+        </member>
+        <member name="M:QuickSharp.Core.ApplicationManager.RegisterDockedForm(QuickSharp.Core.BaseDockedForm,System.String)">
+            <summary>
+            Register a docked form using the form key provided.
+            </summary>
+            <param name="form">The form.</param>
+            <param name="key">The key.</param>
+        </member>
+        <member name="M:QuickSharp.Core.ApplicationManager.GetDockedForm(System.String)">
+            <summary>
+            Get a registered docked form.
+            </summary>
+            <param name="key">The key under which the form was registered.</param>
+            <returns>The form or null if the key is not registered.</returns>
+        </member>
+        <member name="E:QuickSharp.Core.ApplicationManager.FileSystemChange">
+            <summary>
+            Raised when a change has been made to the filesystem. Plugins with an interest
+            in the file system can register handlers to update any file views they present
+            each time a filesystem change takes place.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Core.ApplicationManager.QuickSharpHome">
+            <summary>
+            The path to the QuickSharp installation directory.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Core.ApplicationManager.QuickSharpUserHome">
+            <summary>
+            The path to the user's private QuickSharp data directory.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Core.ApplicationManager.DockPanelConfigFile">
+            <summary>
+            The path of the docking window configuration file. This contains the
+            layout of the docked windows saved on exit from QuickSharp and is saved
+            to the user's private QuickSharp data directory on shutdown.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Core.ApplicationManager.HaveDockPanelConfig">
+            <summary>
+            Determine if there is a saved docking window configuration file.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Core.ApplicationManager.DocumentPreLoadHandlers">
+            <summary>
+            Stores the document preload event handlers registered with the application.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Core.ApplicationManager.DocumentFilterHandlers">
+            <summary>
+            Stores the document filter handlers registered with the application.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Core.ApplicationManager.DocumentFilter">
+            <summary>
+            Returns a set of filename filters for file Open and Save dialogs
+            by combining all of the registered filer handlers.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Core.ApplicationManager.AllDocumentsFilter">
+            <summary>
+            Provides the default 'All Files' filename filter for file Open and Save 
+            dialogs.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Core.ApplicationManager.ClientProfile">
+            <summary>
+            Stores the ClientProfile data for the application.
+            The ClientProfile contains properties required to customize
+            a QuickSharp-based application.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Core.ApplicationManager.MainForm">
+            <summary>
+            The application main form.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Core.ApplicationManager.ThemeProviderMap">
+            <summary>
+            Gets the currently registered theme providers
+            as a list of StringMaps sorted by Name.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Core.ApplicationManager.SelectedTheme">
+            <summary>
+            Gets or sets the ID of the currently selected theme provider.
+            Assigning an unregistered ID will cause the default theme to be
+            selected.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Core.ApplicationManager.NewDocumentType">
+            <summary>
+            Stores the document type registered as the type for new documents.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Core.ApplicationManager.NewDocumentHandler">
+            <summary>
+            Gets the open document handler registered for new documents.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Core.ApplicationManager.UnknownDocumentType">
+            <summary>
+            Stores the document type registered as the type to use when a document
+            of an unknown (i.e. unregistered) type is requested.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Core.ApplicationManager.UnknownDocumentHandler">
+            <summary>
+            Gets the open document handler for unknown document types.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Core.ApplicationManager.OpenDocumentHandlers">
+            <summary>
+            Provides access to the registered open document handlers.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Core.ApplicationManager.OptionsPageFactoryHandlers">
+            <summary>
+            Stores the registered OptionsPage factory handlers.
+            </summary>
+        </member>
+        <member name="T:QuickSharp.Core.VS2010ThemeBasic">
+            <summary>
+            The Visual Studio 2010 basic theme provider.
+            </summary>
+        </member>
+        <member name="M:QuickSharp.Core.VS2010ThemeBasic.GetID">
+            <summary>
+            Get the provider ID. This must be unique and is
+            usually a GUID.
+            </summary>
+            <returns>The provider ID.</returns>
+        </member>
+        <member name="M:QuickSharp.Core.VS2010ThemeBasic.GetName">
+            <summary>
+            Get the display name of the theme provider.
+            </summary>
+            <returns>The provider display name.</returns>
+        </member>
+        <member name="M:QuickSharp.Core.VS2010ThemeBasic.GetKey">
+            <summary>
+            Get the provider key.
+            </summary>
+            <returns>The provider key.</returns>
+        </member>
+        <member name="T:QuickSharp.Core.PluginModule">
+            <summary>
+            Contains extended metadata for describing plugins. This class is used to represent
+            actual plugins inside the plugin management system, it is not the base class for
+            plugins which are simply required to implement IQuickSharpPlugin.
+            </summary>
+        </member>
+        <member name="T:QuickSharp.Core.Plugin">
+            <summary>
+            Contains metadata for describing plugins. This class is used to represent
+            plugins inside the plugin management system, it is not the base class for
+            plugins which are simply required to implement IQuickSharpPlugin. The Plugin class
+            is used to represent plugin dependencies and is the base class for PluginModule
+            which represents actual plugins.
+            </summary>
+        </member>
+        <member name="M:QuickSharp.Core.Plugin.#ctor(System.String,System.String,System.Int32)">
+            <summary>
+            Create a Plugin metatdata object.
+            </summary>
+            <param name="pluginId">The plugin ID.</param>
+            <param name="pluginName">The plugin name.</param>
+            <param name="pluginVersion">The plugin version.</param>
+        </member>
+        <member name="P:QuickSharp.Core.Plugin.ID">
+            <summary>
+            The plugin ID. This must be a unique identifier and is usually a GUID.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Core.Plugin.Name">
+            <summary>
+            The plugin name. This is a short title and is used to provide a human readable
+            identity for the plugin. The name is for information purposes only.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Core.Plugin.Version">
+            <summary>
+            The version of the plugin. The version identifies a particular revision of a plugin
+            and is only required if the functional interace of a plugin changes. The version is
+            mainly intended to allow downstream plugins to indicate a minimum version of the plugin
+            they require.
+            </summary>
+        </member>
+        <member name="M:QuickSharp.Core.PluginModule.#ctor(QuickSharp.Core.IQuickSharpPlugin,System.String,System.String,System.Int32,System.String)">
+            <summary>
+            Create a PluginModule object.
+            </summary>
+            <param name="plugin">A reference to an actual plugin module instance.</param>
+            <param name="pluginId">The ID of the plugin.</param>
+            <param name="pluginName">The name of the plugin.</param>
+            <param name="pluginVersion">The versionof the plugin.</param>
+            <param name="pluginDescription">A description of the plugin.</param>
+        </member>
+        <member name="M:QuickSharp.Core.PluginModule.AddDependency(QuickSharp.Core.Plugin)">
+            <summary>
+            Add a plugin to the list of dependencies as a Plugin metadata object.
+            </summary>
+            <param name="plugin"></param>
+        </member>
+        <member name="M:QuickSharp.Core.PluginModule.AddDependency(System.String,System.String,System.Int32)">
+            <summary>
+            Add a plugin to the list of dependencies.
+            </summary>
+            <param name="pluginId">The ID of the required plugin.</param>
+            <param name="pluginName">The name of the required plugin. This is necessary to
+            identify the plugin where the dependency fails. Missing plugins are hard to
+            trace from IDs alone.</param>
+            <param name="pluginVersion">The required version of the plugin.</param>
+        </member>
+        <member name="P:QuickSharp.Core.PluginModule.Item">
+            <summary>
+            A reference to the actual plugin module loaded by the PluginManager.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Core.PluginModule.Description">
+            <summary>
+            The plugin description.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Core.PluginModule.Dependencies">
+            <summary>
+            A list of plugin metadata objects representing the plugins on which
+            this plugin depends.
+            </summary>
+        </member>
+        <member name="T:QuickSharp.Core.MessageHandler">
+            <summary>
+            Represents a simple method with no parameters or return type.
+            </summary>
+        </member>
+        <member name="T:QuickSharp.Core.ActionHandler">
+            <summary>
+            Represents an action that can be performed by a document.
+            </summary>
+            <returns>True if the action completed successfully.</returns>
+        </member>
+        <member name="T:QuickSharp.Core.ActionStateHandler">
+            <summary>
+            Represents a method returning the state of an action that can be performed
+            by a document. Used to enable or disable UI elements such as menu items when a document
+            becomes active.
+            </summary>
+            <returns>True if the action is enabled.</returns>
+        </member>
+        <member name="T:QuickSharp.Core.NewDocumentHandler">
+            <summary>
+            Represents a method used to return a new document.
+            </summary>
+            <returns>A document.</returns>
+        </member>
+        <member name="T:QuickSharp.Core.OpenDocumentHandler">
+            <summary>
+            Represents a method used to open a document.
+            </summary>
+            <param name="path">The path of the document to be opened.</param>
+            <param name="readOnly">Open the document read-only.</param>
+            <returns>The document or null if the load fails.</returns>
+        </member>
+        <member name="T:QuickSharp.Core.DocumentPreLoadHandler">
+            <summary>
+            Represents a method called during the loading of a document to modify the load
+            process.
+            </summary>
+            <param name="documentType">The doument type of the document to be loaded.</param>
+            <returns>True if loading is to proceed. False if it is to be cancelled.</returns>
+        </member>
+        <member name="T:QuickSharp.Core.DocumentFilterHandler">
+            <summary>
+            Represents a method that returns a filename filter for the file Open and Save dialogs.
+            </summary>
+            <returns>A filter string.</returns>
+        </member>
+        <member name="T:QuickSharp.Core.OptionsPageFactoryHandler">
+            <summary>
+            Represents a method that returns an option page for the main options editor.
+            </summary>
+            <returns>An options page.</returns>
+        </member>
+        <member name="T:QuickSharp.Core.FormFactoryHandler">
+            <summary>
+            Represents a method that returns a form.
+            </summary>
+            <returns>A form.</returns>
+        </member>
+        <member name="T:QuickSharp.Core.PersistenceManagerFactoryHandler">
+            <summary>
+            Represents a method that returns a persistence manager.
+            </summary>
+            <param name="key">The persistence sub key.</param>
+            <returns>An persistence manager object.</returns>
+        </member>
+        <member name="T:QuickSharp.Core.FormControlUpdateHandler">
+            <summary>
+            Represents a method that can update the control collection of a form.
+            </summary>
+            <param name="controls">The form's control collection.</param>
+        </member>
+        <member name="T:QuickSharp.Core.OptionsFormUpdateHandler">
+            <summary>
+            Represents a method that can update the pages of the options editor.
+            </summary>
+            <param name="pages">The option editor's page collection.</param>
+        </member>
+        <member name="T:QuickSharp.Core.RegistryPersistenceManager">
+            <summary>
+            Implements IPersistenceManager providing a Windows registry-based
+            persistence manager. Application settings are stored in the registry
+            under an application-specific key located at "HKEY\CURRENT_USER\Software".
+            Individual instances of the persistence manager use a sub-key to store
+            settings within the main application hive providing a simple namespacing
+            system for the application plugins.
+            </summary>
+        </member>
+        <member name="T:QuickSharp.Core.IPersistenceManager">
+            <summary>
+            Defines the interface to the user settings storage provider.
+            See the classes which implement the interface for more details.
+            </summary>
+        </member>
+        <member name="M:QuickSharp.Core.RegistryPersistenceManager.#ctor(System.String)">
+            <summary>
+            Create an instance of a persistence manager for registry access.
+            </summary>
+            <param name="key">The registry sub-key.</param>
+        </member>
+        <member name="M:QuickSharp.Core.RegistryPersistenceManager.GetInstance(System.String)">
+            <summary>
+            Get an instance of the registry persistence manager.
+            </summary>
+            <param name="key">The registry sub-key.</param>
+            <returns>The persistence manager instance.</returns>
+        </member>
+        <member name="M:QuickSharp.Core.RegistryPersistenceManager.ReadInt(System.String,System.Int32)">
+            <summary>
+            Read an Int32 value from the registry with the specified name.
+            </summary>
+            <param name="itemName">The name of the item.</param>
+            <param name="defaultValue">The item's default value.</param>
+            <returns>The item's value or the default value if not found.</returns>
+        </member>
+        <member name="M:QuickSharp.Core.RegistryPersistenceManager.WriteInt(System.String,System.Int32)">
+            <summary>
+            Write an Int32 value to the registry with the specified name.
+            </summary>
+            <param name="itemName">The name of the item.</param>
+            <param name="itemValue">The item value.</param>
+        </member>
+        <member name="M:QuickSharp.Core.RegistryPersistenceManager.ReadDouble(System.String,System.Double)">
+            <summary>
+            Read a Double value from the registry with the specified name.
+            </summary>
+            <param name="itemName">The name of the item.</param>
+            <param name="defaultValue">The item's default value.</param>
+            <returns>The item's value or the default value if not found.</returns>
+        </member>
+        <member name="M:QuickSharp.Core.RegistryPersistenceManager.WriteDouble(System.String,System.Double)">
+            <summary>
+            Write a Double value to the registry with the specified name.
+            </summary>
+            <param name="itemName">The name of the item.</param>
+            <param name="itemValue">The item value.</param>
+        </member>
+        <member name="M:QuickSharp.Core.RegistryPersistenceManager.ReadString(System.String,System.String)">
+            <summary>
+            Read a String value from the registry with the specified name.
+            </summary>
+            <param name="itemName">The name of the item.</param>
+            <param name="defaultValue">The item's default value.</param>
+            <returns>The item's value or the default value if not found.</returns>
+        </member>
+        <member name="M:QuickSharp.Core.RegistryPersistenceManager.WriteString(System.String,System.String)">
+            <summary>
+            Write a String value to the registry with the specified name.
+            </summary>
+            <param name="itemName">The name of the item.</param>
+            <param name="itemValue">The item value.</param>
+        </member>
+        <member name="M:QuickSharp.Core.RegistryPersistenceManager.ReadBoolean(System.String,System.Boolean)">
+            <summary>
+            Read a Boolean value from the registry with the specified name.
+            </summary>
+            <param name="itemName">The name of the item.</param>
+            <param name="defaultValue">The item's default value.</param>
+            <returns>The item's value or the default value if not found.</returns>
+        </member>
+        <member name="M:QuickSharp.Core.RegistryPersistenceManager.WriteBoolean(System.String,System.Boolean)">
+            <summary>
+            Write a Boolean value to the registry with the specified name.
+            </summary>
+            <param name="itemName">The name of the item.</param>
+            <param name="itemValue">The item value.</param>
+        </member>
+        <member name="M:QuickSharp.Core.RegistryPersistenceManager.ReadDateTime(System.String,System.DateTime)">
+            <summary>
+            Read a DateTime value from the registry with the specified name.
+            </summary>
+            <param name="itemName">The name of the item.</param>
+            <param name="defaultValue">The item's default value.</param>
+            <returns>The item's value or the default value if not found.</returns>
+        </member>
+        <member name="M:QuickSharp.Core.RegistryPersistenceManager.WriteDateTime(System.String,System.DateTime)">
+            <summary>
+            Write a DateTime value to the registry with the specified name.
+            </summary>
+            <param name="itemName">The name of the item.</param>
+            <param name="itemValue">The item value.</param>
+        </member>
+        <member name="M:QuickSharp.Core.RegistryPersistenceManager.ReadStrings(System.String)">
+            <summary>
+            Read a list of Strings from the registry with the specified name.
+            </summary>
+            <param name="itemName">The name of the item.</param>
+            <returns>The list of strings or an empty list if not found.</returns>
+        </member>
+        <member name="M:QuickSharp.Core.RegistryPersistenceManager.WriteStrings(System.String,System.Collections.Generic.List{System.String})">
+            <summary>
+            Write a List of String values to the registry with the specified name.
+            </summary>
+            <param name="itemName">The name of the item.</param>
+            <param name="itemValue">The List of Strings.</param>
+        </member>
+        <member name="T:QuickSharp.Core.Resources">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Core.Resources.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Core.Resources.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Core.Resources.AboutButtonOK">
+            <summary>
+              Looks up a localized string similar to OK.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Core.Resources.AboutCopyright1">
+            <summary>
+              Looks up a localized string similar to QuickSharp.Core Version.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Core.Resources.AboutCopyright2">
+            <summary>
+              Looks up a localized string similar to Copyright © 2008-2011 Steve Walker.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Core.Resources.AboutCopyright3">
+            <summary>
+              Looks up a localized string similar to http://quicksharp.sourceforge.net.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Core.Resources.AboutCopyrightDPS1">
+            <summary>
+              Looks up a localized string similar to DockPanelSuite Copyright © 2007 Weifen Luo.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Core.Resources.AboutCopyrightDPS2">
+            <summary>
+              Looks up a localized string similar to http://sourceforge.net/projects/dockpanelsuite.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Core.Resources.AboutDependenciesNone">
+            <summary>
+              Looks up a localized string similar to None.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Core.Resources.AboutInstalledPlugins">
+            <summary>
+              Looks up a localized string similar to Installed plugins:.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Core.Resources.AboutPluginDetails">
+            <summary>
+              Looks up a localized string similar to Plugin details:.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Core.Resources.AboutRequiredBy">
+            <summary>
+              Looks up a localized string similar to Required by.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Core.Resources.AboutRequires">
+            <summary>
+              Looks up a localized string similar to Requires.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Core.Resources.AboutTitle">
+            <summary>
+              Looks up a localized string similar to About.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Core.Resources.AllDocumentsFilter">
+            <summary>
+              Looks up a localized string similar to All Files (*.*)|*.*.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Core.Resources.ErrorButtonContinue">
+            <summary>
+              Looks up a localized string similar to Continue.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Core.Resources.ErrorButtonQuit">
+            <summary>
+              Looks up a localized string similar to Quit.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Core.Resources.ErrorMessage">
+            <summary>
+              Looks up a localized string similar to An error has occurred:.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Core.Resources.ErrorStackTrace">
+            <summary>
+              Looks up a localized string similar to Stack trace:.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Core.Resources.ErrorTitle">
+            <summary>
+              Looks up a localized string similar to Error.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Core.Resources.HelpOpenErrorMessage">
+            <summary>
+              Looks up a localized string similar to Unable to open help file.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Core.Resources.HelpOpenErrorTitle">
+            <summary>
+              Looks up a localized string similar to Help.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Core.Resources.InvalidDockConfigMessage">
+            <summary>
+              Looks up a localized string similar to A required configuration file is invalid and has been deleted. Please restart the application..
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Core.Resources.MainFileMenu">
+            <summary>
+              Looks up a localized string similar to &amp;File.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Core.Resources.MainFileMenuExit">
+            <summary>
+              Looks up a localized string similar to E&amp;xit.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Core.Resources.MainFileMenuNew">
+            <summary>
+              Looks up a localized string similar to &amp;New.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Core.Resources.MainFileMenuOpen">
+            <summary>
+              Looks up a localized string similar to &amp;Open....
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Core.Resources.MainFileMenuRecentFiles">
+            <summary>
+              Looks up a localized string similar to Recent &amp;Files.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Core.Resources.MainFileMenuSave">
+            <summary>
+              Looks up a localized string similar to &amp;Save.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Core.Resources.MainFileMenuSaveAll">
+            <summary>
+              Looks up a localized string similar to Save A&amp;ll....
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Core.Resources.MainFileMenuSaveAs">
+            <summary>
+              Looks up a localized string similar to Save &amp;As....
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Core.Resources.MainHelpMenu">
+            <summary>
+              Looks up a localized string similar to &amp;Help.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Core.Resources.MainHelpMenuAbout">
+            <summary>
+              Looks up a localized string similar to &amp;About.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Core.Resources.MainHelpMenuCheckForUpdates">
+            <summary>
+              Looks up a localized string similar to Chec&amp;k for Updates.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Core.Resources.MainToolbarNew">
+            <summary>
+              Looks up a localized string similar to New (Ctrl+N).
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Core.Resources.MainToolbarOpen">
+            <summary>
+              Looks up a localized string similar to Open (Ctrl+O).
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Core.Resources.MainToolbarSave">
+            <summary>
+              Looks up a localized string similar to Save (Ctrl+S).
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Core.Resources.MainToolbarSaveAll">
+            <summary>
+              Looks up a localized string similar to Save All (Ctrl+Shft+S).
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Core.Resources.MainToolbarText">
+            <summary>
+              Looks up a localized string similar to Standard.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Core.Resources.MainToolsMenu">
+            <summary>
+              Looks up a localized string similar to &amp;Tools.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Core.Resources.MainToolsMenuOptions">
+            <summary>
+              Looks up a localized string similar to &amp;Options....
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Core.Resources.MainViewMenu">
+            <summary>
+              Looks up a localized string similar to &amp;View.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Core.Resources.MainViewMenuFullScreen">
+            <summary>
+              Looks up a localized string similar to &amp;Full Screen.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Core.Resources.MainViewMenuStatusBar">
+            <summary>
+              Looks up a localized string similar to &amp;Status Bar.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Core.Resources.MainViewMenuToolbarMulti">
+            <summary>
+              Looks up a localized string similar to &amp;Toolbars.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Core.Resources.MainViewMenuToolbarSingle">
+            <summary>
+              Looks up a localized string similar to &amp;Toolbar.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Core.Resources.MainWindowMenu">
+            <summary>
+              Looks up a localized string similar to &amp;Window.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Core.Resources.MainWindowMenuClose">
+            <summary>
+              Looks up a localized string similar to &amp;Close.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Core.Resources.MainWindowMenuCloseAll">
+            <summary>
+              Looks up a localized string similar to Close &amp;All.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Core.Resources.MainWindowMenuCloseAllButActive">
+            <summary>
+              Looks up a localized string similar to Close All &amp;But Active.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Core.Resources.NoHandlerMessage">
+            <summary>
+              Looks up a localized string similar to No handler has been defined for this type of file..
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Core.Resources.NoHandlerTitle">
+            <summary>
+              Looks up a localized string similar to Open.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Core.Resources.NullClientProfileMessage">
+            <summary>
+              Looks up a localized string similar to ClientProfile cannot be null.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Core.Resources.OptionsAllowShellOpen">
+            <summary>
+              Looks up a localized string similar to Allow documents to be opened using &amp;Windows shell associations.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Core.Resources.OptionsButtonCancel">
+            <summary>
+              Looks up a localized string similar to Cancel.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Core.Resources.OptionsButtonOK">
+            <summary>
+              Looks up a localized string similar to OK.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Core.Resources.OptionsDocumentsGroupBox">
+            <summary>
+              Looks up a localized string similar to Document handling.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Core.Resources.OptionsGroupText">
+            <summary>
+              Looks up a localized string similar to Environment.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Core.Resources.OptionsPageTextGeneral">
+            <summary>
+              Looks up a localized string similar to Global Settings.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Core.Resources.OptionsRestartRequired">
+            <summary>
+              Looks up a localized string similar to Restart the application to apply the settings on this page.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Core.Resources.OptionsRestoreLastSession">
+            <summary>
+              Looks up a localized string similar to &amp;Restore documents from the previous session.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Core.Resources.OptionsShowDocumentPath">
+            <summary>
+              Looks up a localized string similar to Show &amp;document paths in status bar.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Core.Resources.OptionsShowNoHandler">
+            <summary>
+              Looks up a localized string similar to &amp;Show a message when no document handler is available.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Core.Resources.OptionsThemeGroupBox">
+            <summary>
+              Looks up a localized string similar to Theme.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Core.Resources.OptionsTitle">
+            <summary>
+              Looks up a localized string similar to Options.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Core.Resources.PluginDependencyError0">
+            <summary>
+              Looks up a localized string similar to Unable to load plugin: &quot;{0}&quot;. Check for missing plugin dependencies and/or referenced assemblies..
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Core.Resources.PluginDependencyError1">
+            <summary>
+              Looks up a localized string similar to Unsatisifed plugin dependency: &quot;{0}&quot; requires &quot;{1}&quot;..
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Core.Resources.PluginDependencyError2">
+            <summary>
+              Looks up a localized string similar to Unsatisifed plugin dependency: &quot;{0}&quot; requires &quot;{1}&quot; to be of version {2} or higher, found plugin with version {3}..
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Core.Resources.SwitchClean">
+            <summary>
+              Looks up a localized string similar to clean.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Core.Resources.ThemeDefault">
+            <summary>
+              Looks up a localized string similar to Default Operating System Theme.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Core.Resources.ThemeVS2008">
+            <summary>
+              Looks up a localized string similar to Visual Studio 2008 Theme.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Core.Resources.ThemeVS2010Basic">
+            <summary>
+              Looks up a localized string similar to Visual Studio 2010 Theme (Basic).
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Core.Resources.ThemeVS2010Enhanced">
+            <summary>
+              Looks up a localized string similar to Visual Studio 2010 Theme.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Core.Resources.UpdateButtonCancel">
+            <summary>
+              Looks up a localized string similar to Cancel.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Core.Resources.UpdateButtonCheck">
+            <summary>
+              Looks up a localized string similar to Check Now.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Core.Resources.UpdateButtonClose">
+            <summary>
+              Looks up a localized string similar to Close.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Core.Resources.UpdateCheckLinkErrorMessage">
+            <summary>
+              Looks up a localized string similar to Unable to open the link.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Core.Resources.UpdateCheckLinkErrorTitle">
+            <summary>
+              Looks up a localized string similar to Link Error.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Core.Resources.UpdateMessageCheckCancelled">
+            <summary>
+              Looks up a localized string similar to Unable to get the latest version, check was cancelled..
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Core.Resources.UpdateMessageCheckFailed">
+            <summary>
+              Looks up a localized string similar to Unable to get the latest version, please try again later..
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Core.Resources.UpdateMessageChecking">
+            <summary>
+              Looks up a localized string similar to Checking for updates, please wait....
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Core.Resources.UpdateMessageCheckNow">
+            <summary>
+              Looks up a localized string similar to Click &apos;Check Now&apos; to check for updates..
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Core.Resources.UpdateMessageCurrentVersion">
+            <summary>
+              Looks up a localized string similar to You are running version {0}.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Core.Resources.UpdateMessageLatestVersion">
+            <summary>
+              Looks up a localized string similar to The latest version is {0}.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Core.Resources.UpdateTitle">
+            <summary>
+              Looks up a localized string similar to Check for Updates.
+            </summary>
+        </member>
+        <member name="T:QuickSharp.Core.Constants">
+            <summary>
+            Provides access to constants used in the plugin.
+            </summary>
+        </member>
+        <member name="T:QuickSharp.Core.MenuTools">
+            <summary>
+            Provides utility methods for creating menu and toolbar items.
+            </summary>
+        </member>
+        <member name="M:QuickSharp.Core.MenuTools.CreateSeparator(System.String)">
+            <summary>
+            Create a separator with the specified name.
+            </summary>
+            <param name="name">The name of the separator.</param>
+            <returns>The separator.</returns>
+        </member>
+        <member name="M:QuickSharp.Core.MenuTools.CreateMenuItem(System.String,System.String,System.Drawing.Image,System.Windows.Forms.Keys,System.String,System.EventHandler)">
+            <summary>
+            Create a menu item.
+            </summary>
+            <param name="itemName">The menu item name.</param>
+            <param name="itemText">The menu item text.</param>
+            <param name="itemImage">The menu item image.</param>
+            <param name="keys">The menu item's shortcut keys.</param>
+            <param name="keyText">A text representation of the menu item shortcut
+            keys if the keys are defined elsewhere.</param>
+            <param name="onClick">The menu item click event handler.</param>
+            <returns>The menu item.</returns>
+        </member>
+        <member name="M:QuickSharp.Core.MenuTools.CreateMenuItem(System.String,System.String,System.Drawing.Image,System.Windows.Forms.Keys,System.String,System.EventHandler,System.Boolean)">
+            <summary>
+            Create a menu item and a trailing separator. The separator is only created
+            as a flag on the menu item, the actual separator is created once all the menu
+            items have been loaded. A separator should be included after each group of
+            related menu items. If a separator is inserted at the last position in a menu
+            it will automatically be deleted if no menu items follow.
+            </summary>
+            <param name="itemName">The menu item name.</param>
+            <param name="itemText">The menu item text.</param>
+            <param name="itemImage">The menu item image.</param>
+            <param name="keys">The menu item's shortcut keys.</param>
+            <param name="keyText">A text representation of the menu item shortcut
+            keys if the keys are defined elsewhere.</param>
+            <param name="onClick">The menu item's click event handler.</param>
+            <param name="includeSeparator">If true insert a separator after the menu item.</param>
+            <returns>The menu item.</returns>
+        </member>
+        <member name="M:QuickSharp.Core.MenuTools.CreateToolbarButton(System.String,System.String,System.Drawing.Image,System.EventHandler)">
+            <summary>
+            Create a toolbar button.
+            </summary>
+            <param name="itemName">The name of the button.</param>
+            <param name="itemText">The tooltip text for the button.</param>
+            <param name="itemImage">The button's image.</param>
+            <param name="onClick">The button's click event handler.</param>
+            <returns>The button.</returns>
+        </member>
+        <member name="M:QuickSharp.Core.MenuTools.CreateToolbarButton(System.String,System.String,System.Drawing.Image,System.EventHandler,System.Boolean)">
+            <summary>
+            Create a toolbar button with a leading separator. The separator is only created
+            as a flag on the button, the actual separator is inserted after the entire
+            toolbar has been assembled. The first item in a group of buttons should
+            include a separator.
+            </summary>
+            <param name="itemName">The name of the button.</param>
+            <param name="itemText">The tooltip text for the button.</param>
+            <param name="itemImage">The button's image.</param>
+            <param name="onClick">The button's click event handler.</param>
+            <param name="includeSeparator">If true insert a separator before the button.</param>
+            <returns>The button.</returns>
+        </member>
+        <member name="M:QuickSharp.Core.MenuTools.CreateToolbarDropDownButton(System.String,System.Windows.Forms.ToolStripItemClickedEventHandler)">
+            <summary>
+            Create a dropdown toolbar button.
+            </summary>
+            <param name="itemName">The button name.</param>
+            <param name="onClick">The button's click event handler.</param>
+            <returns>The button.</returns>
+        </member>
+        <member name="M:QuickSharp.Core.MenuTools.MenuStripItemsSetForeColor(System.Windows.Forms.MenuStrip,System.Drawing.Color,System.Boolean)">
+            <summary>
+            Set the foreground color for all enabled items in a menu strip.
+            </summary>
+            <param name="menuStrip">The menu strip.</param>
+            <param name="color">The foreground color.</param>
+            <param name="hideImages">Hide menu item images.</param>
+        </member>
+        <member name="M:QuickSharp.Core.MenuTools.ContextMenuStripItemsSetForeColor(System.Windows.Forms.ContextMenuStrip,System.Drawing.Color,System.Boolean)">
+            <summary>
+            Set the foreground color for all enabled items in a
+            context menu strip.
+            </summary>
+            <param name="menuStrip">The menu strip.</param>
+            <param name="color">The foreground color.</param>
+            <param name="hideImages">Hide menu item images.</param>
+        </member>
+        <member name="M:QuickSharp.Core.MenuTools.MenuDropDownItemsSetForeColor(System.Windows.Forms.ToolStripMenuItem,System.Drawing.Color,System.Boolean)">
+            <summary>
+            Set the foreground color for all the enabled dropdown items
+            in a menu and its child menus.
+            </summary>
+            <param name="menu">The menu.</param>
+            <param name="color">The foreground color.</param>
+            <param name="hideImages">Hide menu item images.</param>
+        </member>
+        <member name="T:QuickSharp.Core.ApplicationStorage">
+            <summary>
+            Provides a general-purpose, application-wide object store.
+            Used to provide a means for plugins to share data without
+            requiring explicit dependencies between them.
+            Objects are stored using text keys. Care must be taken with 
+            key management: keys need to be defined consistently wherever
+            the data is accessed but because of the possibility that the
+            provider and consumer might not have a direct dependency it
+            will not allways be possible to use shared string constants to
+            define the keys.
+            </summary>
+        </member>
+        <member name="M:QuickSharp.Core.ApplicationStorage.GetInstance">
+            <summary>
+            Retrieves a reference to the ApplicationStorage singleton.
+            </summary>
+            <returns>A reference to the ApplicationStorage singleton.</returns>
+        </member>
+        <member name="M:QuickSharp.Core.ApplicationStorage.Add(System.String,System.Object)">
+            <summary>
+            Add an item to the store. Duplicate items are overwitten.
+            Does nothing if the key is empty of null.
+            </summary>
+            <param name="key">The item's storage key.</param>
+            <param name="value">The item.</param>
+        </member>
+        <member name="M:QuickSharp.Core.ApplicationStorage.Add(System.String,System.Object,System.Boolean)">
+            <summary>
+            Add an item to the store. Optionally throw 
+            System.ArgumentException if the key already exists
+            or System.ArgumentNullException if the key is null.
+            </summary>
+            <param name="key">The item's storage key.</param>
+            <param name="value">The item.</param>
+            <param name="throwOnError">Throw exception if key is nul
+            or already exists.</param>
+        </member>
+        <member name="M:QuickSharp.Core.ApplicationStorage.Get(System.String)">
+            <summary>
+            Get an item from the store using the specified key.
+            </summary>
+            <param name="key">The item's storage key.</param>
+            <returns>The item or null if the key is null,
+            empty or not found.</returns>
+        </member>
+        <member name="M:QuickSharp.Core.ApplicationStorage.Get(System.String,System.Type)">
+            <summary>
+            Get an item from the store using the specified key.
+            The item is created if it doesn't exist.
+            </summary>
+            <param name="key">The item's storage key.</param>
+            <param name="type">The type of the item.</param>
+            <returns>The item or null if the key is empty or null.</returns>
+        </member>
+        <member name="P:QuickSharp.Core.ApplicationStorage.Item(System.String)">
+            <summary>
+            Gets or sets an item using the specified key.
+            Duplicate items are overwitten.
+            </summary>
+            <param name="key">The item's storage key.</param>
+            <returns>The value or null if the key is null, empty
+            or not found.</returns>
+        </member>
+        <member name="T:QuickSharp.Core.OptionsFormProxy">
+            <summary>
+            Provides a means to access the controls of the Options form.
+            </summary>
+        </member>
+        <member name="M:QuickSharp.Core.OptionsFormProxy.GetInstance">
+            <summary>
+            Get a reference to the form proxy singleton.
+            </summary>
+            <returns>A reference to the form proxy.</returns>
+        </member>
+        <member name="M:QuickSharp.Core.OptionsFormProxy.UpdateOptionsFormPages(System.Collections.Generic.Dictionary{System.String,QuickSharp.Core.OptionsPage})">
+            <summary>
+            Raise the OptionsFormUpdatePages event. Called by the form to allow its
+            pages to be customized.
+            </summary>
+            <param name="pages">The option pages included in the form.</param>
+        </member>
+        <member name="M:QuickSharp.Core.OptionsFormProxy.UpdateOptionsFormControls(System.Windows.Forms.Control.ControlCollection)">
+            <summary>
+            Raise the OptionsFormUpdateControls event. Called by the form to allow its
+            controls to be customized.
+            </summary>
+            <param name="controls">The form's control collection.</param>
+        </member>
+        <member name="E:QuickSharp.Core.OptionsFormProxy.OptionsFormUpdatePages">
+            <summary>
+            Attach handlers to this event to gain access to the form's page
+            collection each time it is invoked. The handlers can modify the
+            pages to create a customized form.
+            </summary>
+        </member>
+        <member name="E:QuickSharp.Core.OptionsFormProxy.OptionsFormUpdateControls">
+            <summary>
+            Attach handlers to this event to gain access to the form's control
+            collection each time it is invoked. The handlers can modify the
+            controls to create a customized form.
+            </summary>
+        </member>
+        <member name="T:QuickSharp.Core.UpdateCheckForm">
+            <summary>
+            Provides the application 'Check for Updates' form.
+            </summary>
+        </member>
+        <member name="F:QuickSharp.Core.UpdateCheckForm.m_closeButton">
+            <summary>
+            Name used to access the form control collection member.
+            </summary>
+        </member>
+        <member name="F:QuickSharp.Core.UpdateCheckForm.m_currentVersionLabel">
+            <summary>
+            Name used to access the form control collection member.
+            </summary>
+        </member>
+        <member name="F:QuickSharp.Core.UpdateCheckForm.m_latestVersionLabel">
+            <summary>
+            Name used to access the form control collection member.
+            </summary>
+        </member>
+        <member name="F:QuickSharp.Core.UpdateCheckForm.m_checkButton">
+            <summary>
+            Name used to access the form control collection member.
+            </summary>
+        </member>
+        <member name="F:QuickSharp.Core.UpdateCheckForm.m_cancelButton">
+            <summary>
+            Name used to access the form control collection member.
+            </summary>
+        </member>
+        <member name="F:QuickSharp.Core.UpdateCheckForm.m_linkLabel">
+            <summary>
+            Name used to access the form control collection member.
+            </summary>
+        </member>
+        <member name="M:QuickSharp.Core.UpdateCheckForm.#ctor">
+            <summary>
+            Create an instance of the default 'Check for Updates' form.
+            </summary>
+        </member>
+        <member name="T:QuickSharp.Core.IQuickSharpPlugin">
+            <summary>
+            Defines the interface to QuickSharp plugin modules.
+            </summary>
+        </member>
+        <member name="M:QuickSharp.Core.IQuickSharpPlugin.GetID">
+            <summary>
+            Get the ID of the plugin.
+            </summary>
+            <returns>The plugin ID.</returns>
+        </member>
+        <member name="M:QuickSharp.Core.IQuickSharpPlugin.GetName">
+            <summary>
+            Get the name of the plugin.
+            </summary>
+            <returns>The plugin name.</returns>
+        </member>
+        <member name="M:QuickSharp.Core.IQuickSharpPlugin.GetVersion">
+            <summary>
+            Get the version of the plugin.
+            </summary>
+            <returns>The plugin version.</returns>
+        </member>
+        <member name="M:QuickSharp.Core.IQuickSharpPlugin.GetDescription">
+            <summary>
+            Get a description of the plugin.
+            </summary>
+            <returns>The plugin description.</returns>
+        </member>
+        <member name="M:QuickSharp.Core.IQuickSharpPlugin.GetDependencies">
+            <summary>
+            Get the plugin's dependencies. This provides a list of the
+            plugins required by the current plugin.
+            </summary>
+            <returns>The plugin dependencies,</returns>
+        </member>
+        <member name="M:QuickSharp.Core.IQuickSharpPlugin.Activate(QuickSharp.Core.MainForm)">
+            <summary>
+            The plugin entry point. This is called by the PluginManager to
+            activate the plugin.
+            </summary>
+            <param name="mainForm">The application main form.</param>
+        </member>
+        <member name="T:QuickSharp.Core.VS2008ColorTable">
+            <summary>
+            The Visual Studio 2008 theme color table.
+            </summary>
+        </member>
+        <member name="M:QuickSharp.Core.VS2008ColorTable.#ctor">
+            <summary>
+            Create an instance of the color scheme.
+            </summary>
+        </member>
+        <member name="T:QuickSharp.Core.OptionsForm">
+            <summary>
+            Provides the options editor to allow plugins to present individual
+            settings control pages. The options form contains each page and provides
+            a single 'Save' button to initiate saving of each option pages settings.
+            </summary>
+        </member>
+        <member name="F:QuickSharp.Core.OptionsForm.m_okButton">
+            <summary>
+            Name used to access the form control collection member.
+            </summary>
+        </member>
+        <member name="F:QuickSharp.Core.OptionsForm.m_cancelButton">
+            <summary>
+            Name used to access the form control collection member.
+            </summary>
+        </member>
+        <member name="F:QuickSharp.Core.OptionsForm.m_optionsTreeView">
+            <summary>
+            Name used to access the form control collection member.
+            </summary>
+        </member>
+        <member name="F:QuickSharp.Core.OptionsForm.m_optionsPanel">
+            <summary>
+            Name used to access the form control collection member.
+            </summary>
+        </member>
+        <member name="M:QuickSharp.Core.OptionsForm.#ctor">
+            <summary>
+            Create an instance of the application options editor.
+            </summary>
+        </member>
+        <member name="M:QuickSharp.Core.OptionsForm.SelectPage(System.String)">
+            <summary>
+            Select the options page to be visible when the options form is shown.
+            (Internal use only).
+            </summary>
+            <param name="name">The name of the page.</param>
+        </member>
+        <member name="M:QuickSharp.Core.OptionsForm.SelectPage(System.String,System.Boolean)">
+            <summary>
+            Select the options page to be visible when the options form is shown.
+            (Internal use only).
+            </summary>
+            <param name="name">The name of the page.</param>
+            <param name="selectNode">Select the corresponding tree node.</param>
+        </member>
+        <member name="P:QuickSharp.Core.OptionsForm.SelectedPageName">
+            <summary>
+            The name of the currently selected options page. Used to
+            enable the form's caller to save the active page for 
+            restoration when the form is next shown.
+            </summary>
+        </member>
+        <member name="T:QuickSharp.Core.DefaultTheme">
+            <summary>
+            The default 'do nothing' built-in theme provider.
+            </summary>
+        </member>
+        <member name="M:QuickSharp.Core.DefaultTheme.GetID">
+            <summary>
+            Get the provider ID. This must be unique and is
+            usually a GUID.
+            </summary>
+            <returns>The provider ID.</returns>
+        </member>
+        <member name="M:QuickSharp.Core.DefaultTheme.GetName">
+            <summary>
+            Get the display name of the theme provider.
+            </summary>
+            <returns>The provider display name.</returns>
+        </member>
+        <member name="M:QuickSharp.Core.DefaultTheme.GetKey">
+            <summary>
+            Get the provider key.
+            </summary>
+            <returns>The provider key.</returns>
+        </member>
+        <member name="M:QuickSharp.Core.DefaultTheme.ApplyTheme">
+            <summary>
+            Applies the theme to the relevant UI elements.
+            </summary>
+        </member>
+        <member name="T:QuickSharp.Core.ToolStripItemTag">
+            <summary>
+            Provides custom metadata for ToolStripItem objects.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Core.ToolStripItemTag.IncludeSeparator">
+            <summary>
+            Include a separator when presenting the ToolStripItem. For menu items
+            this creates a separator after the menu item. For toolbar buttons
+            this creates a separator before the button.
+            </summary>
+        </member>
+        <member name="T:QuickSharp.Core.VS2010ColorTable">
+            <summary>
+            The Visual Studio 2010 theme color table.
+            </summary>
+        </member>
+        <member name="M:QuickSharp.Core.VS2010ColorTable.InitColors(System.Collections.Generic.Dictionary{QuickSharp.Core.KnownColors,System.Drawing.Color})">
+            <summary>
+            Create an instance of the color scheme.
+            </summary>
+        </member>
+        <member name="T:QuickSharp.Core.BaseTheme">
+            <summary>
+            Abstract base theme provider.
+            </summary>
+        </member>
+        <member name="M:QuickSharp.Core.BaseTheme.#ctor">
+            <summary>
+            Initialize the theme base.
+            </summary>
+        </member>
+        <member name="M:QuickSharp.Core.BaseTheme.UpdateTheme">
+            <summary>
+            Override the defaults to create a new theme.
+            </summary>
+        </member>
+        <member name="M:QuickSharp.Core.BaseTheme.ApplyTheme">
+            <summary>
+            Applies the theme to the relevant UI elements.
+            </summary>
+        </member>
+        <member name="T:QuickSharp.Core.StringMap">
+            <summary>
+            Provides a string to string mapping.
+            </summary>
+        </member>
+        <member name="M:QuickSharp.Core.StringMap.ToString">
+            <summary>
+            Create a new StringMap.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:QuickSharp.Core.StringMap.Name">
+            <summary>
+            The key.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Core.StringMap.Value">
+            <summary>
+            The value.
+            </summary>
+        </member>
+        <member name="T:QuickSharp.Core.StringMapNameComparer">
+            <summary>
+            Compares two StringMap objects by Name.
+            </summary>
+        </member>
+        <member name="M:QuickSharp.Core.StringMapNameComparer.Compare(QuickSharp.Core.StringMap,QuickSharp.Core.StringMap)">
+            <summary>
+            Compare the StringMaps.
+            </summary>
+            <param name="m1">A StringMap.</param>
+            <param name="m2">A StringMap.</param>
+            <returns>0 if they are equal.</returns>
+        </member>
+        <member name="T:QuickSharp.Core.BaseDockedForm">
+            <summary>
+            Provides a base class for docked forms.
+            </summary>
+        </member>
+        <member name="M:QuickSharp.Core.BaseDockedForm.#ctor(System.String)">
+            <summary>
+            Registers the form with the application manager and
+            provides default settings for the form.
+            </summary>
+            <param name="formKey">The docked form ID.</param>
+        </member>
+        <member name="M:QuickSharp.Core.BaseDockedForm.SetFormDefaultState">
+            <summary>
+            Sets the default state of the form for the first time it is created.
+            Subsequent instances will retrieve the settings from the saved docking
+            window configuration managed by the application. This should be
+            overridden in derived classes to customize the default state.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Core.BaseDockedForm.FormKey">
+            <summary>
+            The form's unique ID. Docked forms must each have a unique key to allow
+            them to be registered with the application manager and handled by the
+            docking window manager.
+            </summary>
+        </member>
+        <member name="T:QuickSharp.Core.ErrorFormProxy">
+            <summary>
+            Provides a means to access the controls of the Error form.
+            </summary>
+        </member>
+        <member name="M:QuickSharp.Core.ErrorFormProxy.GetInstance">
+            <summary>
+            Get a reference to the form proxy singleton.
+            </summary>
+            <returns>A reference to the form proxy.</returns>
+        </member>
+        <member name="T:QuickSharp.Core.FileTools">
+            <summary>
+            Provides utility methods for working with files and folders.
+            </summary>
+        </member>
+        <member name="M:QuickSharp.Core.FileTools.FindOnSystemPath(System.String)">
+            <summary>
+            Get the full path of an executable file from the system path.
+            </summary>
+            <param name="name">The file to find.</param>
+            <returns>The full path or null if not found.</returns>
+        </member>
+        <member name="M:QuickSharp.Core.FileTools.LaunchApplication(System.Boolean,System.String,System.String)">
+            <summary>
+            Launch an application.
+            </summary>
+            <param name="useWindow">Run the application in it's own window.</param>
+            <param name="exe">The path of the application executable.</param>
+            <param name="args">The arguments to be passed to the executable.</param>
+        </member>
+        <member name="M:QuickSharp.Core.FileTools.LaunchApplication(System.Boolean,System.String,System.String,System.String)">
+            <summary>
+            Launch an application with a working directory.
+            </summary>
+            <param name="useWindow">Run the application in it's own window.</param>
+            <param name="exe">The path of the application executable.</param>
+            <param name="args">The arguments to be passed to the executable.</param>
+            <param name="folder">The working directory for the application.</param>
+        </member>
+        <member name="M:QuickSharp.Core.FileTools.ShellOpenFile(System.String)">
+            <summary>
+            Open a file using the Windows shell. Throws Exception if the file
+            cannot be found.
+            </summary>
+            <param name="path">The path of the file to be opened.</param>
+        </member>
+        <member name="M:QuickSharp.Core.FileTools.ShellOpenFile(System.String,System.Boolean)">
+            <summary>
+            Open a file using the Windows shell. Optionally throws Exception if
+            the file cannot be found.
+            </summary>
+            <param name="path">The path of the file to be opened.</param>
+            <param name="checkFileExists">Check to see if the file exists.
+            If true, check and throw Exception if the file cannot be found.
+            Don't check if false.</param>
+        </member>
+        <member name="M:QuickSharp.Core.FileTools.FolderHasChildren(System.String)">
+            <summary>
+            Determine if a folder has subfolders.
+            </summary>
+            <param name="path">The path of the folder.</param>
+            <returns>True if the folder has subfolders.</returns>
+        </member>
+        <member name="M:QuickSharp.Core.FileTools.ChangeFileName(System.String,System.String)">
+            <summary>
+            Rename a file without changing its location.
+            </summary>
+            <param name="filePath">The path of the file to be renamed.</param>
+            <param name="newName">The new name for the file.</param>
+            <returns>The new path for the renamed file.</returns>
+        </member>
+        <member name="M:QuickSharp.Core.FileTools.ChangeDirectoryName(System.String,System.String)">
+            <summary>
+            Rename a folder without changing its location.
+            </summary>
+            <param name="directoryPath">The path of the folder to be renamed.</param>
+            <param name="newName">The new name for the folder.</param>
+            <returns>The new path for the renamed folder.</returns>
+        </member>
+        <member name="M:QuickSharp.Core.FileTools.ReadFile(System.String)">
+            <summary>
+            Read a text file and return its content as a string.
+            </summary>
+            <param name="path">The path of the file.</param>
+            <returns>The content of the file.</returns>
+        </member>
+        <member name="M:QuickSharp.Core.FileTools.CreateFile(System.String)">
+            <summary>
+            Create an empty file if it doesn't already exist.
+            </summary>
+            <param name="path">The path of the new file.</param>
+            <returns>True if the file was created successfully or the
+            file already exists.</returns>
+        </member>
+        <member name="M:QuickSharp.Core.FileTools.ReadFile(System.String,System.Text.Encoding@)">
+            <summary>
+            Read a text file and returns its content and encoding. The
+            encoding is determined using byte order marks (BOM) and defaults
+            to ASCII if a BOM is not found or a problem occurs reading the file.
+            Supported encodings are ASCII, UTF-8, UTF-16 BE and UTF-16 LE.
+            </summary>
+            <param name="path">The path of the file to read.</param>
+            <param name="encoding">The file's encoding.</param>
+            <returns>The content of the file.</returns>
+        </member>
+        <member name="M:QuickSharp.Core.FileTools.GetEncoding(System.String)">
+            <summary>
+            Open a text file and return its encoding. The
+            encoding is determined using byte order marks (BOM) and defaults
+            to ASCII if a BOM is not found or a problem occurs reading the file.
+            Supported encodings are ASCII, UTF-8, UTF-16 BE and UTF-16 LE.
+            </summary>
+            <param name="path">The path of the file.</param>
+            <returns>The file's encoding.</returns>
+        </member>
+        <member name="M:QuickSharp.Core.FileTools.WriteFile(System.String,System.String,System.Text.Encoding)">
+            <summary>
+            Write text to a text file. A new file is always created and the text
+            is written using the specified encoding.
+            </summary>
+            <param name="path">The path of the file.</param>
+            <param name="text">The content to write to the file.</param>
+            <param name="encoding">The file's encoding.</param>
+        </member>
+        <member name="M:QuickSharp.Core.FileTools.FilenameIsInvalid(System.String)">
+            <summary>
+            Determine if a filename is invalid. A filename is invalid
+            if it is null, empty or contains illegal characters.
+            </summary>
+            <param name="name">The path of the file.</param>
+            <returns>True if the file is invalid.</returns>
+        </member>
+        <member name="M:QuickSharp.Core.FileTools.FileIsNewerOnDisk(System.String,System.DateTime)">
+            <summary>
+            Determine if a file was last written to after a specified time.
+            </summary>
+            <param name="path">The path of the file.</param>
+            <param name="timeStamp">The time to which the file is to be compared.</param>
+            <returns>True if the specified time is older than the last
+            write time of the file.</returns>
+        </member>
+        <member name="M:QuickSharp.Core.FileTools.MatchPaths(System.String,System.String)">
+            <summary>
+            Compare two file paths.
+            </summary>
+            <param name="p1">A file path.</param>
+            <param name="p2">A file path.</param>
+            <returns>True if the paths match.</returns>
+        </member>
+        <member name="M:QuickSharp.Core.FileTools.DeleteWithUndo(System.String)">
+            <summary>
+            Delete a file to the Windows recycle bin.
+            </summary>
+            <param name="filePath">The path of the file to be deleted.</param>
+        </member>
+        <member name="T:QuickSharp.Core.DocumentType">
+            <summary>
+            Represents a document in the document management system. A
+            document type is defined by a file extension and determines the
+            actions available for a document within an application.
+            </summary>
+        </member>
+        <member name="M:QuickSharp.Core.DocumentType.#ctor(System.String)">
+            <summary>
+            Create a new DocumentType from a file path.
+            </summary>
+            <param name="filePath">File path containing a file extension.</param>
+        </member>
+        <member name="M:QuickSharp.Core.DocumentType.#ctor(System.IO.FileInfo)">
+            <summary>
+            Create a new DocumentType from a FileInfo object.
+            </summary>
+            <param name="fileInfo">FileInfo containing a file extension.</param>
+        </member>
+        <member name="M:QuickSharp.Core.DocumentType.ToString">
+            <summary>
+            Get a string representation of the DocumentType. This returns
+            the file extension on which the DocumentType is based.
+            </summary>
+            <returns>File extension for the document type.</returns>
+        </member>
+        <member name="M:QuickSharp.Core.DocumentType.Matches(System.String)">
+            <summary>
+            Performs a boolean match between the DocumentType and a string. Returns true
+            if the string matches the file extension on which the DocumentType
+            is based. The match is not case sensitive.
+            </summary>
+            <param name="text">A file extension.</param>
+            <returns>True if the extension matches the DocumentType.</returns>
+        </member>
+        <member name="M:QuickSharp.Core.DocumentType.Matches(QuickSharp.Core.DocumentType)">
+            <summary>
+            Performs a boolean match between two DocumentTypes.
+            Returns true if they match.
+            </summary>
+            <param name="documentType">A DocumentType.</param>
+            <returns>True if the DocumentTypes are the same.</returns>
+        </member>
+        <member name="M:QuickSharp.Core.DocumentType.IsEmpty">
+            <summary>
+            Returns true if the DocumentType is empty, i.e. has no
+            extension. An empty DocumentType is represented as ".".
+            </summary>
+            <returns>True if the DocumentType has no extension.</returns>
+        </member>
+        <member name="M:QuickSharp.Core.DocumentType.CompareTo(QuickSharp.Core.DocumentType)">
+            <summary>
+            Performs a string comparison between two DocumentTypes.
+            Returns 0 if they match.
+            </summary>
+            <param name="documentType">A DocumentType.</param>
+            <returns>Returns 0 if the document types are the same.</returns>
+        </member>
+        <member name="T:QuickSharp.Core.ClientProfile">
+            <summary>
+            Provides properties and methods used to define customizable
+            behaviour for a QuickSharp.Core application.
+            </summary>
+        </member>
+        <member name="M:QuickSharp.Core.ClientProfile.#ctor">
+            <summary>
+            ClientProfile constructor.
+            </summary>
+        </member>
+        <member name="M:QuickSharp.Core.ClientProfile.AddFlag(System.String)">
+            <summary>
+            Add a client flag to the application. Client flags allow arbitrary text
+            values to be made available for reading anywhere in the application.
+            Typically they are used to provide customised behaviour in plugins.
+            Flags should be specified as simple text values not constants; it is
+            important that no dependencies be created between the application driver
+            and any plugin reading the flags.
+            </summary>
+            <param name="name">The flag value</param>
+        </member>
+        <member name="M:QuickSharp.Core.ClientProfile.HaveFlag(System.String)">
+            <summary>
+            Determine if a client flag is present.  
+            </summary>
+            <param name="name"></param>
+            <returns></returns>
+        </member>
+        <member name="M:QuickSharp.Core.ClientProfile.SetUICultureFromCommandLine(System.String[])">
+            <summary>
+            Set the current UI culture from a command line switch. The
+            culture should be specified using this example format: "/uiculture:en-AU".
+            </summary>
+            <param name="args"></param>
+        </member>
+        <member name="P:QuickSharp.Core.ClientProfile.ClientName">
+            <summary>
+            The name of the client application. Provides a simple name
+            available for naming application resources. Used to define the
+            name of the local user data directory.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Core.ClientProfile.ClientTitle">
+            <summary>
+            The title of the client application. Provides a display name for
+            the application. Used in the main form and about box title bars.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Core.ClientProfile.ClientIcon">
+            <summary>
+            The icon used in the application main form.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Core.ClientProfile.CopyrightText">
+            <summary>
+            Application-specific copyright information presented in the about box.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Core.ClientProfile.AboutBoxImage">
+            <summary>
+            The background image used for the about box.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Core.ClientProfile.AboutBoxTextColor">
+            <summary>
+            The color of the text used in the about box.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Core.ClientProfile.UpdateCheckURL">
+            <summary>
+            The URL for the update check. The update check feature is disabled
+            if this is null. The URL is the file retrieved when 'Check for updates'
+            is clicked and should consist of a text file containing the latest
+            application version number on a single line.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Core.ClientProfile.UpdateHomeURL">
+            <summary>
+            The URL for the link presented in the update check form. The link is not
+            presented if this is null.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Core.ClientProfile.UpdateLinkText">
+            <summary>
+            The text for the link presented in the update check form. The link is not
+            presented if this is null.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Core.ClientProfile.MRUDocumentListMax">
+            <summary>
+            The maximum number of files listed in the MRU documents list.
+            Defaults to 9. Set to 0 to disable the MRU list.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Core.ClientProfile.HelpFileName">
+            <summary>
+            The application help file. This is presented on the main form Help
+            menu and is opened using the Windows shell when the help menu item
+            is clicked. The file name should be a resource that can be opened directly
+            such as a text, chm or html file. The help menu item will be hidden if this
+            value is null or empty.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Core.ClientProfile.HelpFileTitle">
+            <summary>
+            The text of the menu item presented in the Help menu if the help file is
+            available. The help menu item will be hidden if this is null or empty.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Core.ClientProfile.HelpShortcutKeys">
+            <summary>
+            Optional shortcut keys used to access the help menu item.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Core.ClientProfile.HelpMenuImage">
+            <summary>
+            Optional image to be used for the help menu item.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Core.ClientProfile.PersistenceProvider">
+            <summary>
+            The persistence provider used for the application.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Core.ClientProfile.PersistenceKey">
+            <summary>
+            The text key to be associated with the persistence manager.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Core.ClientProfile.CommandLineArgs">
+            <summary>
+            The command line arguments passed to the application at startup.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Core.ClientProfile.CurrentUICulture">
+            <summary>
+            The UI culture presented by the application. Defaults to the 
+            CurrentUICulture of the current thread.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Core.ClientProfile.DisableUserHome">
+            <summary>
+            Set to false to disable the use of local user data folders. All user-specific
+            content will be located in the application home directory.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Core.ClientProfile.UpdateCheckFormFactory">
+            <summary>
+            Factory handler used to provide the UpdateCheck form. By default this uses the
+            built-in update check form. Provide a custom factory handler to use an
+            alternative update check form.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Core.ClientProfile.AboutBoxFactory">
+            <summary>
+            Factory handler used to provide the About form. By default this uses the
+            built-in about form. Provide a custom factory handler to use an
+            alternative about box.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Core.ClientProfile.ThemeFlags">
+            <summary>
+            Provides theme flag values for plugins.
+            </summary>
+        </member>
+        <member name="T:QuickSharp.Core.AboutFormProxy">
+            <summary>
+            Provides a means to access the controls of the About form.
+            </summary>
+        </member>
+        <member name="M:QuickSharp.Core.AboutFormProxy.GetInstance">
+            <summary>
+            Get a reference to the form proxy singleton.
+            </summary>
+            <returns>A reference to the form proxy.</returns>
+        </member>
+        <member name="T:QuickSharp.Core.KnownColors">
+            <summary>
+            Colors provided by theme color tables.
+            </summary>
+        </member>
+        <member name="T:QuickSharp.Core.BaseColorTable">
+            <summary>
+            Base class for theme color tables.
+            </summary>
+        </member>
+        <member name="T:QuickSharp.Core.ThemeFlags">
+            <summary>
+            Presents theme properties for use throughout the
+            application. Rather than directly manipulate plugin UI
+            elements to enforce theme colors this presents the values
+            for plugins to read if available. Like ClientFlags this allows
+            settings to be communicated to plugins without having to create
+            dependencies between them.
+            </summary>
+        </member>
+        <member name="M:QuickSharp.Core.ThemeFlags.#ctor">
+            <summary>
+            Create a ThemeFlags instance.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Core.ThemeFlags.MainBackColor">
+            <summary>
+            The main form background color.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Core.ThemeFlags.ViewBackColor">
+            <summary>
+            The background color for views (such as docked forms).
+            Actual usage is plugin dependent.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Core.ThemeFlags.ViewForeColor">
+            <summary>
+            The foreground color for views (such as docked forms).
+            Actual usage is plugin dependent.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Core.ThemeFlags.ViewAltBackColor">
+            <summary>
+            An alternative background color for views (such as
+            docked forms). Actual usage is plugin dependent.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Core.ThemeFlags.ViewAltForeColor">
+            <summary>
+            An alternative foreground color for views (such as
+            docked forms). Actual usage is plugin dependent.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Core.ThemeFlags.ViewShowBorder">
+            <summary>
+            Show view elements (such as tree views) with a border.
+            Actual usage is plugin dependent.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Core.ThemeFlags.MenuForeColor">
+            <summary>
+            main menu foreground (text) color.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Core.ThemeFlags.MenuHideImages">
+            <summary>
+            Hide main menu images if true.
+            </summary>
+        </member>
+    </members>
+</doc>

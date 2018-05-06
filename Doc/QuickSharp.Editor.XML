@@ -1,0 +1,1663 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>QuickSharp.Editor</name>
+    </assembly>
+    <members>
+        <member name="T:QuickSharp.Editor.ScintillaEditForm">
+            <summary>
+            Provides the basic functionality for Scintilla-based text editors. As an
+            abstract class this cannot be used directly; concrete editor classes must
+            be defined to provide the actual editor user interface. See QuickSharp.TextEditor
+            and QuickSharp.SqlEditor for examples.
+            </summary>
+        </member>
+        <member name="M:QuickSharp.Editor.ScintillaEditForm.#ctor">
+            <summary>
+            Create the editor.
+            </summary>
+        </member>
+        <member name="M:QuickSharp.Editor.ScintillaEditForm.Reload">
+            <summary>
+            Reload the file being edited (overriden in derived classes).
+            </summary>
+        </member>
+        <member name="M:QuickSharp.Editor.ScintillaEditForm.GetContent">
+            <summary>
+            Get the text being edited.
+            </summary>
+            <returns>The text being edited.</returns>
+        </member>
+        <member name="M:QuickSharp.Editor.ScintillaEditForm.SetContent(System.Object)">
+            <summary>
+            Set the text to be edited.
+            </summary>
+            <param name="content">The text to be edited.</param>
+        </member>
+        <member name="M:QuickSharp.Editor.ScintillaEditForm.SetLocation(System.Int32,System.Int32)">
+            <summary>
+            Set the editing position.
+            </summary>
+            <param name="x">The column position.</param>
+            <param name="y">The line position.</param>
+        </member>
+        <member name="M:QuickSharp.Editor.ScintillaEditForm.AllowDuplicates">
+            <summary>
+            If true allow the file to be opened in multiple editors.
+            </summary>
+            <returns>True if multiple instances are allowed.</returns>
+        </member>
+        <member name="M:QuickSharp.Editor.ScintillaEditForm.Save">
+            <summary>
+            Save the current document.
+            </summary>
+            <returns>True on success.</returns>
+        </member>
+        <member name="M:QuickSharp.Editor.ScintillaEditForm.SaveAs">
+            <summary>
+            Save the document with a new name.
+            </summary>
+            <returns>True on success.</returns>
+        </member>
+        <member name="M:QuickSharp.Editor.ScintillaEditForm.PageSetup">
+            <summary>
+            Open the page setup dialog.
+            </summary>
+            <returns>True on success.</returns>
+        </member>
+        <member name="M:QuickSharp.Editor.ScintillaEditForm.PrintPreview">
+            <summary>
+            Display the print preview.
+            </summary>
+            <returns>True on success.</returns>
+        </member>
+        <member name="M:QuickSharp.Editor.ScintillaEditForm.Print">
+            <summary>
+            Open the print dialog.
+            </summary>
+            <returns>True on success.</returns>
+        </member>
+        <member name="M:QuickSharp.Editor.ScintillaEditForm.Undo">
+            <summary>
+            Editor undo.
+            </summary>
+            <returns>Always returns true.</returns>
+        </member>
+        <member name="M:QuickSharp.Editor.ScintillaEditForm.Redo">
+            <summary>
+            Editor redo.
+            </summary>
+            <returns>Always returns true.</returns>
+        </member>
+        <member name="M:QuickSharp.Editor.ScintillaEditForm.Cut">
+            <summary>
+            Clipboard cut.
+            </summary>
+            <returns>Always returns true.</returns>
+        </member>
+        <member name="M:QuickSharp.Editor.ScintillaEditForm.Copy">
+            <summary>
+            Clipboard copy.
+            </summary>
+            <returns>Always returns true.</returns>
+        </member>
+        <member name="M:QuickSharp.Editor.ScintillaEditForm.Paste">
+            <summary>
+            Clipboard paste.
+            </summary>
+            <returns>Always returns true.</returns>
+        </member>
+        <member name="M:QuickSharp.Editor.ScintillaEditForm.SelectAll">
+            <summary>
+            Select all text.
+            </summary>
+            <returns>Always returns true.</returns>
+        </member>
+        <member name="M:QuickSharp.Editor.ScintillaEditForm.Find">
+            <summary>
+            Show the find dialog.
+            </summary>
+            <returns>Always returns true.</returns>
+        </member>
+        <member name="M:QuickSharp.Editor.ScintillaEditForm.Replace">
+            <summary>
+            Show the replace dialog.
+            </summary>
+            <returns>Always returns true.</returns>
+        </member>
+        <member name="M:QuickSharp.Editor.ScintillaEditForm.GoTo">
+            <summary>
+            Show the go to line dialog.
+            </summary>
+            <returns>Always returns true.</returns>
+        </member>
+        <member name="M:QuickSharp.Editor.ScintillaEditForm.MacroRecord">
+            <summary>
+            Toggle keystroke recording.
+            </summary>
+            <returns>Always returns true.</returns>
+        </member>
+        <member name="M:QuickSharp.Editor.ScintillaEditForm.MacroPlay">
+            <summary>
+            Play the current macro.
+            </summary>
+            <returns>Always returns true.</returns>
+        </member>
+        <member name="M:QuickSharp.Editor.ScintillaEditForm.MacroLoad">
+            <summary>
+            Load a macro from a file.
+            </summary>
+            <returns>Always returns true.</returns>
+        </member>
+        <member name="M:QuickSharp.Editor.ScintillaEditForm.MacroSave">
+            <summary>
+            Save the current macro to a file.
+            </summary>
+            <returns>Always returns true.</returns>
+        </member>
+        <member name="M:QuickSharp.Editor.ScintillaEditForm.MakeUppercase">
+            <summary>
+            Make selection uppercase.
+            </summary>
+            <returns>True on success.</returns>
+        </member>
+        <member name="M:QuickSharp.Editor.ScintillaEditForm.MakeLowercase">
+            <summary>
+            Make selection lowercase.
+            </summary>
+            <returns>True on success.</returns>
+        </member>
+        <member name="M:QuickSharp.Editor.ScintillaEditForm.LineComment">
+            <summary>
+            Toggle the selected or current line as a line comment.
+            </summary>
+            <returns>True on success.</returns>
+        </member>
+        <member name="M:QuickSharp.Editor.ScintillaEditForm.BlockComment">
+            <summary>
+            Apply a block comment to the selected or current.
+            </summary>
+            <returns>True on success.</returns>
+        </member>
+        <member name="M:QuickSharp.Editor.ScintillaEditForm.ViewWhitespace">
+            <summary>
+            Toggle the display of whitespace characters.
+            </summary>
+            <returns>True on success.</returns>
+        </member>
+        <member name="M:QuickSharp.Editor.ScintillaEditForm.TrimWhitespace">
+            <summary>
+            Trim whitespace characters from the end of each line in the document.
+            </summary>
+            <returns>Allways returns true.</returns>
+        </member>
+        <member name="M:QuickSharp.Editor.ScintillaEditForm.WordWrap">
+            <summary>
+            Toggle the wrapping of long lines.
+            </summary>
+            <returns>True on success.</returns>
+        </member>
+        <member name="M:QuickSharp.Editor.ScintillaEditForm.SetReadOnly">
+            <summary>
+            Toggle the current document as read-only.
+            </summary>
+            <returns>True on success.</returns>
+        </member>
+        <member name="M:QuickSharp.Editor.ScintillaEditForm.SetEncodingANSI">
+            <summary>
+            Set the document encoding to ANSI.
+            </summary>
+            <returns>True on success.</returns>
+        </member>
+        <member name="M:QuickSharp.Editor.ScintillaEditForm.SetEncodingUTF8">
+            <summary>
+            Set the document encoding to UTF-8.
+            </summary>
+            <returns>True on success.</returns>
+        </member>
+        <member name="M:QuickSharp.Editor.ScintillaEditForm.SetEncodingUTF16BE">
+            <summary>
+            Set the document encoding to UTF-16BE.
+            </summary>
+            <returns>True on success.</returns>
+        </member>
+        <member name="M:QuickSharp.Editor.ScintillaEditForm.SetEncodingUTF16LE">
+            <summary>
+            Set the document encoding to UTF-16LE.
+            </summary>
+            <returns>True on success.</returns>
+        </member>
+        <member name="M:QuickSharp.Editor.ScintillaEditForm.SetLineEndingCRLF">
+            <summary>
+            Set the document line ending to Windows CRLF.
+            </summary>
+            <returns>True on success.</returns>
+        </member>
+        <member name="M:QuickSharp.Editor.ScintillaEditForm.SetLineEndingLF">
+            <summary>
+            Set the document line ending to Unix LF.
+            </summary>
+            <returns>True on success.</returns>
+        </member>
+        <member name="M:QuickSharp.Editor.ScintillaEditForm.SetLineEndingCR">
+            <summary>
+            Set the document line ending to Mac CR.
+            </summary>
+            <returns>True on success.</returns>
+        </member>
+        <member name="M:QuickSharp.Editor.ScintillaEditForm.BookMarkToggle">
+            <summary>
+            Toggle the current line bookmark.
+            </summary>
+            <returns>Always returns true.</returns>
+        </member>
+        <member name="M:QuickSharp.Editor.ScintillaEditForm.BookMarkClear">
+            <summary>
+            Clear all bookmarks.
+            </summary>
+            <returns>Always returns true.</returns>
+        </member>
+        <member name="M:QuickSharp.Editor.ScintillaEditForm.BookmarkNext">
+            <summary>
+            Move to the next bookmark.
+            </summary>
+            <returns>Always returns true.</returns>
+        </member>
+        <member name="M:QuickSharp.Editor.ScintillaEditForm.BookmarkPrevious">
+            <summary>
+            Move to the previous bookmark.
+            </summary>
+            <returns>Always returns true.</returns>
+        </member>
+        <member name="M:QuickSharp.Editor.ScintillaEditForm.FoldToggle">
+            <summary>
+            Toggle folding on the current line.
+            </summary>
+            <returns>Always returns true.</returns>
+        </member>
+        <member name="M:QuickSharp.Editor.ScintillaEditForm.FoldCollapseAll">
+            <summary>
+            Collapse all folds in the current document.
+            </summary>
+            <returns>Always returns true.</returns>
+        </member>
+        <member name="M:QuickSharp.Editor.ScintillaEditForm.FoldExpandAll">
+            <summary>
+            Expand all folds in the current document.
+            </summary>
+            <returns>Always returns true.</returns>
+        </member>
+        <member name="M:QuickSharp.Editor.ScintillaEditForm.SaveDocument">
+            <summary>
+            Save the document: saving proceeds directly if the file has a file path or
+            via a Save As dialog if not. Save requests for unmodified files that exist on
+            disk are ignored.
+            </summary>
+            <returns>True on success.</returns>
+        </member>
+        <member name="M:QuickSharp.Editor.ScintillaEditForm.SaveDocumentAs">
+            <summary>
+            Request a filename and save the document with that name.
+            </summary>
+            <returns>True on success.True on success.</returns>
+        </member>
+        <member name="M:QuickSharp.Editor.ScintillaEditForm.SaveFile(System.String)">
+            <summary>
+            Write the document to the path specified.
+            </summary>
+            <param name="path">The path to save to.</param>
+            <returns>True on success.</returns>
+        </member>
+        <member name="M:QuickSharp.Editor.ScintillaEditForm.SetFileEncoding(System.Text.Encoding)">
+            <summary>
+            Set the current document encoding.
+            </summary>
+            <param name="encoding">A file encoding.</param>
+            <returns>Always returns true.</returns>
+        </member>
+        <member name="M:QuickSharp.Editor.ScintillaEditForm.SetLineEnding(ScintillaNet.EndOfLineMode)">
+            <summary>
+            Set the document line-ending style.
+            </summary>
+            <param name="ending">A line-ending style.</param>
+            <returns>Always returns true.</returns>
+        </member>
+        <member name="M:QuickSharp.Editor.ScintillaEditForm.InsertSnippet(System.String)">
+            <summary>
+            Insert a text snippet into the current document. Text is inserted at the
+            current position or in place of the current selection.
+            </summary>
+            <param name="snippet">The text to insert.</param>
+        </member>
+        <member name="M:QuickSharp.Editor.ScintillaEditForm.UpdateTab">
+            <summary>
+            Update the editor display tab.
+            </summary>
+        </member>
+        <member name="M:QuickSharp.Editor.ScintillaEditForm.UpdateCursorPosition">
+            <summary>
+            Update the editing details in the status bar.
+            </summary>
+        </member>
+        <member name="M:QuickSharp.Editor.ScintillaEditForm.LoadSettings(QuickSharp.Core.DocumentType)">
+            <summary>
+            Load editor settings from a configuration file.
+            </summary>
+            <param name="documentType">The document type of the file being edited.</param>
+        </member>
+        <member name="P:QuickSharp.Editor.ScintillaEditForm.Editor">
+            <summary>
+            A reference to the Scintilla editor.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Editor.ScintillaEditForm.Lines">
+            <summary>
+            The lines of text being edited.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Editor.ScintillaEditForm.FileName">
+            <summary>
+            The name of the file being edited.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Editor.ScintillaEditForm.FilePath">
+            <summary>
+            The path of the file being edited.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Editor.ScintillaEditForm.FileEncoding">
+            <summary>
+            The encoding of the file being edited.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Editor.ScintillaEditForm.FileEncodingName">
+            <summary>
+            The encoding display name of the file being edited.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Editor.ScintillaEditForm.LineEnding">
+            <summary>
+            The line ending style of the file being edited.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Editor.ScintillaEditForm.LineEndingName">
+            <summary>
+            The line ending display name of the file being edited.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Editor.ScintillaEditForm.LineEndingText">
+            <summary>
+            The text used to represent the line endings in the document being edited.
+            </summary>
+        </member>
+        <member name="T:QuickSharp.Editor.MacroEvent">
+            <summary>
+            A recorded macro event.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Editor.MacroEvent.Message">
+            <summary>
+            The recorded message.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Editor.MacroEvent.wParam">
+            <summary>
+            The message's wParam value.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Editor.MacroEvent.lParam">
+            <summary>
+            The message's lParam value.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Editor.MacroEvent.Text">
+            <summary>
+            The text associated with the message.
+            </summary>
+        </member>
+        <member name="T:QuickSharp.Editor.Fonts">
+            <summary>
+            Manage the representation of fonts.
+            </summary>
+        </member>
+        <member name="M:QuickSharp.Editor.Fonts.GetFontList">
+            <summary>
+            Get a list of installed fonts.
+            </summary>
+            <returns>A list of font names.</returns>
+        </member>
+        <member name="M:QuickSharp.Editor.Fonts.FontIsAvailable(System.String)">
+            <summary>
+            Determine if a font is currently installed.
+            </summary>
+            <param name="name">The name of the font.</param>
+            <returns>True if it is installed.</returns>
+        </member>
+        <member name="M:QuickSharp.Editor.Fonts.ValidateFontName(System.String)">
+            <summary>
+            Get a valid font name. Returns the preferred font name if it
+            is installed or the default (see Constants.DEFAULT_FONT_NAME).
+            </summary>
+            <param name="name">The name of the preferred font</param>
+            <returns>The preferred font or the default if not available.</returns>
+        </member>
+        <member name="M:QuickSharp.Editor.Fonts.ValidateFontSize(System.Single)">
+            <summary>
+            Get a valid font size. Returns the preferred font size if within acceptable limits or
+            the default (10).
+            </summary>
+            <param name="size">The preferred font size.</param>
+            <returns>The preferred size if within acceptable limits or the default.</returns>
+        </member>
+        <member name="T:QuickSharp.Editor.DocumentManager">
+            <summary>
+            Maintains the association between registered document
+            types and the corresponding Scintilla lexer. A language represents
+            a specific document type recognised by the Scintilla editor and is mapped on to
+            an internal Scintilla lexer. The language is represented by a configuration file
+            with the same name as the language; each different configuration file maps to
+            a lexer either directly or via an alias. A lexer may be referenced by multiple
+            languages each with their own specific configuration. The lexer determines how
+            the editor interprets the structure if the document, the language determines
+            how the structure is presented (syntax coloring, fold points, etc.).
+            </summary>
+        </member>
+        <member name="M:QuickSharp.Editor.DocumentManager.GetInstance">
+            <summary>
+            Get a reference to the DocumentManager singleton.
+            </summary>
+            <returns>A reference to the DocumentManager.</returns>
+        </member>
+        <member name="M:QuickSharp.Editor.DocumentManager.RegisterLexerAlias(System.String,System.String)">
+            <summary>
+            Register a lexer alias; adds the alias to the LexerAliasMap. Any
+            existing mapping is overridden.
+            </summary>
+            <param name="alias">The lexer alias.</param>
+            <param name="lexer">A Scintilla lexer name.</param>
+        </member>
+        <member name="M:QuickSharp.Editor.DocumentManager.RegisterDocumentLanguage(QuickSharp.Core.DocumentType,System.String)">
+            <summary>
+            Register a document language. A document type is associated with a
+            language represented by a Scintilla lexer (or alias). The language
+            encoding is UTF-8 by default.
+            </summary>
+            <param name="documentType">The document type.</param>
+            <param name="language">A Scintilla language.</param>
+        </member>
+        <member name="M:QuickSharp.Editor.DocumentManager.RegisterDocumentLanguage(System.String,System.String)">
+            <summary>
+            Register a document language. A document type is associated with a
+            language represented by a Scintilla lexer (or alias). The language
+            encoding is UTF-8 by default.
+            </summary>
+            <param name="documentType">The document type.</param>
+            <param name="language">A Scintilla language.</param>
+        </member>
+        <member name="M:QuickSharp.Editor.DocumentManager.RegisterDocumentLanguage(QuickSharp.Core.DocumentType,System.String,System.Text.Encoding)">
+            <summary>
+            Register a document language. A document type is associated with a
+            language represented by a Scintilla lexer (or alias).
+            </summary>
+            <param name="documentType">The document type.</param>
+            <param name="language">A Scintilla language.</param>
+            <param name="encoding">The default encoding for the document type.</param>
+        </member>
+        <member name="M:QuickSharp.Editor.DocumentManager.RegisterDocumentLanguage(System.String,System.String,System.Text.Encoding)">
+            <summary>
+            Register a document language. A document type is associated with a
+            language represented by a Scintilla lexer (or alias).
+            </summary>
+            <param name="documentType">The document type.</param>
+            <param name="language">A Scintilla language.</param>
+            <param name="encoding">The default encoding for the document type.</param>
+        </member>
+        <member name="M:QuickSharp.Editor.DocumentManager.GetDocumentLanguage(QuickSharp.Core.DocumentType)">
+            <summary>
+            Get the language registered for a document type.
+            </summary>
+            <param name="documentType">A document type.</param>
+            <returns>The registered language name or the default if not found.</returns>
+        </member>
+        <member name="M:QuickSharp.Editor.DocumentManager.GetDocumentEncoding(QuickSharp.Core.DocumentType)">
+            <summary>
+            Get the encoding of a registered document type.
+            </summary>
+            <param name="documentType">A document type.</param>
+            <returns>The registered encoding or UTF-8 if not found.</returns>
+        </member>
+        <member name="M:QuickSharp.Editor.DocumentManager.GetNextUntitledFileBasename">
+            <summary>
+            Get the base name for the next untitled document (e.g. 'untitled1').
+            </summary>
+            <returns>The untitled document name.</returns>
+        </member>
+        <member name="M:QuickSharp.Editor.DocumentManager.GetNextUntitledFileName(QuickSharp.Core.DocumentType)">
+            <summary>
+            Get the full file name for the next untitled document (e.g. 'untitled1.txt').
+            </summary>
+            <param name="documentType">The document type of the file.</param>
+            <returns>The untitled document filename.</returns>
+        </member>
+        <member name="M:QuickSharp.Editor.DocumentManager.DetectLineEnding(System.String)">
+            <summary>
+            Determine the line ending type used by a text string.
+            </summary>
+            <param name="text">The text string.</param>
+            <returns>The line ending type (e.g. CRLF).</returns>
+        </member>
+        <member name="P:QuickSharp.Editor.DocumentManager.LexerAliasMap">
+            <summary>
+            A mapping of lexer aliases to actual Scintilla lexer names.
+            </summary>
+        </member>
+        <member name="T:QuickSharp.Editor.SearchFormProxy">
+            <summary>
+            Provides access to the public members of the search form.
+            </summary>
+        </member>
+        <member name="M:QuickSharp.Editor.SearchFormProxy.GetInstance">
+            <summary>
+            Get a reference to the SearchFormProxy singleton.
+            </summary>
+            <returns>A reference to SearchFormProxy.</returns>
+        </member>
+        <member name="T:QuickSharp.Editor.SearchForm">
+            <summary>
+            The editor find/replace form.
+            </summary>
+        </member>
+        <member name="F:QuickSharp.Editor.SearchForm.m_findWhatLabel">
+            <summary>
+            Form control name.
+            </summary>
+        </member>
+        <member name="F:QuickSharp.Editor.SearchForm.m_findTextComboBox">
+            <summary>
+            Form control name.
+            </summary>
+        </member>
+        <member name="F:QuickSharp.Editor.SearchForm.m_replaceWithLabel">
+            <summary>
+            Form control name.
+            </summary>
+        </member>
+        <member name="F:QuickSharp.Editor.SearchForm.m_replaceTextComboBox">
+            <summary>
+            Form control name.
+            </summary>
+        </member>
+        <member name="F:QuickSharp.Editor.SearchForm.m_searchMessageLabel">
+            <summary>
+            Form control name.
+            </summary>
+        </member>
+        <member name="F:QuickSharp.Editor.SearchForm.m_useRegexCheckBox">
+            <summary>
+            Form control name.
+            </summary>
+        </member>
+        <member name="F:QuickSharp.Editor.SearchForm.m_matchCaseCheckBox">
+            <summary>
+            Form control name.
+            </summary>
+        </member>
+        <member name="F:QuickSharp.Editor.SearchForm.m_findButton">
+            <summary>
+            Form control name.
+            </summary>
+        </member>
+        <member name="F:QuickSharp.Editor.SearchForm.m_findAllButton">
+            <summary>
+            Form control name.
+            </summary>
+        </member>
+        <member name="F:QuickSharp.Editor.SearchForm.m_closeButton">
+            <summary>
+            Form control name.
+            </summary>
+        </member>
+        <member name="M:QuickSharp.Editor.SearchForm.#ctor">
+            <summary>
+            Create the form.
+            </summary>
+        </member>
+        <member name="M:QuickSharp.Editor.SearchForm.ShowFind">
+            <summary>
+            Show the form as a find dialog.
+            </summary>
+        </member>
+        <member name="M:QuickSharp.Editor.SearchForm.ShowReplace">
+            <summary>
+            Show the form as a replace dialog.
+            </summary>
+        </member>
+        <member name="T:QuickSharp.Editor.Resources">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Editor.Resources.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Editor.Resources.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Editor.Resources.FileChangedMessage">
+            <summary>
+              Looks up a localized string similar to The file has been modified outside of the editor..
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Editor.Resources.FileChangedOverwriteMessage">
+            <summary>
+              Looks up a localized string similar to Do you want to overwrite the newer version?.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Editor.Resources.FileChangedReloadMessage">
+            <summary>
+              Looks up a localized string similar to Do you want to reload it?.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Editor.Resources.FileChangedTitle">
+            <summary>
+              Looks up a localized string similar to File Modified.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Editor.Resources.FileFutureDateMessage1">
+            <summary>
+              Looks up a localized string similar to The file has a timestamp from the future.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Editor.Resources.FileFutureDateMessage2">
+            <summary>
+              Looks up a localized string similar to overwrite the file to prevent repeated modification warnings..
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Editor.Resources.FileFutureDateTitle">
+            <summary>
+              Looks up a localized string similar to Temporal Anomaly.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Editor.Resources.FindDialogButtonClose">
+            <summary>
+              Looks up a localized string similar to Close.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Editor.Resources.FindDialogButtonFind">
+            <summary>
+              Looks up a localized string similar to Find Next.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Editor.Resources.FindDialogButtonFindAllFind">
+            <summary>
+              Looks up a localized string similar to Find All.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Editor.Resources.FindDialogButtonFindAllReplace">
+            <summary>
+              Looks up a localized string similar to Replace All.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Editor.Resources.FindDialogButtonReplace">
+            <summary>
+              Looks up a localized string similar to Replace Next.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Editor.Resources.FindDialogExceptionMessage">
+            <summary>
+              Looks up a localized string similar to The search operation failed.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Editor.Resources.FindDialogFindWhat">
+            <summary>
+              Looks up a localized string similar to &amp;Find what:.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Editor.Resources.FindDialogMatchCase">
+            <summary>
+              Looks up a localized string similar to &amp;Match case.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Editor.Resources.FindDialogMessageCantSearch">
+            <summary>
+              Looks up a localized string similar to The current document cannot be searched..
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Editor.Resources.FindDialogMessageFoundMulti">
+            <summary>
+              Looks up a localized string similar to Found the search term on {0} lines..
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Editor.Resources.FindDialogMessageFoundSingle">
+            <summary>
+              Looks up a localized string similar to Found the search term on {0} line..
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Editor.Resources.FindDialogMessageNotFound">
+            <summary>
+              Looks up a localized string similar to The search term could not be found..
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Editor.Resources.FindDialogMessageReplacedAllMulti">
+            <summary>
+              Looks up a localized string similar to Replaced the search term on {0} lines..
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Editor.Resources.FindDialogMessageReplacedAllSingle">
+            <summary>
+              Looks up a localized string similar to Replaced the search term on {0} line..
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Editor.Resources.FindDialogReplaceWith">
+            <summary>
+              Looks up a localized string similar to &amp;Replace with:.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Editor.Resources.FindDialogTitleFind">
+            <summary>
+              Looks up a localized string similar to Find.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Editor.Resources.FindDialogTitleReplace">
+            <summary>
+              Looks up a localized string similar to Replace.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Editor.Resources.FindDialogUseRegularExpression">
+            <summary>
+              Looks up a localized string similar to &amp;Use regular expression.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Editor.Resources.MacroBufferEmpty">
+            <summary>
+              Looks up a localized string similar to Macro buffer is empty..
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Editor.Resources.MacroDocumentsFilter">
+            <summary>
+              Looks up a localized string similar to Macros (*.macro)|*.macro|All Files (*.*)|*.*.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Editor.Resources.MacroFileExtension">
+            <summary>
+              Looks up a localized string similar to .macro.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Editor.Resources.MacroLoadError">
+            <summary>
+              Looks up a localized string similar to Unable to load macro: {0}.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Editor.Resources.MacroLoadOK">
+            <summary>
+              Looks up a localized string similar to Macro loaded..
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Editor.Resources.MacroLoadTitle">
+            <summary>
+              Looks up a localized string similar to Load Macro.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Editor.Resources.MacroRecordCancelled">
+            <summary>
+              Looks up a localized string similar to Macro recording cancelled..
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Editor.Resources.MacroRecordEnd">
+            <summary>
+              Looks up a localized string similar to Macro recorded..
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Editor.Resources.MacroRecordStart">
+            <summary>
+              Looks up a localized string similar to Recording macro....
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Editor.Resources.MacroSaveError">
+            <summary>
+              Looks up a localized string similar to Unable to save macro: {0}.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Editor.Resources.MacroSaveOK">
+            <summary>
+              Looks up a localized string similar to Macro saved..
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Editor.Resources.MacroSaveTitle">
+            <summary>
+              Looks up a localized string similar to Save Macro.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Editor.Resources.MainEditMenu">
+            <summary>
+              Looks up a localized string similar to &amp;Edit.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Editor.Resources.MainEditMenuAdvanced">
+            <summary>
+              Looks up a localized string similar to Ad&amp;vanced.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Editor.Resources.MainEditMenuBlockComment">
+            <summary>
+              Looks up a localized string similar to &amp;Block Comment.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Editor.Resources.MainEditMenuBookmarks">
+            <summary>
+              Looks up a localized string similar to &amp;Bookmarks.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Editor.Resources.MainEditMenuClearBookmarks">
+            <summary>
+              Looks up a localized string similar to &amp;Clear All Bookmarks.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Editor.Resources.MainEditMenuCollapseAll">
+            <summary>
+              Looks up a localized string similar to &amp;Collapse All.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Editor.Resources.MainEditMenuCopy">
+            <summary>
+              Looks up a localized string similar to &amp;Copy.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Editor.Resources.MainEditMenuCut">
+            <summary>
+              Looks up a localized string similar to Cu&amp;t.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Editor.Resources.MainEditMenuEncoding">
+            <summary>
+              Looks up a localized string similar to File Enc&amp;oding.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Editor.Resources.MainEditMenuEncodingANSI">
+            <summary>
+              Looks up a localized string similar to &amp;ANSI.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Editor.Resources.MainEditMenuEncodingUTF16BE">
+            <summary>
+              Looks up a localized string similar to UTF-16 &amp;Big Endian.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Editor.Resources.MainEditMenuEncodingUTF16LE">
+            <summary>
+              Looks up a localized string similar to UTF-16 &amp;Little Endian.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Editor.Resources.MainEditMenuEncodingUTF8">
+            <summary>
+              Looks up a localized string similar to &amp;UTF-8.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Editor.Resources.MainEditMenuExpandAll">
+            <summary>
+              Looks up a localized string similar to &amp;Expand All.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Editor.Resources.MainEditMenuFind">
+            <summary>
+              Looks up a localized string similar to &amp;Find....
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Editor.Resources.MainEditMenuFolding">
+            <summary>
+              Looks up a localized string similar to Fo&amp;lding.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Editor.Resources.MainEditMenuGoTo">
+            <summary>
+              Looks up a localized string similar to &amp;Go to Line....
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Editor.Resources.MainEditMenuLineComment">
+            <summary>
+              Looks up a localized string similar to Line &amp;Comment.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Editor.Resources.MainEditMenuLineEnding">
+            <summary>
+              Looks up a localized string similar to Line Ending St&amp;yle.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Editor.Resources.MainEditMenuLineEndingCR">
+            <summary>
+              Looks up a localized string similar to &amp;Macintosh (CR).
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Editor.Resources.MainEditMenuLineEndingCRLF">
+            <summary>
+              Looks up a localized string similar to &amp;Windows (CR LF).
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Editor.Resources.MainEditMenuLineEndingLF">
+            <summary>
+              Looks up a localized string similar to &amp;Unix (LF).
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Editor.Resources.MainEditMenuMacroLoad">
+            <summary>
+              Looks up a localized string similar to &amp;Load Macro....
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Editor.Resources.MainEditMenuMacroPlay">
+            <summary>
+              Looks up a localized string similar to &amp;Play Macro.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Editor.Resources.MainEditMenuMacros">
+            <summary>
+              Looks up a localized string similar to &amp;Macros.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Editor.Resources.MainEditMenuMacroSave">
+            <summary>
+              Looks up a localized string similar to &amp;Save Macro....
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Editor.Resources.MainEditMenuMacroStartRecord">
+            <summary>
+              Looks up a localized string similar to &amp;Record Macro.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Editor.Resources.MainEditMenuMacroStopRecord">
+            <summary>
+              Looks up a localized string similar to &amp;Stop Recording.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Editor.Resources.MainEditMenuMakeLowercase">
+            <summary>
+              Looks up a localized string similar to Make &amp;Lowercase.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Editor.Resources.MainEditMenuMakeUppercase">
+            <summary>
+              Looks up a localized string similar to Make &amp;Uppercase.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Editor.Resources.MainEditMenuManageSnippets">
+            <summary>
+              Looks up a localized string similar to &amp;Manage Snippets....
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Editor.Resources.MainEditMenuNextBookmark">
+            <summary>
+              Looks up a localized string similar to &amp;Next Bookmark.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Editor.Resources.MainEditMenuPaste">
+            <summary>
+              Looks up a localized string similar to &amp;Paste.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Editor.Resources.MainEditMenuPreviousBookmark">
+            <summary>
+              Looks up a localized string similar to &amp;Previous Bookmark.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Editor.Resources.MainEditMenuRedo">
+            <summary>
+              Looks up a localized string similar to &amp;Redo.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Editor.Resources.MainEditMenuReplace">
+            <summary>
+              Looks up a localized string similar to R&amp;eplace....
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Editor.Resources.MainEditMenuSelectAll">
+            <summary>
+              Looks up a localized string similar to Select &amp;All.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Editor.Resources.MainEditMenuSetReadOnly">
+            <summary>
+              Looks up a localized string similar to Set &amp;Read Only.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Editor.Resources.MainEditMenuSnippets">
+            <summary>
+              Looks up a localized string similar to &amp;Snippets.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Editor.Resources.MainEditMenuToggleBookmark">
+            <summary>
+              Looks up a localized string similar to &amp;Toggle Bookmark.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Editor.Resources.MainEditMenuToggleFold">
+            <summary>
+              Looks up a localized string similar to &amp;Toggle Fold.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Editor.Resources.MainEditMenuTrimWhitespace">
+            <summary>
+              Looks up a localized string similar to &amp;Trim Trailing White Space.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Editor.Resources.MainEditMenuUndo">
+            <summary>
+              Looks up a localized string similar to &amp;Undo.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Editor.Resources.MainEditMenuViewWhitespace">
+            <summary>
+              Looks up a localized string similar to Show &amp;White Space.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Editor.Resources.MainEditMenuWordWrap">
+            <summary>
+              Looks up a localized string similar to W&amp;ord Wrap.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Editor.Resources.MainFileMenuPageSetup">
+            <summary>
+              Looks up a localized string similar to Page Set&amp;up....
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Editor.Resources.MainFileMenuPrint">
+            <summary>
+              Looks up a localized string similar to &amp;Print.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Editor.Resources.MainFileMenuPrintPreview">
+            <summary>
+              Looks up a localized string similar to P&amp;rint Preview.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Editor.Resources.ManageSnippetsErrorDialogText">
+            <summary>
+              Looks up a localized string similar to Unable to open snippets folder.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Editor.Resources.ManageSnippetsErrorDialogTitle">
+            <summary>
+              Looks up a localized string similar to Manage Snippets.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Editor.Resources.OptionsArrows">
+            <summary>
+              Looks up a localized string similar to Arrows.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Editor.Resources.OptionsBackspaceUnindents">
+            <summary>
+              Looks up a localized string similar to Bac&amp;kspace unindents.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Editor.Resources.OptionsBoxPlusMinus">
+            <summary>
+              Looks up a localized string similar to Box plus minus.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Editor.Resources.OptionsCirclePlusMinus">
+            <summary>
+              Looks up a localized string similar to Circle plus minus.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Editor.Resources.OptionsColorModeBlackOnWhite">
+            <summary>
+              Looks up a localized string similar to Black on white.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Editor.Resources.OptionsColorModeColorOnWhite">
+            <summary>
+              Looks up a localized string similar to Color on white.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Editor.Resources.OptionsColorModeNormal">
+            <summary>
+              Looks up a localized string similar to Normal.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Editor.Resources.OptionsEditorSettings">
+            <summary>
+              Looks up a localized string similar to Editor settings.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Editor.Resources.OptionsFoldMarkerStyle">
+            <summary>
+              Looks up a localized string similar to Fold &amp;marker style:.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Editor.Resources.OptionsFoldStyle">
+            <summary>
+              Looks up a localized string similar to Fold &amp;style:.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Editor.Resources.OptionsFontName">
+            <summary>
+              Looks up a localized string similar to &amp;Font:.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Editor.Resources.OptionsGlobalSettings">
+            <summary>
+              Looks up a localized string similar to Global settings.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Editor.Resources.OptionsGroupText">
+            <summary>
+              Looks up a localized string similar to Text Editor.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Editor.Resources.OptionsHideBOM">
+            <summary>
+              Looks up a localized string similar to &amp;Hide file BOM.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Editor.Resources.OptionsLineAfterContracted">
+            <summary>
+              Looks up a localized string similar to Line after contracted.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Editor.Resources.OptionsLineBeforeContracted">
+            <summary>
+              Looks up a localized string similar to Line before contracted.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Editor.Resources.OptionsLnMarginSize">
+            <summary>
+              Looks up a localized string similar to &amp;Line number margin size:.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Editor.Resources.OptionsMatchBraces">
+            <summary>
+              Looks up a localized string similar to Match &amp;braces.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Editor.Resources.OptionsNone">
+            <summary>
+              Looks up a localized string similar to None.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Editor.Resources.OptionsOverrideConfigFiles">
+            <summary>
+              Looks up a localized string similar to &amp;Allow these settings to override configuration files.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Editor.Resources.OptionsPageTextEditor">
+            <summary>
+              Looks up a localized string similar to Editor Settings.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Editor.Resources.OptionsPageTextGlobal">
+            <summary>
+              Looks up a localized string similar to Global Settings.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Editor.Resources.OptionsPlusMinus">
+            <summary>
+              Looks up a localized string similar to Plus minus.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Editor.Resources.OptionsPrintingColorMode">
+            <summary>
+              Looks up a localized string similar to &amp;Printing:.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Editor.Resources.OptionsShowFolding">
+            <summary>
+              Looks up a localized string similar to Show fol&amp;ding.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Editor.Resources.OptionsShowIndentationGuides">
+            <summary>
+              Looks up a localized string similar to Show indentation &amp;guides.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Editor.Resources.OptionsTabSize">
+            <summary>
+              Looks up a localized string similar to &amp;Tab size:.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Editor.Resources.OptionsUseTabs">
+            <summary>
+              Looks up a localized string similar to &amp;Use tabs.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Editor.Resources.OptionsWordWrap">
+            <summary>
+              Looks up a localized string similar to &amp;Word wrap.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Editor.Resources.PrintErrorTitle">
+            <summary>
+              Looks up a localized string similar to Printing.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Editor.Resources.ReadWriteMessage">
+            <summary>
+              Looks up a localized string similar to There is an editable version of this file already available..
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Editor.Resources.ReadWriteTitle">
+            <summary>
+              Looks up a localized string similar to Set Read Only.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Editor.Resources.SaveChangesMessage">
+            <summary>
+              Looks up a localized string similar to {0} has changed. Save the changes?.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Editor.Resources.SaveChangesTitle">
+            <summary>
+              Looks up a localized string similar to Close.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Editor.Resources.SaveErrorMessage">
+            <summary>
+              Looks up a localized string similar to Unable to save:.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Editor.Resources.SaveErrorTitle">
+            <summary>
+              Looks up a localized string similar to Save.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Editor.Resources.TabReadOnly">
+            <summary>
+              Looks up a localized string similar to Read Only.
+            </summary>
+        </member>
+        <member name="T:QuickSharp.Editor.GlobalOptionsPage">
+            <summary>
+            The global settings option page.
+            </summary>
+        </member>
+        <member name="F:QuickSharp.Editor.GlobalOptionsPage.m_globalGroupBox">
+            <summary>
+            Form control name.
+            </summary>
+        </member>
+        <member name="F:QuickSharp.Editor.GlobalOptionsPage.m_matchBracesCheckbox">
+            <summary>
+            Form control name.
+            </summary>
+        </member>
+        <member name="F:QuickSharp.Editor.GlobalOptionsPage.m_wordWrapCheckBox">
+            <summary>
+            Form control name.
+            </summary>
+        </member>
+        <member name="F:QuickSharp.Editor.GlobalOptionsPage.m_colorModeLabel">
+            <summary>
+            Form control name.
+            </summary>
+        </member>
+        <member name="F:QuickSharp.Editor.GlobalOptionsPage.m_colorModeComboBox">
+            <summary>
+            Form control name.
+            </summary>
+        </member>
+        <member name="M:QuickSharp.Editor.GlobalOptionsPage.#ctor">
+            <summary>
+            Create the options page.
+            </summary>
+        </member>
+        <member name="M:QuickSharp.Editor.GlobalOptionsPage.Save">
+            <summary>
+            Save the settings to the session persistence store (e.g. the registry).
+            </summary>
+        </member>
+        <member name="T:QuickSharp.Editor.Module">
+            <summary>
+            The editor plugin module.
+            </summary>
+        </member>
+        <member name="M:QuickSharp.Editor.Module.GetID">
+            <summary>
+            Get the ID of the plugin.
+            </summary>
+            <returns>The plugin ID.</returns>
+        </member>
+        <member name="M:QuickSharp.Editor.Module.GetName">
+            <summary>
+            Get the name of the plugin.
+            </summary>
+            <returns>The plugin name.</returns>
+        </member>
+        <member name="M:QuickSharp.Editor.Module.GetVersion">
+            <summary>
+            Get the version of the plugin.
+            </summary>
+            <returns>The plugin version.</returns>
+        </member>
+        <member name="M:QuickSharp.Editor.Module.GetDescription">
+            <summary>
+            Get a description of the plugin.
+            </summary>
+            <returns>The plugin description.</returns>
+        </member>
+        <member name="M:QuickSharp.Editor.Module.GetDependencies">
+            <summary>
+            Get the plugin's dependencies. This provides a list of the
+            plugins required by the current plugin.
+            </summary>
+            <returns>The plugin dependencies,</returns>
+        </member>
+        <member name="M:QuickSharp.Editor.Module.Activate(QuickSharp.Core.MainForm)">
+            <summary>
+            The plugin entry point. This is called by the PluginManager to
+            activate the plugin.
+            </summary>
+            <param name="mainForm">The application main form.</param>
+        </member>
+        <member name="T:QuickSharp.Editor.Constants">
+            <summary>
+            Access the constants used in the plugin.
+            </summary>
+        </member>
+        <member name="T:QuickSharp.Editor.SearchManager">
+            <summary>
+            Manages editor find and replace.
+            </summary>
+        </member>
+        <member name="M:QuickSharp.Editor.SearchManager.GetInstance">
+            <summary>
+            Get a reference to the SearchManager singleton.
+            </summary>
+            <returns>A reference to the SearchManager.</returns>
+        </member>
+        <member name="M:QuickSharp.Editor.SearchManager.ShowSearchForm(System.Boolean)">
+            <summary>
+            Show the find/replace form.
+            </summary>
+            <param name="isReplace">Show replace if true.</param>
+        </member>
+        <member name="M:QuickSharp.Editor.SearchManager.HideSearchForm">
+            <summary>
+            Hide the find/replace form.
+            </summary>
+        </member>
+        <member name="T:QuickSharp.Editor.MacroManager">
+            <summary>
+            Manages keystroke macros.
+            </summary>
+        </member>
+        <member name="M:QuickSharp.Editor.MacroManager.GetInstance">
+            <summary>
+            Get a reference to the MacroManager singleton.
+            </summary>
+            <returns>A reference to the MacroManager.</returns>
+        </member>
+        <member name="M:QuickSharp.Editor.MacroManager.StartRecording(ScintillaNet.Scintilla)">
+            <summary>
+            Start recording keystrokes.
+            </summary>
+            <param name="recordingEditor">The editor from which keystrokes should be recorded.</param>
+        </member>
+        <member name="M:QuickSharp.Editor.MacroManager.StopRecording">
+            <summary>
+            Stop recording keystokes.
+            </summary>
+        </member>
+        <member name="M:QuickSharp.Editor.MacroManager.RecordEvent(ScintillaNet.MacroRecordEventArgs)">
+            <summary>
+            capture a recordable keystroke event in the macro buffer.
+            </summary>
+            <param name="e"></param>
+        </member>
+        <member name="M:QuickSharp.Editor.MacroManager.PlayMacro(ScintillaNet.Scintilla)">
+            <summary>
+            Play back the macro in the buffer.
+            </summary>
+            <param name="playbackEditor">The editor to which keystrokes are to be played back.</param>
+        </member>
+        <member name="M:QuickSharp.Editor.MacroManager.ClearMacro">
+            <summary>
+             Clear the contents of the macro buffer.
+            </summary>
+        </member>
+        <member name="M:QuickSharp.Editor.MacroManager.SaveMacro(System.String)">
+            <summary>
+            Save the current macro to a file.
+            </summary>
+            <param name="path">The path of the file.</param>
+        </member>
+        <member name="M:QuickSharp.Editor.MacroManager.LoadMacro(System.String)">
+            <summary>
+            Load the macro buffer from a file.
+            </summary>
+            <param name="path">The path of the file.</param>
+        </member>
+        <member name="P:QuickSharp.Editor.MacroManager.IsRecording">
+            <summary>
+            True if keystrokes are being recorded.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Editor.MacroManager.HaveMacro">
+            <summary>
+            True if the macro buffer contains recorded keystrokes.
+            </summary>
+        </member>
+        <member name="T:QuickSharp.Editor.EditorOptionsPage">
+            <summary>
+            The editor settings option page.
+            </summary>
+        </member>
+        <member name="F:QuickSharp.Editor.EditorOptionsPage.m_editorGroupBox">
+            <summary>
+            Form control name.
+            </summary>
+        </member>
+        <member name="F:QuickSharp.Editor.EditorOptionsPage.m_useTabsCheckbox">
+            <summary>
+            Form control name.
+            </summary>
+        </member>
+        <member name="F:QuickSharp.Editor.EditorOptionsPage.m_tabSizeLabel">
+            <summary>
+            Form control name.
+            </summary>
+        </member>
+        <member name="F:QuickSharp.Editor.EditorOptionsPage.m_tabSizeSelector">
+            <summary>
+            Form control name.
+            </summary>
+        </member>
+        <member name="F:QuickSharp.Editor.EditorOptionsPage.m_backspaceUnindentsCheckBox">
+            <summary>
+            Form control name.
+            </summary>
+        </member>
+        <member name="F:QuickSharp.Editor.EditorOptionsPage.m_lnMarginSizeLabel">
+            <summary>
+            Form control name.
+            </summary>
+        </member>
+        <member name="F:QuickSharp.Editor.EditorOptionsPage.m_lnMarginSizeSelector">
+            <summary>
+            Form control name.
+            </summary>
+        </member>
+        <member name="F:QuickSharp.Editor.EditorOptionsPage.m_showGuidesCheckBox">
+            <summary>
+            Form control name.
+            </summary>
+        </member>
+        <member name="F:QuickSharp.Editor.EditorOptionsPage.m_showFoldingCheckbox">
+            <summary>
+            Form control name.
+            </summary>
+        </member>
+        <member name="F:QuickSharp.Editor.EditorOptionsPage.m_foldStyleLabel">
+            <summary>
+            Form control name.
+            </summary>
+        </member>
+        <member name="F:QuickSharp.Editor.EditorOptionsPage.m_foldStyleCombo">
+            <summary>
+            Form control name.
+            </summary>
+        </member>
+        <member name="F:QuickSharp.Editor.EditorOptionsPage.m_foldMarkerStyleLabel">
+            <summary>
+            Form control name.
+            </summary>
+        </member>
+        <member name="F:QuickSharp.Editor.EditorOptionsPage.m_foldMarkerStyleCombo">
+            <summary>
+            Form control name.
+            </summary>
+        </member>
+        <member name="F:QuickSharp.Editor.EditorOptionsPage.m_fontNameLabel">
+            <summary>
+            Form control name.
+            </summary>
+        </member>
+        <member name="F:QuickSharp.Editor.EditorOptionsPage.m_fontNameCombo">
+            <summary>
+            Form control name.
+            </summary>
+        </member>
+        <member name="F:QuickSharp.Editor.EditorOptionsPage.m_fontSizeSelector">
+            <summary>
+            Form control name.
+            </summary>
+        </member>
+        <member name="F:QuickSharp.Editor.EditorOptionsPage.m_overrideConfigFilesCheckbox">
+            <summary>
+            Form control name.
+            </summary>
+        </member>
+        <member name="M:QuickSharp.Editor.EditorOptionsPage.#ctor">
+            <summary>
+            Create the editor options page.
+            </summary>
+        </member>
+        <member name="M:QuickSharp.Editor.EditorOptionsPage.Save">
+            <summary>
+            Save the settings to the session persistence store (e.g. the registry).
+            </summary>
+        </member>
+        <member name="T:QuickSharp.Editor.SettingsManager">
+            <summary>
+            Manage user-defined editor settings.
+            </summary>
+        </member>
+        <member name="M:QuickSharp.Editor.SettingsManager.GetInstance">
+            <summary>
+            Get a reference to the SettingsManager singleton.
+            </summary>
+            <returns>A reference to the SettingsManager.</returns>
+        </member>
+        <member name="M:QuickSharp.Editor.SettingsManager.Update">
+            <summary>
+            Retrieve the settings from the session persistence store (e.g. the registry).
+            </summary>
+        </member>
+        <member name="M:QuickSharp.Editor.SettingsManager.SaveEditorSettings">
+            <summary>
+            Save the editor settings to the session persistence store.
+            </summary>
+        </member>
+        <member name="M:QuickSharp.Editor.SettingsManager.SaveGlobalSettings">
+            <summary>
+            Save the global settings to the session persistence store.
+            </summary>
+        </member>
+        <member name="M:QuickSharp.Editor.SettingsManager.GetPrintingColorModeCode(ScintillaNet.PrintColorMode)">
+            <summary>
+            Translate PrintColorMode to int.
+            </summary>
+            <param name="mode">A PrintColorMode value.</param>
+            <returns>The value as an int (0, 1 or 2).</returns>
+        </member>
+        <member name="M:QuickSharp.Editor.SettingsManager.GetPrintingColorMode(System.Int32)">
+            <summary>
+            Translate an int to the corresponding PrintColorMode value.
+            </summary>
+            <param name="code">An int (0, 1 or 2).</param>
+            <returns>A PrintColorMode value.</returns>
+        </member>
+        <member name="P:QuickSharp.Editor.SettingsManager.OverrideConfigFiles">
+            <summary>
+            If true allow settings to override editor configuration files.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Editor.SettingsManager.TabSize">
+            <summary>
+            The tab size (in spaces).
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Editor.SettingsManager.UseTabs">
+            <summary>
+            If true use tabs instead of spaces.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Editor.SettingsManager.BackspaceUnindents">
+            <summary>
+            If true the backspace key can unindent.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Editor.SettingsManager.LineNumberMarginSize">
+            <summary>
+            The size of the line number margin.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Editor.SettingsManager.ShowIndentationGuides">
+            <summary>
+            If true show indentation guides.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Editor.SettingsManager.ShowFolding">
+            <summary>
+            If true show folding.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Editor.SettingsManager.FoldStyle">
+            <summary>
+            The style used to indicate folded sections.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Editor.SettingsManager.FoldMarkerStyle">
+            <summary>
+            The style of fold margin indicators.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Editor.SettingsManager.FontName">
+            <summary>
+            The name of the base font.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Editor.SettingsManager.FontSize">
+            <summary>
+            The size of the base font.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Editor.SettingsManager.MatchBraces">
+            <summary>
+            If true brace matching should be displayed.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Editor.SettingsManager.WordWrap">
+            <summary>
+            If true wrap long lines.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Editor.SettingsManager.PrintingColorMode">
+            <summary>
+            Color mode used from printing
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Editor.SettingsManager.Flags">
+            <summary>
+            Folded section marker styles.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Editor.SettingsManager.MarkerScheme">
+            <summary>
+            Fold margin marker styles.
+            </summary>
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,420 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>QuickSharp.Output</name>
+    </assembly>
+    <members>
+        <member name="T:QuickSharp.Output.Resources">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Output.Resources.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Output.Resources.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Output.Resources.MainViewMenuOutput">
+            <summary>
+              Looks up a localized string similar to &amp;Output.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Output.Resources.OutputWindowTitle">
+            <summary>
+              Looks up a localized string similar to Output.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Output.Resources.RegexGroupMissing">
+            <summary>
+              Looks up a localized string similar to Regular expression group missing.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Output.Resources.RunProcessErrorMessage">
+            <summary>
+              Looks up a localized string similar to Unable to run process:.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Output.Resources.RunProcessErrorTitle">
+            <summary>
+              Looks up a localized string similar to Run.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Output.Resources.RunProcessReturn">
+            <summary>
+              Looks up a localized string similar to Process returned.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Output.Resources.RunProgramCaption">
+            <summary>
+              Looks up a localized string similar to Running.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Output.Resources.ToolbarClearView">
+            <summary>
+              Looks up a localized string similar to Clear output.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Output.Resources.ToolbarViewAsList">
+            <summary>
+              Looks up a localized string similar to View as list.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Output.Resources.ToolbarViewAsText">
+            <summary>
+              Looks up a localized string similar to View as text.
+            </summary>
+        </member>
+        <member name="T:QuickSharp.Output.IOutputLineParser">
+            <summary>
+            Output line parsers are used to filter the information required
+            from the output of external tools such as compilers and interpreters.
+            </summary>
+        </member>
+        <member name="M:QuickSharp.Output.IOutputLineParser.Parse(System.String)">
+            <summary>
+            Parse the line provided to obtain information from the output
+            of an external tool.
+            </summary>
+            <param name="line">A line of output text from the tool.</param>
+            <returns>Information extracted from the line as a ParsedLine object.</returns>
+        </member>
+        <member name="T:QuickSharp.Output.OutputLineParser">
+            <summary>
+            A generic output line parser based on a regular expression. Allows basic error checking
+            parsers to be provided without having to create a custom class.
+            </summary>
+        </member>
+        <member name="M:QuickSharp.Output.OutputLineParser.#ctor(System.String)">
+            <summary>
+            Create an OutputLineParser object.
+            </summary>
+            <param name="pattern">The regular expression used to parse the output line.
+            Must include capturing groups named 'path' and 'line'.</param>
+        </member>
+        <member name="M:QuickSharp.Output.OutputLineParser.Parse(System.String)">
+            <summary>
+            Parse the output text using the regular expression provided. All
+            lines matching the expression will be reported as errors.
+            </summary>
+            <param name="text">The text to be parsed.</param>
+            <returns>A ParsedLine object containing the error information.</returns>
+        </member>
+        <member name="T:QuickSharp.Output.OutputForm">
+            <summary>
+            The output window form.
+            </summary>
+        </member>
+        <member name="M:QuickSharp.Output.OutputForm.#ctor(System.String)">
+            <summary>
+            Create the output window form.
+            </summary>
+            <param name="formKey">The GUID key used to identify the form internally.</param>
+        </member>
+        <member name="M:QuickSharp.Output.OutputForm.SetFormDefaultState">
+            <summary>
+            Set the form's initial state when there is no saved configuration
+            to be restored from the previous session.
+            </summary>
+        </member>
+        <member name="M:QuickSharp.Output.OutputForm.DisableOutputViews">
+            <summary>
+            Disable the output views.
+            </summary>
+        </member>
+        <member name="M:QuickSharp.Output.OutputForm.SelectListView">
+            <summary>
+            Make the list view the active view.
+            </summary>
+        </member>
+        <member name="M:QuickSharp.Output.OutputForm.SelectTextView">
+            <summary>
+            Make the text view the active view.
+            </summary>
+        </member>
+        <member name="M:QuickSharp.Output.OutputForm.RunProcessExternal(QuickSharp.Output.RunProcessContext)">
+            <summary>
+            Run a new process in a separate window.
+            </summary>
+            <param name="context">The process context information.</param>
+            <returns>True if the process exits without error.</returns>
+        </member>
+        <member name="M:QuickSharp.Output.OutputForm.RunProcessInternal(QuickSharp.Output.RunProcessContext)">
+            <summary>
+            Run the process and present the standard and error output
+            streams in the output window views.
+            </summary>
+            <param name="context">The process context information.</param>
+            <returns>True if the process exits without error.</returns>
+        </member>
+        <member name="M:QuickSharp.Output.OutputForm.RunProgram(System.String,System.String)">
+            <summary>
+            Run a program in the output window.
+            </summary>
+            <param name="exe">The path of the program to run.</param>
+            <param name="args">Arguments to be passed to the program.</param>
+            <returns>True if the program returns 0 on exit.</returns>
+        </member>
+        <member name="M:QuickSharp.Output.OutputForm.RunProgram(System.String,System.String,System.Boolean)">
+            <summary>
+            Run a program in the output window.
+            </summary>
+            <param name="exe">The path of the program to run.</param>
+            <param name="args">Arguments to be passed to the program.</param>
+            <param name="clearTitle">Clear the output window title bar if true.</param>
+            <returns>True if the program returns 0 on exit.</returns>
+        </member>
+        <member name="M:QuickSharp.Output.OutputForm.RunShellCommandInternal(System.String,System.String)">
+            <summary>
+            Run a shell command and redirect standard output and error
+            streams to the output views.
+            </summary>
+            <param name="caption">Text to display before the output of the command.</param>
+            <param name="cmd">The command to run.</param>
+            <returns>True if the command returns 0 on exit.</returns>
+        </member>
+        <member name="M:QuickSharp.Output.OutputForm.RunShellCommandInternal(System.String,System.String,System.Boolean)">
+            <summary>
+            Run a shell command and redirect standard output and error
+            streams to the output views.
+            </summary>
+            <param name="caption">Text to display before the output of the command.</param>
+            <param name="cmd">The command to run.</param>
+            <param name="clearTitle">Clear the output window title bar if true.</param>
+            <returns>True if the command returns 0 on exit.</returns>
+        </member>
+        <member name="M:QuickSharp.Output.OutputForm.ClearOutputViews">
+            <summary>
+            Clear the output window views.
+            </summary>
+        </member>
+        <member name="M:QuickSharp.Output.OutputForm.AddLineToOutputView(System.String)">
+            <summary>
+            Add a line to the output window views.
+            </summary>
+            <param name="line">The text to add.</param>
+        </member>
+        <member name="M:QuickSharp.Output.OutputForm.AddLineToOutputView(System.String,System.Drawing.Color)">
+            <summary>
+            Add a line to the output window views.
+            </summary>
+            <param name="line">The text to add.</param>
+            <param name="foreColor">The colour used to display the text.</param>
+        </member>
+        <member name="M:QuickSharp.Output.OutputForm.AddLineToOutputView(System.String,QuickSharp.Output.IOutputLineParser)">
+            <summary>
+            Add a line to the output window views and parse it with the
+            output line parser provided.
+            </summary>
+            <param name="line">The text to add.</param>
+            <param name="parser">A line parser.</param>
+        </member>
+        <member name="M:QuickSharp.Output.OutputForm.AddLineToTextView(System.String)">
+            <summary>
+            Add a line to the text view of the output windows.
+            </summary>
+            <param name="line">The text to add.</param>
+        </member>
+        <member name="M:QuickSharp.Output.OutputForm.AddLineToListView(System.String)">
+            <summary>
+            Add a line to the list view of the output window.
+            </summary>
+            <param name="line">The text to add.</param>
+        </member>
+        <member name="M:QuickSharp.Output.OutputForm.AddLineToListView(System.String,QuickSharp.Output.IOutputLineParser)">
+            <summary>
+            Add a line to the list view of the output window and parse it with the
+            output line parser provided.
+            </summary>
+            <param name="line">The text to add.</param>
+            <param name="parser">A line parser.</param>
+        </member>
+        <member name="M:QuickSharp.Output.OutputForm.AddLineToListView(System.String,QuickSharp.Output.IOutputLineParser,System.Drawing.Color)">
+            <summary>
+            Add a line to the list view of the output window and parse it with the
+            output line parser provided.
+            </summary>
+            <param name="line">The text to add.</param>
+            <param name="parser">A line parser.</param>
+            <param name="foreColor">The colour used to display the text.</param>
+        </member>
+        <member name="M:QuickSharp.Output.OutputForm.AdjustOutputWidth">
+            <summary>
+            Expand the width of the list view to fit the maximum length of text.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Output.OutputForm.Toolbar">
+            <summary>
+            The output window toolbar.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Output.OutputForm.ListView">
+            <summary>
+            The list view.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Output.OutputForm.ListViewImageList">
+            <summary>
+            The image list used to provide images to the list view.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Output.OutputForm.TextView">
+            <summary>
+            The text view.
+            </summary>
+        </member>
+        <member name="T:QuickSharp.Output.Module">
+            <summary>
+            The output window plugin module.
+            </summary>
+        </member>
+        <member name="M:QuickSharp.Output.Module.GetID">
+            <summary>
+            Get the ID of the plugin.
+            </summary>
+            <returns>The plugin ID.</returns>
+        </member>
+        <member name="M:QuickSharp.Output.Module.GetName">
+            <summary>
+            Get the name of the plugin.
+            </summary>
+            <returns>The plugin name.</returns>
+        </member>
+        <member name="M:QuickSharp.Output.Module.GetVersion">
+            <summary>
+            Get the version of the plugin.
+            </summary>
+            <returns>The plugin version.</returns>
+        </member>
+        <member name="M:QuickSharp.Output.Module.GetDescription">
+            <summary>
+            Get a description of the plugin.
+            </summary>
+            <returns>The plugin description.</returns>
+        </member>
+        <member name="M:QuickSharp.Output.Module.GetDependencies">
+            <summary>
+            Get the plugin's dependencies. This provides a list of the
+            plugins required by the current plugin.
+            </summary>
+            <returns>The plugin dependencies,</returns>
+        </member>
+        <member name="M:QuickSharp.Output.Module.Activate(QuickSharp.Core.MainForm)">
+            <summary>
+            The plugin entry point. This is called by the PluginManager to
+            activate the plugin.
+            </summary>
+            <param name="mainForm">The application main form.</param>
+        </member>
+        <member name="T:QuickSharp.Output.ParsedLine">
+            <summary>
+            Provides information extracted from the output of an external
+            tool such as a compiler of interpreter.
+            </summary>
+        </member>
+        <member name="M:QuickSharp.Output.ParsedLine.#ctor(System.String,System.Int32,System.Int32,System.String,System.Boolean)">
+            <summary>
+            Create a new ParsedLine object.
+            </summary>
+            <param name="path">The path of the file containing the parsed message.</param>
+            <param name="line">The line number of the parsed message.</param>
+            <param name="column">The column reported for the parsed message.</param>
+            <param name="message">The parsed message.</param>
+            <param name="error">True if the message is to be reported as an error.</param>
+        </member>
+        <member name="P:QuickSharp.Output.ParsedLine.FilePath">
+            <summary>
+            The path of the file containing the parsed message.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Output.ParsedLine.Line">
+            <summary>
+            The line number of the parsed message.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Output.ParsedLine.Column">
+            <summary>
+            The column reported for the parsed message.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Output.ParsedLine.Message">
+            <summary>
+            The parsed message.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Output.ParsedLine.IsError">
+            <summary>
+            True if the message is to be reported as an error.
+            </summary>
+        </member>
+        <member name="T:QuickSharp.Output.RunProcessContext">
+            <summary>
+            Context information required to run an external program in a new process.
+            </summary>
+        </member>
+        <member name="M:QuickSharp.Output.RunProcessContext.#ctor">
+            <summary>
+            Create a new context object.
+            </summary>
+        </member>
+        <member name="M:QuickSharp.Output.RunProcessContext.OutputDataReceived(System.Object,System.Diagnostics.DataReceivedEventArgs)">
+            <summary>
+            Callback used to receive output from the running process.
+            </summary>
+            <param name="sender">The sender.</param>
+            <param name="e">Event arguments.</param>
+        </member>
+        <member name="M:QuickSharp.Output.RunProcessContext.ErrorDataReceived(System.Object,System.Diagnostics.DataReceivedEventArgs)">
+            <summary>
+            Callback used to receive error output from the running process.
+            </summary>
+            <param name="sender">The sender.</param>
+            <param name="e">Event arguments.</param>
+        </member>
+        <member name="P:QuickSharp.Output.RunProcessContext.ExePath">
+            <summary>
+            The path of the executable to run in the new process.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Output.RunProcessContext.ProcessArgs">
+            <summary>
+            Arguments to be passed to the new process.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Output.RunProcessContext.HeaderText">
+            <summary>
+            A text message to be displayed before the output from the process.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Output.RunProcessContext.FooterText">
+            <summary>
+            A text message to be displayed after the output from the process.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Output.RunProcessContext.LineParser">
+            <summary>
+            A line parser used to extract information from each output line of the process.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Output.RunProcessContext.ExitCode">
+            <summary>
+            The exit code used to represent successful completion of the process.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Output.RunProcessContext.Output">
+            <summary>
+            A reference to the parent output window.
+            </summary>
+        </member>
+        <member name="T:QuickSharp.Output.Constants">
+            <summary>
+            Provides access to the constants used in the plugin.
+            </summary>
+        </member>
+    </members>
+</doc>

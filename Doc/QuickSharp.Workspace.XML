@@ -1,0 +1,595 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>QuickSharp.Workspace</name>
+    </assembly>
+    <members>
+        <member name="T:QuickSharp.Workspace.Module">
+            <summary>
+            The workspace plugin module.
+            </summary>
+        </member>
+        <member name="M:QuickSharp.Workspace.Module.GetID">
+            <summary>
+            Get the ID of the plugin.
+            </summary>
+            <returns>The plugin ID.</returns>
+        </member>
+        <member name="M:QuickSharp.Workspace.Module.GetName">
+            <summary>
+            Get the name of the plugin.
+            </summary>
+            <returns>The plugin name.</returns>
+        </member>
+        <member name="M:QuickSharp.Workspace.Module.GetVersion">
+            <summary>
+            Get the version of the plugin.
+            </summary>
+            <returns>The plugin version.</returns>
+        </member>
+        <member name="M:QuickSharp.Workspace.Module.GetDescription">
+            <summary>
+            Get a description of the plugin.
+            </summary>
+            <returns>The plugin description.</returns>
+        </member>
+        <member name="M:QuickSharp.Workspace.Module.GetDependencies">
+            <summary>
+            Get the plugin's dependencies. This provides a list of the
+            plugins required by the current plugin.
+            </summary>
+            <returns>The plugin dependencies,</returns>
+        </member>
+        <member name="M:QuickSharp.Workspace.Module.Activate(QuickSharp.Core.MainForm)">
+            <summary>
+            The plugin entry point. This is called by the PluginManager to
+            activate the plugin.
+            </summary>
+            <param name="mainForm">The application main form.</param>
+        </member>
+        <member name="T:QuickSharp.Workspace.WorkspaceForm">
+            <summary>
+            The workspace window form.
+            </summary>
+        </member>
+        <member name="M:QuickSharp.Workspace.WorkspaceForm.#ctor(System.String)">
+            <summary>
+            Create the workspace form.
+            </summary>
+            <param name="formKey">The GUID key used to identify the form internally.</param>
+        </member>
+        <member name="M:QuickSharp.Workspace.WorkspaceForm.SetFormDefaultState">
+            <summary>
+            Set the form's initial state when there is no saved configuration
+            to be restored from the previous session.
+            </summary>
+        </member>
+        <member name="M:QuickSharp.Workspace.WorkspaceForm.RefreshFileView">
+            <summary>
+            Refresh the file view.
+            </summary>
+        </member>
+        <member name="M:QuickSharp.Workspace.WorkspaceForm.MoveToParent">
+            <summary>
+            Move the workspace to the parent directory.
+            </summary>
+        </member>
+        <member name="M:QuickSharp.Workspace.WorkspaceForm.MoveWorkspace">
+            <summary>
+            Move the workspace to a directory selected from a FolderBrowserDialog.
+            </summary>
+        </member>
+        <member name="M:QuickSharp.Workspace.WorkspaceForm.RefreshVisitedFolderList">
+            <summary>
+            Update the visited folder menu.
+            </summary>
+        </member>
+        <member name="M:QuickSharp.Workspace.WorkspaceForm.BackupWorkspace">
+            <summary>
+            Backup the workspace files to a zip archive.
+            </summary>
+        </member>
+        <member name="M:QuickSharp.Workspace.WorkspaceForm.LaunchShell">
+            <summary>
+            Launch the windows shell in the currrent directory.
+            </summary>
+        </member>
+        <member name="M:QuickSharp.Workspace.WorkspaceForm.LaunchExplorer">
+            <summary>
+            Launch windows explorer in the current directory.
+            </summary>
+        </member>
+        <member name="M:QuickSharp.Workspace.WorkspaceForm.ShowSourceOnly">
+            <summary>
+            Toggle between showing all files and just those registered as source-file
+            types.
+            </summary>
+        </member>
+        <member name="M:QuickSharp.Workspace.WorkspaceForm.UpdateDisplayedTypesList">
+            <summary>
+            Update the list of displayed file types. Used to toggle between showing
+            all files and source-types only.
+            </summary>
+        </member>
+        <member name="E:QuickSharp.Workspace.WorkspaceForm.FileViewPreRefresh">
+            <summary>
+            Event raised before the file view is refreshed.
+            </summary>
+        </member>
+        <member name="E:QuickSharp.Workspace.WorkspaceForm.FileViewPostRefresh">
+            <summary>
+            Event raised after the file view has been refreshed.
+            </summary>
+        </member>
+        <member name="E:QuickSharp.Workspace.WorkspaceForm.FileViewItemUpdate">
+            <summary>
+            Event raised when a list view item has been added to the view during the refresh.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Workspace.WorkspaceForm.Toolbar">
+            <summary>
+            The workspace toolbar.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Workspace.WorkspaceForm.FileView">
+            <summary>
+            The file view.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Workspace.WorkspaceForm.FileViewContextMenu">
+            <summary>
+            The file view context menu.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Workspace.WorkspaceForm.DocumentImageList">
+            <summary>
+            The image list used to provide icons for the document types displayed in the file view.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Workspace.WorkspaceForm.DocumentTypeIconMap">
+            <summary>
+            A dictionary mapping file types to the names of the images used to represent them.
+            The names are the keys of the images in the image list.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Workspace.WorkspaceForm.DisplayedTypesList">
+            <summary>
+            A list of the document types displayed by the file view. Used to filter out
+            non-source file types when the 'show source only' view is selected.
+            </summary>
+        </member>
+        <member name="T:QuickSharp.Workspace.ListViewItemUpdateHandler">
+            <summary>
+            Represents a callback to be invoked when a list view item is added to the list view.
+            </summary>
+            <param name="item">The list view item.</param>
+        </member>
+        <member name="T:QuickSharp.Workspace.Constants">
+            <summary>
+            Provides access to constants used in the plugin.
+            </summary>
+        </member>
+        <member name="T:QuickSharp.Workspace.Resources">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Workspace.Resources.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Workspace.Resources.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Workspace.Resources.BrowseFolderDialogText">
+            <summary>
+              Looks up a localized string similar to Select a new location for the workspace..
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Workspace.Resources.CloneErrorMessage">
+            <summary>
+              Looks up a localized string similar to Unable to clone:.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Workspace.Resources.CloneErrorTitle">
+            <summary>
+              Looks up a localized string similar to Clone.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Workspace.Resources.CopyErrorMessage">
+            <summary>
+              Looks up a localized string similar to Unable to copy:.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Workspace.Resources.CopyErrorTitle">
+            <summary>
+              Looks up a localized string similar to Copy.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Workspace.Resources.DeleteErrorMessage">
+            <summary>
+              Looks up a localized string similar to Unable to delete:.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Workspace.Resources.DeleteErrorTitle">
+            <summary>
+              Looks up a localized string similar to Delete.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Workspace.Resources.DeleteFileOpenMessage">
+            <summary>
+              Looks up a localized string similar to Delete {0}: close all editor instances?.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Workspace.Resources.EnterKey">
+            <summary>
+              Looks up a localized string similar to Enter.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Workspace.Resources.ExplorerErrorMessage">
+            <summary>
+              Looks up a localized string similar to Unable to launch Windows Explorer:{0}File &quot;{1}&quot; cannot be found..
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Workspace.Resources.ExplorerErrorTitle">
+            <summary>
+              Looks up a localized string similar to Windows Explorer.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Workspace.Resources.MainViewMenuWorkspace">
+            <summary>
+              Looks up a localized string similar to &amp;Workspace.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Workspace.Resources.MoveErrorMessage">
+            <summary>
+              Looks up a localized string similar to Unable to move:.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Workspace.Resources.MoveErrorTitle">
+            <summary>
+              Looks up a localized string similar to Move.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Workspace.Resources.MoveWorkspaceErrorMessage">
+            <summary>
+              Looks up a localized string similar to Unable to open selected folder:.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Workspace.Resources.MoveWorkspaceErrorTitle">
+            <summary>
+              Looks up a localized string similar to Open.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Workspace.Resources.NewFolderErrorMessage">
+            <summary>
+              Looks up a localized string similar to Unable to create folder:.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Workspace.Resources.NewFolderErrorTitle">
+            <summary>
+              Looks up a localized string similar to Create Folder.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Workspace.Resources.NewFolderName">
+            <summary>
+              Looks up a localized string similar to New Folder.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Workspace.Resources.OptionsBackupPathLabel">
+            <summary>
+              Looks up a localized string similar to &amp;Backup files to this directory:.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Workspace.Resources.OptionsBackupPathWarningLabel">
+            <summary>
+              Looks up a localized string similar to Warning: the saved path does not exist..
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Workspace.Resources.OptionsGroupText">
+            <summary>
+              Looks up a localized string similar to Workspace.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Workspace.Resources.OptionsPageText">
+            <summary>
+              Looks up a localized string similar to Workspace Settings.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Workspace.Resources.OptionsShowFullPath">
+            <summary>
+              Looks up a localized string similar to Show &amp;full path in title bar.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Workspace.Resources.OptionsShowHiddenFiles">
+            <summary>
+              Looks up a localized string similar to Show &amp;hidden files.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Workspace.Resources.OptionsShowSystemFiles">
+            <summary>
+              Looks up a localized string similar to Show &amp;system files.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Workspace.Resources.RenameButtonCancel">
+            <summary>
+              Looks up a localized string similar to Cancel.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Workspace.Resources.RenameButtonOK">
+            <summary>
+              Looks up a localized string similar to OK.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Workspace.Resources.RenameErrorMessage">
+            <summary>
+              Looks up a localized string similar to Unable to rename:.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Workspace.Resources.RenameErrorTitle">
+            <summary>
+              Looks up a localized string similar to Rename.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Workspace.Resources.RenameNewName">
+            <summary>
+              Looks up a localized string similar to New name:.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Workspace.Resources.RenameTitle">
+            <summary>
+              Looks up a localized string similar to Rename.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Workspace.Resources.ShellErrorMessage">
+            <summary>
+              Looks up a localized string similar to Unable to launch Windows shell:{0}File &quot;{1}&quot; cannot be found..
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Workspace.Resources.ShellErrorTitle">
+            <summary>
+              Looks up a localized string similar to Windows Shell.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Workspace.Resources.WorkspaceBackupDialogError">
+            <summary>
+              Looks up a localized string similar to Unable to create backup.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Workspace.Resources.WorkspaceBackupDialogNoDisk">
+            <summary>
+              Looks up a localized string similar to Backup is not allowed for entire disk..
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Workspace.Resources.WorkspaceBackupDialogSuccess">
+            <summary>
+              Looks up a localized string similar to Workspace backup created successfully.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Workspace.Resources.WorkspaceBackupDialogTitle">
+            <summary>
+              Looks up a localized string similar to Workspace Backup.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Workspace.Resources.WorkspaceBackupFolderMessage">
+            <summary>
+              Looks up a localized string similar to Select a location for the backup file..
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Workspace.Resources.WorkspaceMenuClone">
+            <summary>
+              Looks up a localized string similar to &amp;Clone.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Workspace.Resources.WorkspaceMenuCreateFolder">
+            <summary>
+              Looks up a localized string similar to Create &amp;Folder....
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Workspace.Resources.WorkspaceMenuDelete">
+            <summary>
+              Looks up a localized string similar to &amp;Delete.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Workspace.Resources.WorkspaceMenuInvertSelection">
+            <summary>
+              Looks up a localized string similar to &amp;Invert Selection.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Workspace.Resources.WorkspaceMenuMoveToParent">
+            <summary>
+              Looks up a localized string similar to &amp;Move to Parent Folder.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Workspace.Resources.WorkspaceMenuOpen">
+            <summary>
+              Looks up a localized string similar to &amp;Open.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Workspace.Resources.WorkspaceMenuRename">
+            <summary>
+              Looks up a localized string similar to &amp;Rename....
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Workspace.Resources.WorkspaceMenuSelectSimilar">
+            <summary>
+              Looks up a localized string similar to &amp;Select Similar.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Workspace.Resources.WorkspaceNewFolder">
+            <summary>
+              Looks up a localized string similar to Create Folder.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Workspace.Resources.WorkspaceToolbarBackup">
+            <summary>
+              Looks up a localized string similar to Backup Workspace Files to Zip Archive.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Workspace.Resources.WorkspaceToolbarLaunchExplorer">
+            <summary>
+              Looks up a localized string similar to Launch Windows Explorer.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Workspace.Resources.WorkspaceToolbarLaunchShell">
+            <summary>
+              Looks up a localized string similar to Launch Windows Shell.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Workspace.Resources.WorkspaceToolbarOpenFolder">
+            <summary>
+              Looks up a localized string similar to Set Different Folder as Workspace.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Workspace.Resources.WorkspaceToolbarParentFolder">
+            <summary>
+              Looks up a localized string similar to Set Parent Folder as Workspace.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Workspace.Resources.WorkspaceToolbarRefresh">
+            <summary>
+              Looks up a localized string similar to Refresh.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Workspace.Resources.WorkspaceToolbarShowSourceOnly">
+            <summary>
+              Looks up a localized string similar to Show Source Files Only.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Workspace.Resources.WorkspaceWindowTitle">
+            <summary>
+              Looks up a localized string similar to Workspace.
+            </summary>
+        </member>
+        <member name="T:QuickSharp.Workspace.RenameForm">
+            <summary>
+            The rename file/folder form invoked by the rename command.
+            </summary>
+        </member>
+        <member name="M:QuickSharp.Workspace.RenameForm.#ctor">
+            <summary>
+            Create the form.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Workspace.RenameForm.NewName">
+            <summary>
+            The new name for the item to be renamed. Sets the default value
+            and provides the new value on exit from the form.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Workspace.RenameForm.Title">
+            <summary>
+            The form title.
+            </summary>
+        </member>
+        <member name="M:QuickSharp.Workspace.SettingsManager.Save">
+            <summary>
+            Save the settings to the session persistence store (e.g. registry).
+            </summary>
+        </member>
+        <member name="M:QuickSharp.Workspace.SettingsManager.Update">
+            <summary>
+            Retrieve the settings from the session persistence store (e.g. registry).
+            </summary>
+        </member>
+        <member name="M:QuickSharp.Workspace.SettingsManager.UpdateUI">
+            <summary>
+            Request a UI update.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Workspace.SettingsManager.CurrentWorkspace">
+            <summary>
+            The current workspace directory.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Workspace.SettingsManager.BackupDirectory">
+            <summary>
+            The directory where workspace backup archives are saved.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Workspace.SettingsManager.VisitedFoldersList">
+            <summary>
+            Recently visited folders list.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Workspace.SettingsManager.VisitedFoldersLimit">
+            <summary>
+            Maximum number of recently visited folders maintained.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Workspace.SettingsManager.ShowSourceOnly">
+            <summary>
+            Show source files only.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Workspace.SettingsManager.ShowHiddenFiles">
+            <summary>
+             Show hidden files in the workspace.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Workspace.SettingsManager.ShowSystemFiles">
+            <summary>
+            Show system files in the workspace.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Workspace.SettingsManager.ShowFullPath">
+            <summary>
+            Show full path when show in title bar.
+            </summary>
+        </member>
+        <member name="E:QuickSharp.Workspace.SettingsManager.OnUpdateUI">
+            <summary>
+            Raised to request a file filters UI update.
+            </summary>
+        </member>
+        <member name="T:QuickSharp.Workspace.WorkspaceOptionsPage">
+            <summary>
+            The workspace configuration page for the main options editor.
+            </summary>
+        </member>
+        <member name="F:QuickSharp.Workspace.WorkspaceOptionsPage.m_backupDirectoryLabel">
+            <summary>
+            Form control name.
+            </summary>
+        </member>
+        <member name="F:QuickSharp.Workspace.WorkspaceOptionsPage.m_backupDirectoryTextBox">
+            <summary>
+            Form control name.
+            </summary>
+        </member>
+        <member name="F:QuickSharp.Workspace.WorkspaceOptionsPage.m_backupDirectoryWarningLabel">
+            <summary>
+            Form control name.
+            </summary>
+        </member>
+        <member name="F:QuickSharp.Workspace.WorkspaceOptionsPage.m_showHiddenFilesCheckBox">
+            <summary>
+            Form control name.
+            </summary>
+        </member>
+        <member name="F:QuickSharp.Workspace.WorkspaceOptionsPage.m_showSystemFilesCheckBox">
+            <summary>
+            Form control name.
+            </summary>
+        </member>
+        <member name="F:QuickSharp.Workspace.WorkspaceOptionsPage.m_showFullPathCheckBox">
+            <summary>
+            Form control name.
+            </summary>
+        </member>
+        <member name="M:QuickSharp.Workspace.WorkspaceOptionsPage.#ctor">
+            <summary>
+            Create the options page.
+            </summary>
+        </member>
+        <member name="M:QuickSharp.Workspace.WorkspaceOptionsPage.Save">
+            <summary>
+            Save the settings when requested by the options editor.
+            </summary>
+        </member>
+    </members>
+</doc>

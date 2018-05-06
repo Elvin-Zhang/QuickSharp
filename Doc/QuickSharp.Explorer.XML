@@ -1,0 +1,774 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>QuickSharp.Explorer</name>
+    </assembly>
+    <members>
+        <member name="T:QuickSharp.Explorer.Constants">
+            <summary>
+            Provides acces to the constants used in the plugin.
+            </summary>
+        </member>
+        <member name="T:QuickSharp.Explorer.FileFilter">
+            <summary>
+            A file type filter.
+            </summary>
+        </member>
+        <member name="M:QuickSharp.Explorer.FileFilter.Clone">
+            <summary>
+            Create a copy of the current filter object.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:QuickSharp.Explorer.FileFilter.ToString">
+            <summary>
+            Get a string representation of the filter.
+            </summary>
+            <returns>An string.</returns>
+        </member>
+        <member name="M:QuickSharp.Explorer.FileFilter.GetFileFilters(System.Collections.Generic.List{System.String})">
+            <summary>
+            Get a dictionary of filters from a list of encoded strings.
+            </summary>
+            <param name="list">The list of strings.</param>
+            <returns>A dictionary of FileFilter objects keyed on ID.</returns>
+        </member>
+        <member name="M:QuickSharp.Explorer.FileFilter.GetFilterList(System.Collections.Generic.Dictionary{System.String,QuickSharp.Explorer.FileFilter})">
+            <summary>
+            Get a list of encoded strings from a FileFilter dictionary.
+            </summary>
+            <param name="filters">The filter dictionary.</param>
+            <returns>A list of encoded strings.</returns>
+        </member>
+        <member name="M:QuickSharp.Explorer.FileFilter.GetFromList(System.Collections.Generic.List{QuickSharp.Explorer.FileFilter},System.String)">
+            <summary>
+            Get a filter from a list of FileFilter objects by its ID.
+            </summary>
+            <param name="list">A list of DileFilter objects</param>
+            <param name="id">The filter ID.</param>
+            <returns></returns>
+        </member>
+        <member name="P:QuickSharp.Explorer.FileFilter.ID">
+            <summary>
+            The filter ID.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Explorer.FileFilter.Name">
+            <summary>
+            The filter name.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Explorer.FileFilter.Filter">
+            <summary>
+            The file type filter.
+            </summary>
+        </member>
+        <member name="T:QuickSharp.Explorer.FileFilterComparer">
+            <summary>
+            Compare two FileFilter objects by name.
+            </summary>
+        </member>
+        <member name="M:QuickSharp.Explorer.FileFilterComparer.Compare(QuickSharp.Explorer.FileFilter,QuickSharp.Explorer.FileFilter)">
+            <summary>
+            Compare two FileFilter objects by name.
+            </summary>
+            <param name="f1">A FileFilter.</param>
+            <param name="f2">A FileFilter.</param>
+            <returns>The result of the name comparison.</returns>
+        </member>
+        <member name="T:QuickSharp.Explorer.Module">
+            <summary>
+            The explorer window plugin module.
+            </summary>
+        </member>
+        <member name="M:QuickSharp.Explorer.Module.GetID">
+            <summary>
+            Get the ID of the plugin.
+            </summary>
+            <returns>The plugin ID.</returns>
+        </member>
+        <member name="M:QuickSharp.Explorer.Module.GetName">
+            <summary>
+            Get the name of the plugin.
+            </summary>
+            <returns>The plugin name.</returns>
+        </member>
+        <member name="M:QuickSharp.Explorer.Module.GetVersion">
+            <summary>
+            Get the version of the plugin.
+            </summary>
+            <returns>The plugin version.</returns>
+        </member>
+        <member name="M:QuickSharp.Explorer.Module.GetDescription">
+            <summary>
+            Get a description of the plugin.
+            </summary>
+            <returns>The plugin description.</returns>
+        </member>
+        <member name="M:QuickSharp.Explorer.Module.GetDependencies">
+            <summary>
+            Get the plugin's dependencies. This provides a list of the
+            plugins required by the current plugin.
+            </summary>
+            <returns>The plugin dependencies,</returns>
+        </member>
+        <member name="M:QuickSharp.Explorer.Module.Activate(QuickSharp.Core.MainForm)">
+            <summary>
+            The plugin entry point. This is called by the PluginManager to
+            activate the plugin.
+            </summary>
+            <param name="mainForm">The application main form.</param>
+        </member>
+        <member name="T:QuickSharp.Explorer.ExplorerForm">
+            <summary>
+            The explorer window form.
+            </summary>
+        </member>
+        <member name="M:QuickSharp.Explorer.ExplorerForm.#ctor(System.String)">
+            <summary>
+            Create the explorer window form.
+            </summary>
+            <param name="formKey">The GUID key used to identify the form internally.</param>
+        </member>
+        <member name="M:QuickSharp.Explorer.ExplorerForm.SetFormDefaultState">
+            <summary>
+            Set the form's initial state when there is no saved configuration
+            to be restored from the previous session.
+            </summary>
+        </member>
+        <member name="M:QuickSharp.Explorer.ExplorerForm.RefreshVisitedFolderList">
+            <summary>
+            Refresh the list of visited folders in the explorer window toolbar.
+            </summary>
+        </member>
+        <member name="M:QuickSharp.Explorer.ExplorerForm.RefreshView">
+            <summary>
+            Refresh the explorer window tree view.
+            </summary>
+        </member>
+        <member name="M:QuickSharp.Explorer.ExplorerForm.RootChangeUpdate">
+            <summary>
+            Notify the explorer window that the root folder has changed; the
+            view will be updated according to the settings in effect.
+            </summary>
+        </member>
+        <member name="M:QuickSharp.Explorer.ExplorerForm.BackupExplorer">
+            <summary>
+            Backup the contents of the root folder to a zip archive.
+            </summary>
+        </member>
+        <member name="E:QuickSharp.Explorer.ExplorerForm.TreeViewPreRefresh">
+            <summary>
+            Event raised when the tree view is about to be refreshed.
+            </summary>
+        </member>
+        <member name="E:QuickSharp.Explorer.ExplorerForm.TreeViewPostRefresh">
+            <summary>
+            Event raised when the tree view has been refreshed.
+            </summary>
+        </member>
+        <member name="E:QuickSharp.Explorer.ExplorerForm.TreeViewNodeUpdate">
+            <summary>
+            Event raised when a tree node has been updated.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Explorer.ExplorerForm.RootFolder">
+            <summary>
+            The root folder of the explorer window tree view.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Explorer.ExplorerForm.Toolbar">
+            <summary>
+            The explorer window toolbar.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Explorer.ExplorerForm.TreeView">
+            <summary>
+            The explorer window tree view.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Explorer.ExplorerForm.TreeViewContextMenu">
+            <summary>
+            The explorer window tree view's context menu.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Explorer.ExplorerForm.DocumentImageList">
+            <summary>
+            The image list used to provide images to the explorer window tree view.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Explorer.ExplorerForm.DocumentTypeIconMap">
+            <summary>
+            A dictionary mapping file types to the names of the images used to represent them.
+            The names are the keys of the images in the image list.
+            </summary>
+        </member>
+        <member name="T:QuickSharp.Explorer.ExplorerOptionsPage">
+            <summary>
+            The explorer configuration page for the main options editor.
+            </summary>
+        </member>
+        <member name="F:QuickSharp.Explorer.ExplorerOptionsPage.m_backupDirectoryLabel">
+            <summary>
+            Form control name.
+            </summary>
+        </member>
+        <member name="F:QuickSharp.Explorer.ExplorerOptionsPage.m_backupDirectoryTextBox">
+            <summary>
+            Form control name.
+            </summary>
+        </member>
+        <member name="F:QuickSharp.Explorer.ExplorerOptionsPage.m_backupDirectoryWarningLabel">
+            <summary>
+            Form control name.
+            </summary>
+        </member>
+        <member name="F:QuickSharp.Explorer.ExplorerOptionsPage.m_showHiddenFilesCheckBox">
+            <summary>
+            Form control name.
+            </summary>
+        </member>
+        <member name="F:QuickSharp.Explorer.ExplorerOptionsPage.m_showSystemFilesCheckBox">
+            <summary>
+            Form control name.
+            </summary>
+        </member>
+        <member name="F:QuickSharp.Explorer.ExplorerOptionsPage.m_showFullPathCheckBox">
+            <summary>
+            Form control name.
+            </summary>
+        </member>
+        <member name="M:QuickSharp.Explorer.ExplorerOptionsPage.#ctor">
+            <summary>
+            Create the options page.
+            </summary>
+        </member>
+        <member name="M:QuickSharp.Explorer.ExplorerOptionsPage.Save">
+            <summary>
+            Save the settings when requested by the options editor.
+            </summary>
+        </member>
+        <member name="T:QuickSharp.Explorer.RenameForm">
+            <summary>
+            The explorer window rename file/folder form.
+            </summary>
+        </member>
+        <member name="M:QuickSharp.Explorer.RenameForm.#ctor">
+            <summary>
+            Create a new form.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Explorer.RenameForm.NewName">
+            <summary>
+            The new name for the item to be renamed. Sets the initial
+            value and provides the new name on exit.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Explorer.RenameForm.Title">
+            <summary>
+            The form title.
+            </summary>
+        </member>
+        <member name="T:QuickSharp.Explorer.Resources">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Explorer.Resources.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Explorer.Resources.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Explorer.Resources.BackupDialogError">
+            <summary>
+              Looks up a localized string similar to Unable to create backup.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Explorer.Resources.BackupDialogNoDisk">
+            <summary>
+              Looks up a localized string similar to Backup is not allowed for entire disk..
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Explorer.Resources.BackupDialogSuccess">
+            <summary>
+              Looks up a localized string similar to Explorer backup created successfully.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Explorer.Resources.BackupDialogTitle">
+            <summary>
+              Looks up a localized string similar to Explorer Backup.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Explorer.Resources.BackupFolderMessage">
+            <summary>
+              Looks up a localized string similar to Select a location for the backup file..
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Explorer.Resources.BrowseFolderDialogText">
+            <summary>
+              Looks up a localized string similar to Select a new location for the root folder..
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Explorer.Resources.CloneCopyName">
+            <summary>
+              Looks up a localized string similar to Copy of {0}.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Explorer.Resources.CloneErrorMessage">
+            <summary>
+              Looks up a localized string similar to Unable to clone:.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Explorer.Resources.CloneErrorTitle">
+            <summary>
+              Looks up a localized string similar to Clone.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Explorer.Resources.CopyErrorMessage">
+            <summary>
+              Looks up a localized string similar to Unable to copy:.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Explorer.Resources.CopyErrorTitle">
+            <summary>
+              Looks up a localized string similar to Copy.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Explorer.Resources.CreateFolderTitle">
+            <summary>
+              Looks up a localized string similar to Create Folder.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Explorer.Resources.DeleteErrorMessage">
+            <summary>
+              Looks up a localized string similar to Unable to delete:.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Explorer.Resources.DeleteErrorTitle">
+            <summary>
+              Looks up a localized string similar to Delete.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Explorer.Resources.DeleteFileOpenMessage">
+            <summary>
+              Looks up a localized string similar to Delete {0}: close all editor instances?.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Explorer.Resources.EnterKey">
+            <summary>
+              Looks up a localized string similar to Enter.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Explorer.Resources.ExplorerWindowTitle">
+            <summary>
+              Looks up a localized string similar to Explorer.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Explorer.Resources.FilterDeleteMessage">
+            <summary>
+              Looks up a localized string similar to Delete {0}?.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Explorer.Resources.FilterDeleteTitle">
+            <summary>
+              Looks up a localized string similar to Delete.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Explorer.Resources.FilterFormCancel">
+            <summary>
+              Looks up a localized string similar to Cancel.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Explorer.Resources.FilterFormFilterLabel">
+            <summary>
+              Looks up a localized string similar to &amp;Filter patterns:.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Explorer.Resources.FilterFormNameLabel">
+            <summary>
+              Looks up a localized string similar to Filter &amp;name:.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Explorer.Resources.FilterFormOK">
+            <summary>
+              Looks up a localized string similar to OK.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Explorer.Resources.FilterFormTitle">
+            <summary>
+              Looks up a localized string similar to File Name Filter.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Explorer.Resources.FilterMenuClone">
+            <summary>
+              Looks up a localized string similar to &amp;Clone.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Explorer.Resources.FilterMenuDelete">
+            <summary>
+              Looks up a localized string similar to &amp;Delete.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Explorer.Resources.FilterMenuEdit">
+            <summary>
+              Looks up a localized string similar to &amp;Edit....
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Explorer.Resources.FilterMenuNew">
+            <summary>
+              Looks up a localized string similar to &amp;New....
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Explorer.Resources.FilterRegexErrorMessage">
+            <summary>
+              Looks up a localized string similar to Error in file name filter pattern.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Explorer.Resources.FilterRegexErrorTitle">
+            <summary>
+              Looks up a localized string similar to File Name Filter Error.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Explorer.Resources.LaunchExplorerErrorMessage">
+            <summary>
+              Looks up a localized string similar to Unable to launch Windows Explorer:{0}File &quot;{1}&quot; cannot be found..
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Explorer.Resources.LaunchExplorerErrorTitle">
+            <summary>
+              Looks up a localized string similar to Windows Explorer.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Explorer.Resources.LaunchShellErrorMessage">
+            <summary>
+              Looks up a localized string similar to Unable to launch Windows shell:{0}File &quot;{1}&quot; cannot be found..
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Explorer.Resources.LaunchShellErrorTitle">
+            <summary>
+              Looks up a localized string similar to Windows Shell.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Explorer.Resources.ListViewFilterColumn">
+            <summary>
+              Looks up a localized string similar to Filter Patterns.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Explorer.Resources.ListViewNameColumn">
+            <summary>
+              Looks up a localized string similar to Filter Name.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Explorer.Resources.MainViewMenuExplorer">
+            <summary>
+              Looks up a localized string similar to &amp;Explorer.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Explorer.Resources.MoveErrorMessage">
+            <summary>
+              Looks up a localized string similar to Unable to move:.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Explorer.Resources.MoveErrorTitle">
+            <summary>
+              Looks up a localized string similar to Move.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Explorer.Resources.MoveRootErrorMessage">
+            <summary>
+              Looks up a localized string similar to Unable to open selected folder:.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Explorer.Resources.MoveRootErrorTitle">
+            <summary>
+              Looks up a localized string similar to Open.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Explorer.Resources.NewFolderErrorMessage">
+            <summary>
+              Looks up a localized string similar to Unable to create folder:.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Explorer.Resources.NewFolderErrorTitle">
+            <summary>
+              Looks up a localized string similar to Create Folder.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Explorer.Resources.NewFolderName">
+            <summary>
+              Looks up a localized string similar to New Folder.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Explorer.Resources.OptionsBackupDirectoryLabel">
+            <summary>
+              Looks up a localized string similar to &amp;Backup files to this directory:.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Explorer.Resources.OptionsBackupDirectoryWarningLabel">
+            <summary>
+              Looks up a localized string similar to Warning: the saved path does not exist..
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Explorer.Resources.OptionsGroupText">
+            <summary>
+              Looks up a localized string similar to Explorer.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Explorer.Resources.OptionsPageTextExplorer">
+            <summary>
+              Looks up a localized string similar to Explorer Settings.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Explorer.Resources.OptionsPageTextFilters">
+            <summary>
+              Looks up a localized string similar to File Name Filters.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Explorer.Resources.OptionsShowFullPath">
+            <summary>
+              Looks up a localized string similar to Show &amp;full path in title bar.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Explorer.Resources.OptionsShowHiddenFiles">
+            <summary>
+              Looks up a localized string similar to Show &amp;hidden files.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Explorer.Resources.OptionsShowSystemFiles">
+            <summary>
+              Looks up a localized string similar to Show &amp;system files.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Explorer.Resources.RenameButtonCancel">
+            <summary>
+              Looks up a localized string similar to Cancel.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Explorer.Resources.RenameButtonOK">
+            <summary>
+              Looks up a localized string similar to OK.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Explorer.Resources.RenameErrorMessage">
+            <summary>
+              Looks up a localized string similar to Unable to rename:.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Explorer.Resources.RenameErrorTitle">
+            <summary>
+              Looks up a localized string similar to Rename.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Explorer.Resources.RenameNewName">
+            <summary>
+              Looks up a localized string similar to New name:.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Explorer.Resources.RenameTitle">
+            <summary>
+              Looks up a localized string similar to Rename.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Explorer.Resources.ToolbarBackup">
+            <summary>
+              Looks up a localized string similar to Backup Explorer Files to Zip Archive.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Explorer.Resources.ToolbarFilter">
+            <summary>
+              Looks up a localized string similar to Apply File Name Filter.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Explorer.Resources.ToolbarLaunchExplorer">
+            <summary>
+              Looks up a localized string similar to Launch Windows Explorer.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Explorer.Resources.ToolbarLaunchShell">
+            <summary>
+              Looks up a localized string similar to Launch Windows Shell.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Explorer.Resources.ToolbarMoveRoot">
+            <summary>
+              Looks up a localized string similar to Set Different Folder as Root Directory.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Explorer.Resources.ToolbarParentFolder">
+            <summary>
+              Looks up a localized string similar to Set Parent Folder as Root Directory.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Explorer.Resources.ToolbarRefresh">
+            <summary>
+              Looks up a localized string similar to Refresh.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Explorer.Resources.TreeMenuClone">
+            <summary>
+              Looks up a localized string similar to &amp;Clone.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Explorer.Resources.TreeMenuCreateFolder">
+            <summary>
+              Looks up a localized string similar to &amp;Create Folder....
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Explorer.Resources.TreeMenuDelete">
+            <summary>
+              Looks up a localized string similar to &amp;Delete.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Explorer.Resources.TreeMenuOpen">
+            <summary>
+              Looks up a localized string similar to &amp;Open.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Explorer.Resources.TreeMenuRename">
+            <summary>
+              Looks up a localized string similar to &amp;Rename....
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Explorer.Resources.TreeMenuSetAsCurrentDir">
+            <summary>
+              Looks up a localized string similar to &amp;Set as Current Directory.
+            </summary>
+        </member>
+        <member name="M:QuickSharp.Explorer.SettingsManager.Save">
+            <summary>
+            Save the settings to the session persistence store (e.g. registry).
+            </summary>
+        </member>
+        <member name="M:QuickSharp.Explorer.SettingsManager.Update">
+            <summary>
+            Retrieve the settings from the session persistence store (e.g. registry).
+            </summary>
+        </member>
+        <member name="M:QuickSharp.Explorer.SettingsManager.UpdateUI">
+            <summary>
+            Request a UI update.
+            </summary>
+        </member>
+        <member name="M:QuickSharp.Explorer.SettingsManager.AddFolderToVisitedList(System.String)">
+            <summary>
+            Add a folder to the recently visited folders list.
+            </summary>
+            <param name="path">The path of the folder.</param>
+        </member>
+        <member name="M:QuickSharp.Explorer.SettingsManager.RemoveFolderFromVisitedList(System.String)">
+            <summary>
+            Remove a folder from the recently visited folders list.
+            </summary>
+            <param name="path">The path of the folder.</param>
+        </member>
+        <member name="P:QuickSharp.Explorer.SettingsManager.RootFolder">
+            <summary>
+            The explorer view root folder.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Explorer.SettingsManager.FileFilters">
+            <summary>
+            The file type filters.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Explorer.SettingsManager.SelectedFilter">
+            <summary>
+            The currently selected file type filter.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Explorer.SettingsManager.ApplyFilter">
+            <summary>
+            True if the apply filter button is selected. Used to
+            save state between sessions.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Explorer.SettingsManager.VisitedFoldersList">
+            <summary>
+            A list of folders selected by the move to folder dialog.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Explorer.SettingsManager.VisitedFoldersLimit">
+            <summary>
+            The maximum number of visited folders saved in the list.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Explorer.SettingsManager.BackupDirectory">
+            <summary>
+            The directory where explorer backup archives are saved.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Explorer.SettingsManager.ShowHiddenFiles">
+            <summary>
+            Show hidden files in the Explorer tree view.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Explorer.SettingsManager.ShowSystemFiles">
+            <summary>
+            Show system files in the Explorer tree view.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.Explorer.SettingsManager.ShowFullPath">
+            <summary>
+            Show the full path when shown in title bar.
+            </summary>
+        </member>
+        <member name="E:QuickSharp.Explorer.SettingsManager.OnUpdateUI">
+            <summary>
+            Raised to request a file filters UI update.
+            </summary>
+        </member>
+        <member name="T:QuickSharp.Explorer.TreeViewNodeUpdateHandler">
+            <summary>
+            Represents a method to be called when a TreeView node is being updated.
+            </summary>
+            <param name="node">The TreeView node.</param>
+        </member>
+        <member name="T:QuickSharp.Explorer.FileFiltersOptionsPage">
+            <summary>
+            The file type filter management page in the main options editor.
+            </summary>
+        </member>
+        <member name="F:QuickSharp.Explorer.FileFiltersOptionsPage.m_listView">
+            <summary>
+            Form control name.
+            </summary>
+        </member>
+        <member name="F:QuickSharp.Explorer.FileFiltersOptionsPage.m_nameColumnHeader">
+            <summary>
+            Form control name.
+            </summary>
+        </member>
+        <member name="F:QuickSharp.Explorer.FileFiltersOptionsPage.m_filterColumnHeader">
+            <summary>
+            Form control name.
+            </summary>
+        </member>
+        <member name="F:QuickSharp.Explorer.FileFiltersOptionsPage.m_listViewContextMenuStrip">
+            <summary>
+            Form control name.
+            </summary>
+        </member>
+        <member name="M:QuickSharp.Explorer.FileFiltersOptionsPage.#ctor">
+            <summary>
+            Create a new instance of the options page.
+            </summary>
+        </member>
+        <member name="M:QuickSharp.Explorer.FileFiltersOptionsPage.Save">
+            <summary>
+            Save the settings when requested by the options editor.
+            </summary>
+        </member>
+        <member name="M:QuickSharp.Explorer.FileFiltersOptionsPage.Validate">
+            <summary>
+            Validate the patterns.
+            </summary>
+            <returns>True if validated correctly.</returns>
+        </member>
+    </members>
+</doc>

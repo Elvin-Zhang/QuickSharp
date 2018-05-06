@@ -1,0 +1,339 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>QuickSharp.CodeAssist</name>
+    </assembly>
+    <members>
+        <member name="T:QuickSharp.CodeAssist.Resources">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.CodeAssist.Resources.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.CodeAssist.Resources.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.CodeAssist.Resources.MainEditMenuCodeAssist">
+            <summary>
+              Looks up a localized string similar to Co&amp;de Assist.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.CodeAssist.Resources.SwitchDiagnostic">
+            <summary>
+              Looks up a localized string similar to codeassistdiagnostic.
+            </summary>
+        </member>
+        <member name="T:QuickSharp.CodeAssist.Module">
+            <summary>
+            The code assist plugin module.
+            </summary>
+        </member>
+        <member name="M:QuickSharp.CodeAssist.Module.GetID">
+            <summary>
+            Get the ID of the plugin.
+            </summary>
+            <returns>The plugin ID.</returns>
+        </member>
+        <member name="M:QuickSharp.CodeAssist.Module.GetName">
+            <summary>
+            Get the name of the plugin.
+            </summary>
+            <returns>The plugin name.</returns>
+        </member>
+        <member name="M:QuickSharp.CodeAssist.Module.GetVersion">
+            <summary>
+            Get the version of the plugin.
+            </summary>
+            <returns>The plugin version.</returns>
+        </member>
+        <member name="M:QuickSharp.CodeAssist.Module.GetDescription">
+            <summary>
+            Get a description of the plugin.
+            </summary>
+            <returns>The plugin description.</returns>
+        </member>
+        <member name="M:QuickSharp.CodeAssist.Module.GetDependencies">
+            <summary>
+            Get the plugin's dependencies. This provides a list of the
+            plugins required by the current plugin.
+            </summary>
+            <returns>The plugin dependencies,</returns>
+        </member>
+        <member name="M:QuickSharp.CodeAssist.Module.Activate(QuickSharp.Core.MainForm)">
+            <summary>
+            The plugin entry point. This is called by the PluginManager to
+            activate the plugin.
+            </summary>
+            <param name="mainForm">The application main form.</param>
+        </member>
+        <member name="M:QuickSharp.CodeAssist.Module.Invoke(QuickSharp.Editor.ScintillaEditForm)">
+            <summary>
+            Invoke code assist on the current document.
+            </summary>
+            <param name="document">The current document.</param>
+        </member>
+        <member name="M:QuickSharp.CodeAssist.Module.UpdateCodeAssistStatus">
+            <summary>
+            Update the code assist UI status. Determines if code assist should
+            be made available to the current document and calls the DocumentActivated
+            method of the code assist provider.
+            </summary>
+        </member>
+        <member name="T:QuickSharp.CodeAssist.LookupMenuItem">
+            <summary>
+            An item to be displayed in the list presented by the code assis pop-up window.
+            </summary>
+        </member>
+        <member name="M:QuickSharp.CodeAssist.LookupMenuItem.#ctor">
+            <summary>
+            Create a lookup item.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.CodeAssist.LookupMenuItem.DisplayText">
+            <summary>
+            The text displayed for the lookup item.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.CodeAssist.LookupMenuItem.InsertText">
+            <summary>
+            The text inserted into the document when the item is selected.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.CodeAssist.LookupMenuItem.TemplateIndex">
+            <summary>
+            The index of the insertion template used to insert the selected item.
+            </summary>
+        </member>
+        <member name="T:QuickSharp.CodeAssist.LookupListItem">
+            <summary>
+            Represents an item in the code assist pop-up window.
+            </summary>
+        </member>
+        <member name="M:QuickSharp.CodeAssist.LookupListItem.#ctor">
+            <summary>
+            Create a LookupList item.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.CodeAssist.LookupListItem.ToolTipText">
+            <summary>
+            The item's tooltip text.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.CodeAssist.LookupListItem.Category">
+            <summary>
+            The item's category.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.CodeAssist.LookupListItem.MenuItems">
+            <summary>
+            Context menu items associated with the item.
+            </summary>
+        </member>
+        <member name="T:QuickSharp.CodeAssist.LookupList">
+            <summary>
+            Encapsulates the information returned by a code assist provider.
+            </summary>
+        </member>
+        <member name="M:QuickSharp.CodeAssist.LookupList.#ctor(System.String,System.Collections.Generic.List{QuickSharp.CodeAssist.LookupListItem})">
+            <summary>
+            Create a LookupList with a default insertion template. This will insert the selected
+            lookup item directly into the text at the point of invocation.
+            </summary>
+            <param name="lookAheadText">The lookahead text for the code assist invocation.</param>
+            <param name="items">The items returned by the code assist lookup.</param>
+        </member>
+        <member name="M:QuickSharp.CodeAssist.LookupList.#ctor(System.String,System.Collections.Generic.List{QuickSharp.CodeAssist.LookupListItem},System.String)">
+            <summary>
+            Create a LookupList with a custom insertion template. A custom template allows
+            the selected lookup item to be inserted within a text template at the point
+            of invocation.
+            </summary>
+            <param name="lookAheadText">The lookahead text for the code assist invocation.</param>
+            <param name="items">The items returned by the code assist lookup.</param>
+            <param name="insertionTemplate">The insertion template.</param>
+        </member>
+        <member name="M:QuickSharp.CodeAssist.LookupList.#ctor(System.String,System.Collections.Generic.List{QuickSharp.CodeAssist.LookupListItem},System.Collections.Generic.List{System.String})">
+            <summary>
+            Create a LookupList with custom insertion templates. A custom template allows
+            the selected lookup item to be inserted within a text template at the point
+            of invocation.
+            </summary>
+            <param name="lookAheadText">The lookahead text for the code assist invocation.</param>
+            <param name="items">The items returned by the code assist lookup.</param>
+            <param name="insertionTemplates">A list of insertion templates.</param>
+        </member>
+        <member name="P:QuickSharp.CodeAssist.LookupList.LookAheadText">
+            <summary>
+            The lookahead text; the partial fragment of text used to preselect
+            a partial match in the lookup item list.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.CodeAssist.LookupList.Items">
+            <summary>
+            The lookup items selected by the code assist lookup.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.CodeAssist.LookupList.InsertionTemplates">
+            <summary>
+            The list of insertion templates available for use by the code assist lookup.
+            </summary>
+        </member>
+        <member name="T:QuickSharp.CodeAssist.LookupForm">
+            <summary>
+            The code assist pop-up window.
+            </summary>
+        </member>
+        <member name="F:QuickSharp.CodeAssist.LookupForm.m_listView">
+            <summary>
+            Form control name.
+            </summary>
+        </member>
+        <member name="F:QuickSharp.CodeAssist.LookupForm.m_itemColumnName">
+            <summary>
+            Form control name.
+            </summary>
+        </member>
+        <member name="F:QuickSharp.CodeAssist.LookupForm.m_lookupContextMenuStrip">
+            <summary>
+            Form control name.
+            </summary>
+        </member>
+        <member name="M:QuickSharp.CodeAssist.LookupForm.#ctor(System.Drawing.Point,QuickSharp.CodeAssist.LookupList)">
+            <summary>
+            Create the pop-up window.
+            </summary>
+            <param name="p">The location of the pop-up window.</param>
+            <param name="list">The code assist information to be presented.</param>
+        </member>
+        <member name="P:QuickSharp.CodeAssist.LookupForm.SelectedText">
+            <summary>
+            The text to be inserted in the document when an item is selected.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.CodeAssist.LookupForm.LookAheadText">
+            <summary>
+            The text fragement used to preselect an item in the lookup list.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.CodeAssist.LookupForm.InsertionTemplate">
+            <summary>
+            The template to be used to insert the selected text into the document.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.CodeAssist.LookupForm.CreateParams">
+            <summary>
+            Display the form without a title bar.
+            </summary>
+        </member>
+        <member name="T:QuickSharp.CodeAssist.ModuleProxy">
+            <summary>
+            Provides access to the public members of the module.
+            </summary>
+        </member>
+        <member name="M:QuickSharp.CodeAssist.ModuleProxy.GetInstance">
+            <summary>
+            Gets a reference to the module proxy singleton.
+            </summary>
+            <returns>A reference to the module proxy.</returns>
+        </member>
+        <member name="P:QuickSharp.CodeAssist.ModuleProxy.Module">
+            <summary>
+            A reference to the module.
+            </summary>
+        </member>
+        <member name="T:QuickSharp.CodeAssist.Constants">
+            <summary>
+            Provide access to the constants used within the plugin.
+            </summary>
+        </member>
+        <member name="T:QuickSharp.CodeAssist.CodeAssistManager">
+            <summary>
+            Manages the code assist providers.
+            </summary>
+        </member>
+        <member name="M:QuickSharp.CodeAssist.CodeAssistManager.GetInstance">
+            <summary>
+            Get a reference to the CodeAssistManager singleton.
+            </summary>
+            <returns>A reference to the CodeAssistMananger.</returns>
+        </member>
+        <member name="M:QuickSharp.CodeAssist.CodeAssistManager.UpdateCodeAssistStatus">
+            <summary>
+            Update the code assist provider status.
+            </summary>
+        </member>
+        <member name="M:QuickSharp.CodeAssist.CodeAssistManager.GetLookupList(QuickSharp.Editor.ScintillaEditForm)">
+            <summary>
+            Get the list of lookup items for the current document.
+            </summary>
+            <param name="document">The current document.</param>
+            <returns>A list of lookup items.</returns>
+        </member>
+        <member name="M:QuickSharp.CodeAssist.CodeAssistManager.RegisterProvider(QuickSharp.CodeAssist.ICodeAssistProvider)">
+            <summary>
+            Register a code assist provider.
+            </summary>
+            <param name="provider">A provider instance.</param>
+        </member>
+        <member name="M:QuickSharp.CodeAssist.CodeAssistManager.CodeAssistAvailable(QuickSharp.Core.DocumentType)">
+            <summary>
+            Determine if code assist is available for a document type.
+            </summary>
+            <param name="documentType">The document type.</param>
+            <returns>True if code assist is available.</returns>
+        </member>
+        <member name="M:QuickSharp.CodeAssist.CodeAssistManager.GetProvider(QuickSharp.Core.DocumentType)">
+            <summary>
+            Get the code assist provider for a document type.
+            </summary>
+            <param name="documentType">The document type.</param>
+            <returns>A reference to the registered provider instance.</returns>
+        </member>
+        <member name="T:QuickSharp.CodeAssist.LookupFormProxy">
+            <summary>
+            Provides access to the public members of the LookupForm.
+            </summary>
+        </member>
+        <member name="M:QuickSharp.CodeAssist.LookupFormProxy.GetInstance">
+            <summary>
+            Get a reference to the form proxy singleton.
+            </summary>
+            <returns>A reference to the form proxy.</returns>
+        </member>
+        <member name="T:QuickSharp.CodeAssist.ICodeAssistProvider">
+            <summary>
+            Defines the interface to a code assist provider.
+            </summary>
+        </member>
+        <member name="M:QuickSharp.CodeAssist.ICodeAssistProvider.DocumentActivated(QuickSharp.Editor.ScintillaEditForm)">
+            <summary>
+            Called when the active document changes.
+            </summary>
+            <param name="document">The active document.</param>
+        </member>
+        <member name="M:QuickSharp.CodeAssist.ICodeAssistProvider.GetLookupList(QuickSharp.Editor.ScintillaEditForm)">
+            <summary>
+            Get the data for the code assist pop-up window.
+            </summary>
+            <param name="document">The active document.</param>
+            <returns>A list of lookup items.</returns>
+        </member>
+        <member name="P:QuickSharp.CodeAssist.ICodeAssistProvider.DocumentType">
+            <summary>
+            The document type for which assistance is provided.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.CodeAssist.ICodeAssistProvider.IsAvailable">
+            <summary>
+            True if code assist is available.
+            </summary>
+        </member>
+    </members>
+</doc>

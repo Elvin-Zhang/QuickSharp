@@ -1,0 +1,1311 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>QuickSharp.BuildTools</name>
+    </assembly>
+    <members>
+        <member name="T:QuickSharp.BuildTools.ModuleProxy">
+            <summary>
+            Provides access to the public members of the plugin module.
+            </summary>
+        </member>
+        <member name="M:QuickSharp.BuildTools.ModuleProxy.GetInstance">
+            <summary>
+            Get a reference to the module proxy singleton.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:QuickSharp.BuildTools.ModuleProxy.Module">
+            <summary>
+            A reference to the module.
+            </summary>
+        </member>
+        <member name="T:QuickSharp.BuildTools.BuildToolForm">
+            <summary>
+            The build tool configuration form.
+            </summary>
+        </member>
+        <member name="F:QuickSharp.BuildTools.BuildToolForm.m_displayNameTextBox">
+            <summary>
+            Form control name.
+            </summary>
+        </member>
+        <member name="F:QuickSharp.BuildTools.BuildToolForm.m_toolPathTextBox">
+            <summary>
+            Form control name.
+            </summary>
+        </member>
+        <member name="F:QuickSharp.BuildTools.BuildToolForm.m_toolArgsTextBox">
+            <summary>
+            Form control name.
+            </summary>
+        </member>
+        <member name="F:QuickSharp.BuildTools.BuildToolForm.m_userArgsTextBox">
+            <summary>
+            Form control name.
+            </summary>
+        </member>
+        <member name="F:QuickSharp.BuildTools.BuildToolForm.m_displayNameLabel">
+            <summary>
+            Form control name.
+            </summary>
+        </member>
+        <member name="F:QuickSharp.BuildTools.BuildToolForm.m_toolPathLabel">
+            <summary>
+            Form control name.
+            </summary>
+        </member>
+        <member name="F:QuickSharp.BuildTools.BuildToolForm.m_toolArgsLabel">
+            <summary>
+            Form control name.
+            </summary>
+        </member>
+        <member name="F:QuickSharp.BuildTools.BuildToolForm.m_userArgsLabel">
+            <summary>
+            Form control name.
+            </summary>
+        </member>
+        <member name="F:QuickSharp.BuildTools.BuildToolForm.m_actionComboBox">
+            <summary>
+            Form control name.
+            </summary>
+        </member>
+        <member name="F:QuickSharp.BuildTools.BuildToolForm.m_fileTypeLabel">
+            <summary>
+            Form control name.
+            </summary>
+        </member>
+        <member name="F:QuickSharp.BuildTools.BuildToolForm.m_actionLabel">
+            <summary>
+            Form control name.
+            </summary>
+        </member>
+        <member name="F:QuickSharp.BuildTools.BuildToolForm.m_okButton">
+            <summary>
+            Form control name.
+            </summary>
+        </member>
+        <member name="F:QuickSharp.BuildTools.BuildToolForm.m_cancelButton">
+            <summary>
+            Form control name.
+            </summary>
+        </member>
+        <member name="F:QuickSharp.BuildTools.BuildToolForm.m_toolPathHelperButton">
+            <summary>
+            Form control name.
+            </summary>
+        </member>
+        <member name="F:QuickSharp.BuildTools.BuildToolForm.m_parserComboBox">
+            <summary>
+            Form control name.
+            </summary>
+        </member>
+        <member name="F:QuickSharp.BuildTools.BuildToolForm.m_parserLabel">
+            <summary>
+            Form control name.
+            </summary>
+        </member>
+        <member name="F:QuickSharp.BuildTools.BuildToolForm.m_documentTypeComboBox">
+            <summary>
+            Form control name.
+            </summary>
+        </member>
+        <member name="M:QuickSharp.BuildTools.BuildToolForm.#ctor(QuickSharp.BuildTools.BuildToolCollection,System.String)">
+            <summary>
+            Create a new instance of the form. The form is responsible for retrieving and updating
+            the tool definition in the build tool collection.
+            </summary>
+            <param name="buildTools">The collection of build tools registered with the build system.</param>
+            <param name="toolId">The build tool to be configured.</param>
+        </member>
+        <member name="M:QuickSharp.BuildTools.BuildToolForm.LoadTool">
+            <summary>
+            Load the build tool to be configured or create a new configuration. 
+            </summary>
+        </member>
+        <member name="M:QuickSharp.BuildTools.BuildToolForm.SaveTool">
+            <summary>
+            Create or update the tool in the build tools collection.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:QuickSharp.BuildTools.BuildToolForm.DisableForm">
+            <summary>
+            Display the form as read-only.
+            </summary>
+        </member>
+        <member name="T:QuickSharp.BuildTools.BuildCommandDelegateListItem">
+            <summary>
+            Represents a build command provider as an item in a list. Associates
+            the BuildCommand with a document type/build action combination.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.BuildTools.BuildCommandDelegateListItem.DocumentType">
+            <summary>
+            A document type.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.BuildTools.BuildCommandDelegateListItem.Action">
+            <summary>
+            A build action.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.BuildTools.BuildCommandDelegateListItem.BuildCommand">
+            <summary>
+            The build command provider.
+            </summary>
+        </member>
+        <member name="T:QuickSharp.BuildTools.BuildCommand">
+            <summary>
+            A build command represents a concrete invocation of a build tool
+            on a source file.
+            </summary>
+        </member>
+        <member name="M:QuickSharp.BuildTools.BuildCommand.TargetBuildRequired">
+            <summary>
+            Flag to determine if a target requires rebuilding before the command
+            is executed (used by run commands).
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:QuickSharp.BuildTools.BuildCommand.BuildTool">
+            <summary>
+            The build tool used in the command.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.BuildTools.BuildCommand.SourceInfo">
+            <summary>
+            Information about the input file.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.BuildTools.BuildCommand.SourceText">
+            <summary>
+            Source code supplied to the build tool.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.BuildTools.BuildCommand.TargetInfo">
+            <summary>
+            Information about the output file.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.BuildTools.BuildCommand.TargetType">
+            <summary>
+            The document type of the output file.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.BuildTools.BuildCommand.Path">
+            <summary>
+            The expanded file path of the build tool.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.BuildTools.BuildCommand.Args">
+            <summary>
+            The expanded arguments passed to the build tool.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.BuildTools.BuildCommand.StartText">
+            <summary>
+            Text displayed before the tool is run.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.BuildTools.BuildCommand.FinishText">
+            <summary>
+            Text displayed after the tool has run.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.BuildTools.BuildCommand.Cancel">
+            <summary>
+            Flag used to allow the command to be cancelled.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.BuildTools.BuildCommand.CancelResult">
+            <summary>
+            Result to be returned by the command in the event of a cancellation.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.BuildTools.BuildCommand.SuccessCode">
+            <summary>
+            Return code to determine successful completion of a build command.
+            </summary>
+        </member>
+        <member name="T:QuickSharp.BuildTools.BuildToolOptionsPage">
+            <summary>
+            The build tool management page in the main options editor.
+            </summary>
+        </member>
+        <member name="F:QuickSharp.BuildTools.BuildToolOptionsPage.m_listView">
+            <summary>
+            Form control name.
+            </summary>
+        </member>
+        <member name="F:QuickSharp.BuildTools.BuildToolOptionsPage.m_typeColumnHeader">
+            <summary>
+            Form control name.
+            </summary>
+        </member>
+        <member name="F:QuickSharp.BuildTools.BuildToolOptionsPage.m_actionColumnHeader">
+            <summary>
+            Form control name.
+            </summary>
+        </member>
+        <member name="F:QuickSharp.BuildTools.BuildToolOptionsPage.m_nameColumnHeader">
+            <summary>
+            Form control name.
+            </summary>
+        </member>
+        <member name="F:QuickSharp.BuildTools.BuildToolOptionsPage.m_listViewContextMenuStrip">
+            <summary>
+            Form control name.
+            </summary>
+        </member>
+        <member name="M:QuickSharp.BuildTools.BuildToolOptionsPage.#ctor">
+            <summary>
+            Create a new instance of the options page.
+            </summary>
+        </member>
+        <member name="M:QuickSharp.BuildTools.BuildToolOptionsPage.Save">
+            <summary>
+            Save the settings when requested by the options editor.
+            </summary>
+        </member>
+        <member name="T:QuickSharp.BuildTools.BuildSettingsOptionsPage">
+            <summary>
+            The build settings configuration page for the main options editor.
+            </summary>
+        </member>
+        <member name="F:QuickSharp.BuildTools.BuildSettingsOptionsPage.m_settingsGroupBox">
+            <summary>
+            Form control name.
+            </summary>
+        </member>
+        <member name="F:QuickSharp.BuildTools.BuildSettingsOptionsPage.m_alwaysBuildOnCompileCheckBox">
+            <summary>
+            Form control name.
+            </summary>
+        </member>
+        <member name="F:QuickSharp.BuildTools.BuildSettingsOptionsPage.m_alwaysBuildOnRunCheckBox">
+            <summary>
+            Form control name.
+            </summary>
+        </member>
+        <member name="M:QuickSharp.BuildTools.BuildSettingsOptionsPage.#ctor">
+            <summary>
+            Create the options page.
+            </summary>
+        </member>
+        <member name="M:QuickSharp.BuildTools.BuildSettingsOptionsPage.Save">
+            <summary>
+            Save the settings when requested by the options editor.
+            </summary>
+        </member>
+        <member name="T:QuickSharp.BuildTools.BuildToolFormProxy">
+            <summary>
+            Provides access to the public members of the build tool
+            configuration form.
+            </summary>
+        </member>
+        <member name="M:QuickSharp.BuildTools.BuildToolFormProxy.GetInstance">
+            <summary>
+            Get an instance of the form proxy singleton.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:QuickSharp.BuildTools.Module">
+            <summary>
+            The plugin main module.
+            </summary>
+        </member>
+        <member name="M:QuickSharp.BuildTools.Module.GetID">
+            <summary>
+            Get the ID of the plugin.
+            </summary>
+            <returns>The plugin ID.</returns>
+        </member>
+        <member name="M:QuickSharp.BuildTools.Module.GetName">
+            <summary>
+            Get the name of the plugin.
+            </summary>
+            <returns>The plugin name.</returns>
+        </member>
+        <member name="M:QuickSharp.BuildTools.Module.GetVersion">
+            <summary>
+            Get the version of the plugin.
+            </summary>
+            <returns>The plugin version.</returns>
+        </member>
+        <member name="M:QuickSharp.BuildTools.Module.GetDescription">
+            <summary>
+            Get a description of the plugin.
+            </summary>
+            <returns>The plugin description.</returns>
+        </member>
+        <member name="M:QuickSharp.BuildTools.Module.GetDependencies">
+            <summary>
+            Get the plugin's dependencies. This provides a list of the
+            plugins required by the current plugin.
+            </summary>
+            <returns>The plugin dependencies,</returns>
+        </member>
+        <member name="M:QuickSharp.BuildTools.Module.Activate(QuickSharp.Core.MainForm)">
+            <summary>
+            The plugin entry point. This is called by the PluginManager to
+            activate the plugin.
+            </summary>
+            <param name="mainForm">The application main form.</param>
+        </member>
+        <member name="M:QuickSharp.BuildTools.Module.GetPinnedOrActiveDocumentType">
+            <summary>
+            Get the type of the pinned or active document.
+            </summary>
+            <returns>A document type.</returns>
+        </member>
+        <member name="M:QuickSharp.BuildTools.Module.UpdateBuildToolStatus">
+            <summary>
+            Update the UI representaion of the build tool status.
+            </summary>
+        </member>
+        <member name="M:QuickSharp.BuildTools.Module.CompileActiveDocument">
+            <summary>
+            Compile the active document and any out of date dependencies.
+            </summary>
+            <returns>True if the action completed successfully.</returns>
+        </member>
+        <member name="M:QuickSharp.BuildTools.Module.CompileActiveDocument(System.Boolean)">
+            <summary>
+            Compile the active document and its dependencies. Dependencies may be compiled
+            conditionally if out of date or unconditionally.
+            </summary>
+            <param name="compileAll">Compile dependencies unconditionally if true.</param>
+            <returns>True if the action completed successfully.</returns>
+        </member>
+        <member name="M:QuickSharp.BuildTools.Module.Compile(System.IO.FileInfo,System.String,System.Boolean)">
+            <summary>
+            Compile the file provided and its dependencies. Dependencies may be compiled
+            conditionally if out of date or unconditionally.
+            </summary>
+            <param name="srcInfo">The source file info.</param>
+            <param name="srcText">The source file text.</param>
+            <param name="compileAll">Compile dependencies unconditionally if true.</param>
+            <returns>True if the action completed successfully.</returns>
+        </member>
+        <member name="M:QuickSharp.BuildTools.Module.RunActiveDocument">
+            <summary>
+            Run the active document's target (output) file. Any out of date
+            source files and their dependencies will be recompiled.
+            </summary>
+            <returns>True if the action completed successfully.</returns>
+        </member>
+        <member name="M:QuickSharp.BuildTools.Module.RunActiveDocument(System.Boolean)">
+            <summary>
+            Run the active document's target (output) file. Source files and their dependencies
+            will be recompiled conditionally if out of date or unconditionally.
+            </summary>
+            <param name="compileAll">Compile dependencies unconditionally if true.</param>
+            <returns>True if the action completed successfully.</returns>
+        </member>
+        <member name="M:QuickSharp.BuildTools.Module.Run(System.IO.FileInfo,System.String)">
+            <summary>
+            Run a file. Source files and their dependencies
+            will be recompiled if out of date.
+            </summary>
+            <param name="srcInfo">The source file info.</param>
+            <param name="srcText">The source file text.</param>
+            <returns>True if the action completed successfully.</returns>
+        </member>
+        <member name="M:QuickSharp.BuildTools.Module.Run(System.IO.FileInfo,System.String,System.Boolean)">
+            <summary>
+            Run a file. Source files and their dependencies
+            will be recompiled conditionally if out of date or unconditionally.
+            </summary>
+            <param name="srcInfo">The source file info.</param>
+            <param name="srcText">The source file text.</param>
+            <param name="compileAll">Compile dependencies unconditionally if true.</param>
+            <returns>True if the action completed successfully.</returns>
+        </member>
+        <member name="M:QuickSharp.BuildTools.Module.GetSourceFilesFilter">
+            <summary>
+            Get a list of registered source file filters.
+            </summary>
+            <returns>A list of source file types formatted as a FileOpenDialog filter.</returns>
+        </member>
+        <member name="T:QuickSharp.BuildTools.BuildTool">
+            <summary>
+            Defines a specific configuration of a build tool registered with the build system.
+            A build command is retrieved from a language support plugin and provides the functionality
+            required to actually perform a particular build task such as running a compiler.
+            The build tool defines the specific parameters to be passed to the plugin to allow
+            a concrete invocation of the build tool to be created. For example, the plugin might define
+            the invocation of a C# compiler but the build tool will define its actual path (allowing
+            separate configurations for different compiler versions), or the switches to be passed
+            (for release and debug builds). The build command defines an abstract tool definition
+            and a build tool configuration allows it to be converted into an actual invocation for
+            execution in the output window.
+            </summary>
+        </member>
+        <member name="M:QuickSharp.BuildTools.BuildTool.#ctor(System.String,QuickSharp.Core.DocumentType,System.String)">
+            <summary>
+            Create a build tool configuration.
+            </summary>
+            <param name="id">A unique ID representing the tool.</param>
+            <param name="documentType">The document type the tool is associated with.</param>
+            <param name="displayName">The tool's display name.</param>
+        </member>
+        <member name="M:QuickSharp.BuildTools.BuildTool.ToString">
+            <summary>
+            Provide a 'serialized' version of the tool for
+            saving in the persistence store.
+            </summary>
+            <returns>The configuration as a string.</returns>
+        </member>
+        <member name="M:QuickSharp.BuildTools.BuildTool.Parse(System.String)">
+            <summary>
+            Convert a saved tool configuration into a build tool instance.
+            </summary>
+            <param name="s">The saved configuration.</param>
+            <returns>A BuildTool instance.</returns>
+        </member>
+        <member name="M:QuickSharp.BuildTools.BuildTool.Clone">
+            <summary>
+            Duplicate an existing build tool.
+            </summary>
+            <returns>A BuildTool instance.</returns>
+        </member>
+        <member name="P:QuickSharp.BuildTools.BuildTool.Id">
+            <summary>
+            A unique ID representing the tool.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.BuildTools.BuildTool.DocumentType">
+            <summary>
+            The document type the tool is associated with.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.BuildTools.BuildTool.DisplayName">
+            <summary>
+            The tool's display name.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.BuildTools.BuildTool.Action">
+            <summary>
+            The build action the tool performs.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.BuildTools.BuildTool.Path">
+            <summary>
+            The path of the build tool. This
+            can be a string template containing macros for expansion.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.BuildTools.BuildTool.Args">
+            <summary>
+            Arguments to be passed to the build tool. This
+            can be a string template containing macros for expansion.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.BuildTools.BuildTool.UserArgs">
+            <summary>
+            Common arguments to be passed to the build tool.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.BuildTools.BuildTool.LineParserName">
+            <summary>
+            The name of the line parser associated with the tool.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.BuildTools.BuildTool.LineParser">
+            <summary>
+            A reference to an instance of the line parser associated with the tool.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.BuildTools.BuildTool.BuildCommand">
+            <summary>
+            A delegate to the build command provider associated with the tool.
+            </summary>
+        </member>
+        <member name="T:QuickSharp.BuildTools.BuildCommandDelegate">
+            <summary>
+            Retrieves a build command from a provider supplied by a language support plugin.
+            The plugin contains the actual build functionality and provides a method to create
+            a build command to represent this functionality. A delegate to this method is registered
+            with the build system. When the delegate is invoked the plugin provider takes a build tool
+            definition and source file information to creates the build command to perform the actual build task.
+            </summary>
+            <param name="buildTool">The build tool to be passed to the build command provider.</param>
+            <param name="srcInfo">The source file to be passed to the build command provider.</param>
+            <returns>A BuildCommand instance created by the build command provider.</returns>
+        </member>
+        <member name="T:QuickSharp.BuildTools.OutputLineParserListItem">
+            <summary>
+            Represents an OutputLineParser as an item in a list.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.BuildTools.OutputLineParserListItem.DisplayName">
+            <summary>
+            The parser's display name.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.BuildTools.OutputLineParserListItem.DocumentType">
+            <summary>
+            The parser's document type.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.BuildTools.OutputLineParserListItem.Action">
+            <summary>
+            The parser's build action.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.BuildTools.OutputLineParserListItem.Parser">
+            <summary>
+            The parser instance.
+            </summary>
+        </member>
+        <member name="T:QuickSharp.BuildTools.BuildToolCollection">
+            <summary>
+            A collection of build tools registered with the build tool system.
+            </summary>
+        </member>
+        <member name="M:QuickSharp.BuildTools.BuildToolCollection.#ctor">
+            <summary>
+            Create a BuildToolCollection.
+            </summary>
+        </member>
+        <member name="M:QuickSharp.BuildTools.BuildToolCollection.Clone">
+            <summary>
+            Duplicate the build tool collection.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:QuickSharp.BuildTools.BuildToolCollection.AddTool(QuickSharp.BuildTools.BuildTool)">
+            <summary>
+            Add a tool to the collection.
+            </summary>
+            <param name="tool">A BuildTool instance.</param>
+        </member>
+        <member name="M:QuickSharp.BuildTools.BuildToolCollection.GetTool(System.String)">
+            <summary>
+            Get a tool by ID.
+            </summary>
+            <param name="id">The tool's ID.</param>
+            <returns>A BuildTool instance.</returns>
+        </member>
+        <member name="M:QuickSharp.BuildTools.BuildToolCollection.DeleteTool(System.String)">
+            <summary>
+            Delete a tool by ID.
+            </summary>
+            <param name="id">The tool's ID.</param>
+        </member>
+        <member name="M:QuickSharp.BuildTools.BuildToolCollection.ClearAll">
+            <summary>
+            Remove all the tools from the collection.
+            </summary>
+        </member>
+        <member name="M:QuickSharp.BuildTools.BuildToolCollection.GetTools(QuickSharp.Core.DocumentType)">
+            <summary>
+            Get all the tools registered for a document type.
+            </summary>
+            <param name="documentType">The document type.</param>
+            <returns>A dictionary of the tools indexed by ID.</returns>
+        </member>
+        <member name="M:QuickSharp.BuildTools.BuildToolCollection.GetTools(QuickSharp.Core.DocumentType,System.String)">
+            <summary>
+            Get all the tools registered for a document
+            type/build action combination.
+            </summary>
+            <param name="documentType">The document type.</param>
+            <param name="action">The build action.</param>
+            <returns>A dictionary of the tools indexed by ID.</returns>
+        </member>
+        <member name="M:QuickSharp.BuildTools.BuildToolCollection.GetToolCount(QuickSharp.Core.DocumentType)">
+            <summary>
+            Get the number of tools registered for a document type.
+            </summary>
+            <param name="documentType">The document type.</param>
+            <returns>The number of tools.</returns>
+        </member>
+        <member name="M:QuickSharp.BuildTools.BuildToolCollection.GetToolCount(QuickSharp.Core.DocumentType,System.String)">
+            <summary>
+            Get the number of tools registered for a document
+            type/build action combination.
+            </summary>
+            <param name="documentType">The document type.</param>
+            <param name="action">The build action.</param>
+            <returns>The number of tools.</returns>
+        </member>
+        <member name="M:QuickSharp.BuildTools.BuildToolCollection.ToolsAreAvailable(QuickSharp.Core.DocumentType,System.String)">
+            <summary>
+            Determine if tools have been registered for a document
+            type/build action combination.
+            </summary>
+            <param name="documentType">The document type.</param>
+            <param name="action">The build action.</param>
+            <returns>True if tools are available.</returns>
+        </member>
+        <member name="M:QuickSharp.BuildTools.BuildToolCollection.GetDocumentTypes">
+            <summary>
+            Get a list of the document types for which tools have been registered.
+            </summary>
+            <returns>A list of document types.</returns>
+        </member>
+        <member name="M:QuickSharp.BuildTools.BuildToolCollection.SelectTool(System.String)">
+            <summary>
+            Select a tool by ID. Selecting a tool makes it the currently
+            selected tool for a document type/build action combination. Any
+            previously selected tool is deselected.
+            </summary>
+            <param name="id">The tool's ID.</param>
+        </member>
+        <member name="M:QuickSharp.BuildTools.BuildToolCollection.SelectTool(QuickSharp.BuildTools.BuildTool)">
+            <summary>
+            Select a build tool. Selecting a tool makes it the currently
+            selected tool for a document type/build action combination. Any
+            previously selected tool is deselected.
+            </summary>
+            <param name="tool">A BuildTool instance.</param>
+        </member>
+        <member name="M:QuickSharp.BuildTools.BuildToolCollection.GetSelectedTool(System.String,System.String)">
+            <summary>
+            Get the currently selected tool for a document
+            type/build action combination.
+            </summary>
+            <param name="type">The document type.</param>
+            <param name="action">The build action.</param>
+            <returns>A BuildTool instance.</returns>
+        </member>
+        <member name="M:QuickSharp.BuildTools.BuildToolCollection.GetSelectedTool(QuickSharp.Core.DocumentType,System.String)">
+            <summary>
+            Get the currently selected tool for a document
+            type/buid action combination.
+            </summary>
+            <param name="type">The document type.</param>
+            <param name="action">The build action.</param>
+            <returns>A BuildTool instance.</returns>
+        </member>
+        <member name="M:QuickSharp.BuildTools.BuildToolCollection.ToolIsSelected(QuickSharp.BuildTools.BuildTool)">
+            <summary>
+            Determine if a build tool is selected.
+            </summary>
+            <param name="tool">A BuildTool instance.</param>
+            <returns>True if the tool is selected.</returns>
+        </member>
+        <member name="M:QuickSharp.BuildTools.BuildToolCollection.SelectedToolIsAvailable(QuickSharp.Core.DocumentType,System.String)">
+            <summary>
+            Determine if a selected tool is available for a document
+            type/build tool action combination.
+            </summary>
+            <param name="documentType">The document type.</param>
+            <param name="action">The build action.</param>
+            <returns>True if a selected tool is available.</returns>
+        </member>
+        <member name="M:QuickSharp.BuildTools.BuildToolCollection.SortTools">
+            <summary>
+            Sort the tool collection into document type/build action order.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.BuildTools.BuildToolCollection.Tools">
+            <summary>
+            A dictionary of the tools in the collection indexed by tool ID.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.BuildTools.BuildToolCollection.SelectedTools">
+            <summary>
+            A dictionary of the tools currently selected for each
+            document type/build action combination, indexed by tool ID.
+            </summary>
+        </member>
+        <member name="T:QuickSharp.BuildTools.PinnedFile">
+            <summary>
+            Represents a pinned file.
+            </summary>
+        </member>
+        <member name="M:QuickSharp.BuildTools.PinnedFile.#ctor(System.String)">
+            <summary>
+            Create a PinnedFile instance from a path.
+            </summary>
+            <param name="path"></param>
+        </member>
+        <member name="M:QuickSharp.BuildTools.PinnedFile.Exists">
+            <summary>
+            Determine if the file exists.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:QuickSharp.BuildTools.PinnedFile.Matches(System.String)">
+            <summary>
+            Match the pinned file with a name.
+            </summary>
+            <param name="name">A name.</param>
+            <returns>True if the name matches the pinned file name.</returns>
+        </member>
+        <member name="P:QuickSharp.BuildTools.PinnedFile.Name">
+            <summary>
+            The file name.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.BuildTools.PinnedFile.Path">
+            <summary>
+            The file path.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.BuildTools.PinnedFile.Directory">
+            <summary>
+            The directory portion of the file path.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.BuildTools.PinnedFile.Selected">
+            <summary>
+            Is the file selected.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.BuildTools.PinnedFile.DocumentType">
+            <summary>
+            The pinned file's document type.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.BuildTools.PinnedFile.FileInfo">
+            <summary>
+            A FileInfo object representing the file.
+            </summary>
+        </member>
+        <member name="T:QuickSharp.BuildTools.Constants">
+            <summary>
+            Provides access to constants used within the plugin.
+            </summary>
+        </member>
+        <member name="T:QuickSharp.BuildTools.PinnedFilesCollection">
+            <summary>
+            A collection of pinned files.
+            </summary>
+        </member>
+        <member name="M:QuickSharp.BuildTools.PinnedFilesCollection.#ctor">
+            <summary>
+            Create a new pinned file collection.
+            </summary>
+        </member>
+        <member name="M:QuickSharp.BuildTools.PinnedFilesCollection.Add(QuickSharp.BuildTools.PinnedFile)">
+            <summary>
+            Add a file to the collection.
+            </summary>
+            <param name="pinnedFile">A PinnedFile instance.</param>
+        </member>
+        <member name="M:QuickSharp.BuildTools.PinnedFilesCollection.Add(System.String)">
+            <summary>
+            Add a file to the collection by path.
+            </summary>
+            <param name="path">The file path.</param>
+        </member>
+        <member name="M:QuickSharp.BuildTools.PinnedFilesCollection.Remove(QuickSharp.BuildTools.PinnedFile)">
+            <summary>
+            Remove a file from the collection.
+            </summary>
+            <param name="pinnedFile">A PinnedFile instance.</param>
+        </member>
+        <member name="M:QuickSharp.BuildTools.PinnedFilesCollection.Remove(System.String)">
+            <summary>
+            Remove files from the collection by directory.
+            </summary>
+            <param name="directory">The directory.</param>
+        </member>
+        <member name="M:QuickSharp.BuildTools.PinnedFilesCollection.Clear">
+            <summary>
+            Remove all files from the collection.
+            </summary>
+        </member>
+        <member name="M:QuickSharp.BuildTools.PinnedFilesCollection.GetPinnedFile(System.String)">
+            <summary>
+            Get a pinned file by directory.
+            </summary>
+            <param name="directory">The directory.</param>
+            <returns>A PinnedFile instance or null in not found.</returns>
+        </member>
+        <member name="M:QuickSharp.BuildTools.PinnedFilesCollection.GetPaths">
+            <summary>
+            Get all the pinned files in the collection.
+            </summary>
+            <returns>A list of file paths.</returns>
+        </member>
+        <member name="T:QuickSharp.BuildTools.DocumentTypeAction">
+            <summary>
+            Represents a document type/build action combination.
+            </summary>
+        </member>
+        <member name="M:QuickSharp.BuildTools.DocumentTypeAction.Clone">
+            <summary>
+            Duplicate the DocumentTypeAction.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:QuickSharp.BuildTools.DocumentTypeAction.DocumentType">
+            <summary>
+            The document type.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.BuildTools.DocumentTypeAction.Action">
+            <summary>
+            The build action.
+            </summary>
+        </member>
+        <member name="T:QuickSharp.BuildTools.Resources">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.BuildTools.Resources.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.BuildTools.Resources.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.BuildTools.Resources.BuildErrors">
+            <summary>
+              Looks up a localized string similar to Build completed with errors.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.BuildTools.Resources.BuildHalted">
+            <summary>
+              Looks up a localized string similar to Build halted.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.BuildTools.Resources.BuildStarted">
+            <summary>
+              Looks up a localized string similar to Build started....
+            </summary>
+        </member>
+        <member name="P:QuickSharp.BuildTools.Resources.BuildSuccess">
+            <summary>
+              Looks up a localized string similar to Build completed successfully.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.BuildTools.Resources.CloneCopyName">
+            <summary>
+              Looks up a localized string similar to Copy of {0}.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.BuildTools.Resources.ErrorBuildToolInvalid">
+            <summary>
+              Looks up a localized string similar to build tool is invalid.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.BuildTools.Resources.ErrorBuildToolNotFound">
+            <summary>
+              Looks up a localized string similar to no build tool for the file.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.BuildTools.Resources.ErrorFilenameInvalid">
+            <summary>
+              Looks up a localized string similar to filename is invalid.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.BuildTools.Resources.ErrorFileNotFound">
+            <summary>
+              Looks up a localized string similar to file not found.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.BuildTools.Resources.ErrorSourceInvalid">
+            <summary>
+              Looks up a localized string similar to source file is invalid.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.BuildTools.Resources.MainToolsMenuCompile">
+            <summary>
+              Looks up a localized string similar to &amp;Compile.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.BuildTools.Resources.MainToolsMenuCompileAll">
+            <summary>
+              Looks up a localized string similar to Compile &amp;All.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.BuildTools.Resources.MainToolsMenuRun">
+            <summary>
+              Looks up a localized string similar to &amp;Run.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.BuildTools.Resources.OptionsAlwaysBuildOnCompile">
+            <summary>
+              Looks up a localized string similar to Always build dependencies on &amp;Compile.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.BuildTools.Resources.OptionsAlwaysBuildOnRun">
+            <summary>
+              Looks up a localized string similar to Always build dependencies on &amp;Run.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.BuildTools.Resources.OptionsGroupText">
+            <summary>
+              Looks up a localized string similar to Build Tools.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.BuildTools.Resources.OptionsPageTextSettings">
+            <summary>
+              Looks up a localized string similar to Build Settings.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.BuildTools.Resources.OptionsPageTextTools">
+            <summary>
+              Looks up a localized string similar to Tool Settings.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.BuildTools.Resources.OutputWindowCompile">
+            <summary>
+              Looks up a localized string similar to Output - Compile:.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.BuildTools.Resources.OutputWindowRun">
+            <summary>
+              Looks up a localized string similar to Output - Run:.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.BuildTools.Resources.ParserListNone">
+            <summary>
+              Looks up a localized string similar to None.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.BuildTools.Resources.PostCompileTask">
+            <summary>
+              Looks up a localized string similar to Post-compile task:.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.BuildTools.Resources.PostRunTask">
+            <summary>
+              Looks up a localized string similar to Post-run task:.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.BuildTools.Resources.PreCompileTask">
+            <summary>
+              Looks up a localized string similar to Pre-compile task:.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.BuildTools.Resources.PreRunTask">
+            <summary>
+              Looks up a localized string similar to Pre-run task:.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.BuildTools.Resources.ProgramNotExecutable">
+            <summary>
+              Looks up a localized string similar to Target ({0}) is not executable.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.BuildTools.Resources.ProgramReturn">
+            <summary>
+              Looks up a localized string similar to Program returned {0}.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.BuildTools.Resources.ProgramTarget">
+            <summary>
+              Looks up a localized string similar to ------ {0}.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.BuildTools.Resources.SelectFileDialogFilter">
+            <summary>
+              Looks up a localized string similar to Executable files (*.exe)|*.exe|All Files (*.*)|*.*.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.BuildTools.Resources.SelectFileDialogTitle">
+            <summary>
+              Looks up a localized string similar to Select File.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.BuildTools.Resources.ToolbarCompile">
+            <summary>
+              Looks up a localized string similar to Compile (Shift+F5).
+            </summary>
+        </member>
+        <member name="P:QuickSharp.BuildTools.Resources.ToolbarPinFile">
+            <summary>
+              Looks up a localized string similar to Pinned File.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.BuildTools.Resources.ToolbarRun">
+            <summary>
+              Looks up a localized string similar to Run (Ctrl+F5).
+            </summary>
+        </member>
+        <member name="P:QuickSharp.BuildTools.Resources.ToolColumnAction">
+            <summary>
+              Looks up a localized string similar to Action.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.BuildTools.Resources.ToolColumnName">
+            <summary>
+              Looks up a localized string similar to Name.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.BuildTools.Resources.ToolColumnType">
+            <summary>
+              Looks up a localized string similar to Type.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.BuildTools.Resources.ToolDeleteMessage">
+            <summary>
+              Looks up a localized string similar to Delete {0}?.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.BuildTools.Resources.ToolDeleteTitle">
+            <summary>
+              Looks up a localized string similar to Delete.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.BuildTools.Resources.ToolDialogAction">
+            <summary>
+              Looks up a localized string similar to A&amp;ction:.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.BuildTools.Resources.ToolDialogArguments">
+            <summary>
+              Looks up a localized string similar to &amp;Arguments:.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.BuildTools.Resources.ToolDialogCancel">
+            <summary>
+              Looks up a localized string similar to Cancel.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.BuildTools.Resources.ToolDialogCommonOptions">
+            <summary>
+              Looks up a localized string similar to Common &amp;options:.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.BuildTools.Resources.ToolDialogDisplayName">
+            <summary>
+              Looks up a localized string similar to Display &amp;name:.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.BuildTools.Resources.ToolDialogFileType">
+            <summary>
+              Looks up a localized string similar to File &amp;type:.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.BuildTools.Resources.ToolDialogOK">
+            <summary>
+              Looks up a localized string similar to OK.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.BuildTools.Resources.ToolDialogOutputParser">
+            <summary>
+              Looks up a localized string similar to Output par&amp;ser:.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.BuildTools.Resources.ToolDialogPath">
+            <summary>
+              Looks up a localized string similar to &amp;Path:.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.BuildTools.Resources.ToolDialogTitle">
+            <summary>
+              Looks up a localized string similar to Build Tool.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.BuildTools.Resources.ToolMenuClone">
+            <summary>
+              Looks up a localized string similar to &amp;Clone.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.BuildTools.Resources.ToolMenuDelete">
+            <summary>
+              Looks up a localized string similar to &amp;Delete.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.BuildTools.Resources.ToolMenuEdit">
+            <summary>
+              Looks up a localized string similar to &amp;Edit....
+            </summary>
+        </member>
+        <member name="P:QuickSharp.BuildTools.Resources.ToolMenuNew">
+            <summary>
+              Looks up a localized string similar to &amp;New....
+            </summary>
+        </member>
+        <member name="P:QuickSharp.BuildTools.Resources.WorkspaceShowSourceOnly">
+            <summary>
+              Looks up a localized string similar to Show source files only.
+            </summary>
+        </member>
+        <member name="T:QuickSharp.BuildTools.BuildToolManager">
+            <summary>
+            Provides global access to the registered build tools.
+            Uses a singleton; use the GetInstance() method to access.
+            </summary>
+        </member>
+        <member name="M:QuickSharp.BuildTools.BuildToolManager.GetInstance">
+            <summary>
+            Provides access to the BuildToolManager singleton.
+            </summary>
+            <returns>A reference to the BuildToolManager.</returns>
+        </member>
+        <member name="M:QuickSharp.BuildTools.BuildToolManager.UpdateBuildToolStatus">
+            <summary>
+            Update the UI representations of the build tools status.
+            </summary>
+        </member>
+        <member name="M:QuickSharp.BuildTools.BuildToolManager.RegisterBuildCommand(QuickSharp.Core.DocumentType,System.String,QuickSharp.BuildTools.BuildCommandDelegate)">
+            <summary>
+            Register a build command provider with the build tool system. A
+            language support plugin defines a provider method to create a
+            build command; the build command contains a concrete invocation
+            of a build tool for execution by the output window. The provider
+            is represented by a BuildCommandDelegate which is associated with
+            a document type and build action.
+            </summary>
+            <param name="documentType">A document type.</param>
+            <param name="action">A build action (e.g. compile or run).</param>
+            <param name="commandDelegate">A build command provider.</param>
+        </member>
+        <member name="M:QuickSharp.BuildTools.BuildToolManager.GetBuildCommand(QuickSharp.Core.DocumentType,System.String)">
+            <summary>
+            Get the currently active build command provider for a
+            document type and build action combination. Returns
+            null if nothing is available.
+            </summary>
+            <param name="documentType">A document type.</param>
+            <param name="action">A build action (e.g. compile or run).</param>
+            <returns>A build command provider.</returns>
+        </member>
+        <member name="M:QuickSharp.BuildTools.BuildToolManager.UpdateTools(QuickSharp.Core.DocumentType)">
+            <summary>
+            Finalize the build tools registered by a plugin. This must be called
+            whenever additional tools are added to the build tool system and is required
+            to populate the tool definitions with additional data not stored in the
+            saved definitions (e.g. line parser instances).
+            </summary>
+            <param name="documentType">The document type of the tools being registered.</param>
+        </member>
+        <member name="M:QuickSharp.BuildTools.BuildToolManager.RegisterLineParser(System.String,QuickSharp.Core.DocumentType,System.String,QuickSharp.Output.IOutputLineParser)">
+            <summary>
+            Register an output line parser with the build tool system. Output line
+            parsers are used to extract information from the output of build tools
+            such as compilers. They provide file and line number information for
+            displaying error messages and locating error lines in the text editor.
+            </summary>
+            <param name="displayName">The parser's display name.</param>
+            <param name="documentType">A document type.</param>
+            <param name="action">A build action.</param>
+            <param name="parser">the parser.</param>
+        </member>
+        <member name="M:QuickSharp.BuildTools.BuildToolManager.GetLineParser(System.String)">
+            <summary>
+            Get a line parser from its display name.
+            </summary>
+            <param name="displayName">The display name.</param>
+            <returns>The parser instance.</returns>
+        </member>
+        <member name="M:QuickSharp.BuildTools.BuildToolManager.GetLineParsers(QuickSharp.Core.DocumentType,System.String)">
+            <summary>
+            Get the display names of the line parsers registered for a document
+            type/build action combination. Used to present the parsers for
+            selection in the build tool configuration form.
+            </summary>
+            <param name="documentType">A document type.</param>
+            <param name="action">A build action.</param>
+            <returns>A list of parser display names.</returns>
+        </member>
+        <member name="M:QuickSharp.BuildTools.BuildToolManager.GetAvailableDocumentTypes">
+            <summary>
+            Get a list of the document types for which build command
+            providers have been registered.
+            </summary>
+            <returns>A list of document types.</returns>
+        </member>
+        <member name="M:QuickSharp.BuildTools.BuildToolManager.GetAvailableActions(QuickSharp.Core.DocumentType)">
+            <summary>
+            Get a list of the build actions for which build command providers
+            have been registered for a particular document type.
+            </summary>
+            <param name="documentType">A document type.</param>
+            <returns>A list of build actions.</returns>
+        </member>
+        <member name="M:QuickSharp.BuildTools.BuildToolManager.LoadSettings">
+            <summary>
+            Load general settings from the session persistence store.
+            </summary>
+        </member>
+        <member name="M:QuickSharp.BuildTools.BuildToolManager.SaveSettings">
+            <summary>
+            Save general settings to the session persistence store.
+            </summary>
+        </member>
+        <member name="M:QuickSharp.BuildTools.BuildToolManager.LoadTools">
+            <summary>
+            Load the registered build tools from the session persistence
+            store.
+            </summary>
+        </member>
+        <member name="M:QuickSharp.BuildTools.BuildToolManager.SaveTools">
+            <summary>
+            Save the registered build tools to the session persistence
+            store.
+            </summary>
+        </member>
+        <member name="M:QuickSharp.BuildTools.BuildToolManager.LoadPinnedFiles">
+            <summary>
+            Load the list of pinned files from the session persistence
+            store.
+            </summary>
+        </member>
+        <member name="M:QuickSharp.BuildTools.BuildToolManager.SavePinnedFiles">
+            <summary>
+            Save the list of pinned files to the session persistence
+            store.
+            </summary>
+        </member>
+        <member name="M:QuickSharp.BuildTools.BuildToolManager.ExpandGenericMacros(System.String,QuickSharp.BuildTools.BuildTool,System.String,System.IO.FileInfo,System.IO.FileInfo)">
+            <summary>
+            Expand a build tool template string by translating
+            macro definitions into their actual values.
+            </summary>
+            <param name="template">The template.</param>
+            <param name="buildTool">The build tool it belongs to.</param>
+            <param name="srcText">The source code on which the build tool is being invoked.</param>
+            <param name="srcFile">The name of the source file on which the build tool is being invoked.</param>
+            <param name="outFile">The name of the output file of the build tool.</param>
+            <returns>The expanded template.</returns>
+        </member>
+        <member name="M:QuickSharp.BuildTools.BuildToolManager.GetDependencies(System.String)">
+            <summary>
+            Extract a source file's dependencies from the embedded options
+            in the source text.
+            </summary>
+            <param name="src">The source text.</param>
+            <returns>A list of dependent files.</returns>
+        </member>
+        <member name="M:QuickSharp.BuildTools.BuildToolManager.GetRuntimeOptions(System.String)">
+            <summary>
+            Extract the runtime arguments from the embedded options
+            in the source text.
+            </summary>
+            <param name="src">The source text.</param>
+            <returns>The runtime arguments.</returns>
+        </member>
+        <member name="M:QuickSharp.BuildTools.BuildToolManager.GetCompilerOptions(System.String)">
+            <summary>
+            Extract the compiler options from the embedded options
+            in the source text.
+            </summary>
+            <param name="src">The source text.</param>
+            <returns>The compiler options.</returns>
+        </member>
+        <member name="M:QuickSharp.BuildTools.BuildToolManager.GetActionCommands(System.String)">
+            <summary>
+            Get the build commands from the embedded options in
+            the source text.
+            </summary>
+            <param name="src">The source text.</param>
+            <returns>A dictionary of command types and instances of each (e.g.
+            a set of DoPreCompile commands, a set of DoPostCompile commands and so on).</returns>
+        </member>
+        <member name="P:QuickSharp.BuildTools.BuildToolManager.BuildTools">
+            <summary>
+            The build tools registered with the build tool system.
+            </summary>
+        </member>
+        <member name="P:QuickSharp.BuildTools.BuildToolManager.PinnedFiles">
+            <summary>
+            The pinned files currently recognised by the build tool system.
+            </summary>
+        </member>
+    </members>
+</doc>
