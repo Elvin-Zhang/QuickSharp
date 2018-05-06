@@ -1,2 +1,3 @@
 # QuickSharp
-QuickSharp integration development environment) is a small c #
+QuickSharp is a small c # integrated development environment, provides a code editor, the main function with code completion, syntax coloring, compile and execute, support ASP.NET and SQL Server, MySQL, and SQLite database.
+C # QuickSharp integrated development environment is nowadays the Internet is one of the commonly used software, the software green, safe, non-toxic, let you can rest assured to use!If c # QuickSharp integrated development environment is the tools you need, quickly come!This site provides you with c # QuickSharp official download integrated development environment.
