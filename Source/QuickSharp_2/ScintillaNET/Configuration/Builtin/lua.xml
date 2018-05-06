@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScintillaNET>
+    <Language Name="lua">
+
+        <Indentation 
+            TabWidth="4" 
+            UseSpaces="True"
+        />
+
+        <Lexer>
+            <Keywords List="0" Inherit="False">and break do else elseif end false for function
+if in local nil not or repeat return then true until while</Keywords>
+        </Lexer>
+
+    </Language>
+</ScintillaNET> 

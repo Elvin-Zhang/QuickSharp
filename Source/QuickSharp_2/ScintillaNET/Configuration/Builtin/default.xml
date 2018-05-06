@@ -1,0 +1,104 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ScintillaNET>
+    <Language Name="default">
+
+        <Indentation
+            TabWidth="4"
+            UseTabs="false"
+            BackspaceUnindents="true"
+            ShowGuides="false"
+            SmartIndentType="simple"
+        />
+
+        <Indicators>
+        </Indicators>
+
+        <Markers>
+            <Marker Number="1" BackColor="LightGreen" Symbol="SmallRect"/>
+        </Markers>
+
+        <Margins FoldMarginColor="White" FoldMarginHighlightColor="White">
+            <Margin Number="0" Width="36"/>
+            <Margin Number="1" Width="8"/>
+            <Margin Number="2" Width="16" IsFoldMargin="True"/>
+            <Margin Number="3" Width="0"/>
+        </Margins>
+
+        <Styles>
+            <Style Name="ASM"/>
+            <Style Name="ATTRIBUTE" ForeColor="Red"/>
+            <Style Name="BACKTICKS" ForeColor="Red"/>
+            <Style Name="BINARY"/>
+            <Style Name="BINNUMBER"/>
+            <Style Name="BLOCK_COMMENT" ForeColor="Green"/>
+            <Style Name="BRACELIGHT" ForeColor="Black" BackColor="Yellow" Bold="Yes"/>
+            <Style Name="CHAR" ForeColor="#A31515"/>
+            <Style Name="CHARACTER" ForeColor="#A31515"/>
+            <Style Name="CLASSNAME" ForeColor="#2B91AF"/>
+            <Style Name="DEFNAME" ForeColor="#2B91AF"/>
+            <Style Name="COMMAND" ForeColor="Red"/>
+            <Style Name="COMMENT" ForeColor="Green"/>
+            <Style Name="COMMENTBLOCK" ForeColor="Green"/>
+            <Style Name="COMMENTDOC" ForeColor="Green"/>
+            <Style Name="COMMENTDOCKEYWORD" ForeColor="Green"/>
+            <Style Name="COMMENTDOCKEYWORDERROR" ForeColor="Green"/>
+            <Style Name="COMMENTLINE" ForeColor="Green"/>
+            <Style Name="COMMENTLINEBANG" ForeColor="Green"/>
+            <Style Name="COMMENTLINEDOC" ForeColor="Green"/>
+            <Style Name="CONSTANT" Bold="True"/>
+            <Style Name="CONTROL" ForeColor="Blue"/>
+            <Style Name="DATE"/>
+            <Style Name="DEFAULT" BackColor="White" ForeColor="Black" FontName="Courier New" Size="10"/>
+            <Style Name="DIRECTIVE" ForeColor="Blue"/>
+            <Style Name="DOUBLESTRING" ForeColor="Red"/>
+            <Style Name="ERROR" ForeColor="White" BackColor="Red"/>
+            <Style Name="FUNCTION" ForeColor="Fuchsia"/>
+            <Style Name="GLOBAL"/>
+            <Style Name="GLOBALCLASS" ForeColor="Purple"/>
+            <Style Name="HERE_DELIM"/>
+            <Style Name="HEXNUMBER"/>
+            <Style Name="IDENTIFIER"/>
+            <Style Name="KEYWORD" ForeColor="Blue"/>
+            <Style Name="KEYWORD2" ForeColor="Blue"/>
+            <Style Name="KEYWORD3" ForeColor="DarkGreen"/>
+            <Style Name="KEYWORD4" ForeColor="DarkRed"/>
+            <Style Name="LABEL"/>
+            <Style Name="LINE_COMMENT" ForeColor="Green"/>
+            <Style Name="LINENUMBER" BackColor="White" ForeColor="#2B91AF"/>
+            <Style Name="NUMBER"/>
+            <Style Name="OPERATOR"/>
+            <Style Name="PREPROCESSOR" ForeColor="Blue"/>
+            <Style Name="REGEX"/>
+            <Style Name="SIMPLESTRING"/>
+            <Style Name="SPECIAL"/>
+            <Style Name="START"/>
+            <Style Name="STRING" ForeColor="#A31515"/>
+            <Style Name="STRINGEOL" ForeColor="#A31515" BackColor="Yellow" EolFilled="True"/>
+            <Style Name="STRINGRQ" ForeColor="Red"/>
+            <Style Name="SYMBOL"/>
+            <Style Name="SYMBOLS"/>
+            <Style Name="TAG" ForeColor="DarkRed"/>
+            <Style Name="TAGUNKNOWN" ForeColor="DarkRed"/>
+            <Style Name="TEXT"/>
+            <Style Name="TRIPLE" ForeColor="Green"/>
+            <Style Name="TRIPLEDOUBLE" ForeColor="Green"/>
+            <Style Name="USER1"	ForeColor="Purple"/>
+            <Style Name="USER2"	ForeColor="DarkGray"/>
+            <Style Name="USER3"	ForeColor="Fuchsia"/>
+            <Style Name="USER4"	ForeColor="DarkGray"/>
+            <Style Name="UUID"/>
+            <Style Name="VALUE"/>
+            <Style Name="VARIABLE" ForeColor="Purple"/>
+            <Style Name="VERBATIM" ForeColor="#A31515"/>
+            <Style Name="WORD" ForeColor="Blue"/>
+            <Style Name="WORD2" ForeColor="#2B91AF"/>
+            <Style Name="WORD3"/>
+            <Style Name="WORD4"/>
+            <Style Name="WORD5"/>
+            <Style Name="WORD6"/>
+            <Style Name="WORD7"/>
+            <Style Name="WORD8"/>
+        </Styles>
+
+    </Language>
+</ScintillaNET>

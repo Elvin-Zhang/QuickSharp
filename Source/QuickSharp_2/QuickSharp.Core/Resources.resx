@@ -1,0 +1,397 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AboutButtonOK" xml:space="preserve">
+    <value>OK</value>
+  </data>
+  <data name="AboutCopyright1" xml:space="preserve">
+    <value>QuickSharp.Core Version</value>
+  </data>
+  <data name="AboutCopyright2" xml:space="preserve">
+    <value>Copyright © 2008-2011 Steve Walker</value>
+  </data>
+  <data name="AboutCopyright3" xml:space="preserve">
+    <value>http://quicksharp.sourceforge.net</value>
+  </data>
+  <data name="AboutCopyrightDPS1" xml:space="preserve">
+    <value>DockPanelSuite Copyright © 2007 Weifen Luo</value>
+  </data>
+  <data name="AboutCopyrightDPS2" xml:space="preserve">
+    <value>http://sourceforge.net/projects/dockpanelsuite</value>
+  </data>
+  <data name="AboutRequires" xml:space="preserve">
+    <value>Requires</value>
+  </data>
+  <data name="AboutDependenciesNone" xml:space="preserve">
+    <value>None</value>
+  </data>
+  <data name="AboutInstalledPlugins" xml:space="preserve">
+    <value>Installed plugins:</value>
+  </data>
+  <data name="AboutPluginDetails" xml:space="preserve">
+    <value>Plugin details:</value>
+  </data>
+  <data name="AboutTitle" xml:space="preserve">
+    <value>About</value>
+  </data>
+  <data name="ErrorButtonContinue" xml:space="preserve">
+    <value>Continue</value>
+  </data>
+  <data name="ErrorButtonQuit" xml:space="preserve">
+    <value>Quit</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="ErrorFormIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\ErrorFormIcon.ico;System.Drawing.Icon, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ErrorMessage" xml:space="preserve">
+    <value>An error has occurred:</value>
+  </data>
+  <data name="ErrorStackTrace" xml:space="preserve">
+    <value>Stack trace:</value>
+  </data>
+  <data name="ErrorTitle" xml:space="preserve">
+    <value>Error</value>
+  </data>
+  <data name="MainFileMenu" xml:space="preserve">
+    <value>&amp;File</value>
+  </data>
+  <data name="MainFileMenuExit" xml:space="preserve">
+    <value>E&amp;xit</value>
+  </data>
+  <data name="MainFileMenuNew" xml:space="preserve">
+    <value>&amp;New</value>
+  </data>
+  <data name="MainFileMenuOpen" xml:space="preserve">
+    <value>&amp;Open...</value>
+  </data>
+  <data name="MainFileMenuSave" xml:space="preserve">
+    <value>&amp;Save</value>
+  </data>
+  <data name="MainFileMenuSaveAll" xml:space="preserve">
+    <value>Save A&amp;ll...</value>
+  </data>
+  <data name="MainFileMenuSaveAs" xml:space="preserve">
+    <value>Save &amp;As...</value>
+  </data>
+  <data name="MainHelpMenu" xml:space="preserve">
+    <value>&amp;Help</value>
+  </data>
+  <data name="MainHelpMenuAbout" xml:space="preserve">
+    <value>&amp;About</value>
+  </data>
+  <data name="MainHelpMenuCheckForUpdates" xml:space="preserve">
+    <value>Chec&amp;k for Updates</value>
+  </data>
+  <data name="MainToolbarNew" xml:space="preserve">
+    <value>New (Ctrl+N)</value>
+  </data>
+  <data name="MainToolbarOpen" xml:space="preserve">
+    <value>Open (Ctrl+O)</value>
+  </data>
+  <data name="MainToolbarSave" xml:space="preserve">
+    <value>Save (Ctrl+S)</value>
+  </data>
+  <data name="MainToolbarSaveAll" xml:space="preserve">
+    <value>Save All (Ctrl+Shft+S)</value>
+  </data>
+  <data name="MainToolsMenu" xml:space="preserve">
+    <value>&amp;Tools</value>
+  </data>
+  <data name="MainToolsMenuOptions" xml:space="preserve">
+    <value>&amp;Options...</value>
+  </data>
+  <data name="MainViewMenu" xml:space="preserve">
+    <value>&amp;View</value>
+  </data>
+  <data name="MainViewMenuStatusBar" xml:space="preserve">
+    <value>&amp;Status Bar</value>
+  </data>
+  <data name="MainViewMenuToolbarMulti" xml:space="preserve">
+    <value>&amp;Toolbars</value>
+  </data>
+  <data name="MainWindowMenu" xml:space="preserve">
+    <value>&amp;Window</value>
+  </data>
+  <data name="MainWindowMenuClose" xml:space="preserve">
+    <value>&amp;Close</value>
+  </data>
+  <data name="MainWindowMenuCloseAll" xml:space="preserve">
+    <value>Close &amp;All</value>
+  </data>
+  <data name="MainWindowMenuCloseAllButActive" xml:space="preserve">
+    <value>Close All &amp;But Active</value>
+  </data>
+  <data name="New" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\New.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="NoHandlerMessage" xml:space="preserve">
+    <value>No handler has been defined for this type of file.</value>
+  </data>
+  <data name="NoHandlerTitle" xml:space="preserve">
+    <value>Open</value>
+  </data>
+  <data name="Open" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\Open.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="OptionsButtonCancel" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="OptionsButtonOK" xml:space="preserve">
+    <value>OK</value>
+  </data>
+  <data name="OptionsTitle" xml:space="preserve">
+    <value>Options</value>
+  </data>
+  <data name="Save" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\Save.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="SaveAll" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\SaveAll.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="UpdateButtonCancel" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="UpdateButtonCheck" xml:space="preserve">
+    <value>Check Now</value>
+  </data>
+  <data name="UpdateButtonClose" xml:space="preserve">
+    <value>Close</value>
+  </data>
+  <data name="UpdateMessageCheckFailed" xml:space="preserve">
+    <value>Unable to get the latest version, please try again later.</value>
+  </data>
+  <data name="UpdateMessageChecking" xml:space="preserve">
+    <value>Checking for updates, please wait...</value>
+  </data>
+  <data name="UpdateMessageCheckNow" xml:space="preserve">
+    <value>Click 'Check Now' to check for updates.</value>
+  </data>
+  <data name="UpdateMessageCurrentVersion" xml:space="preserve">
+    <value>You are running version {0}</value>
+  </data>
+  <data name="UpdateMessageLatestVersion" xml:space="preserve">
+    <value>The latest version is {0}</value>
+  </data>
+  <data name="UpdateTitle" xml:space="preserve">
+    <value>Check for Updates</value>
+  </data>
+  <data name="UpdateMessageCheckCancelled" xml:space="preserve">
+    <value>Unable to get the latest version, check was cancelled.</value>
+  </data>
+  <data name="AboutRequiredBy" xml:space="preserve">
+    <value>Required by</value>
+  </data>
+  <data name="PluginDependencyError1" xml:space="preserve">
+    <value>Unsatisifed plugin dependency: "{0}" requires "{1}".</value>
+  </data>
+  <data name="PluginDependencyError2" xml:space="preserve">
+    <value>Unsatisifed plugin dependency: "{0}" requires "{1}" to be of version {2} or higher, found plugin with version {3}.</value>
+  </data>
+  <data name="HelpOpenErrorMessage" xml:space="preserve">
+    <value>Unable to open help file</value>
+  </data>
+  <data name="HelpOpenErrorTitle" xml:space="preserve">
+    <value>Help</value>
+  </data>
+  <data name="UpdateCheckLinkErrorMessage" xml:space="preserve">
+    <value>Unable to open the link</value>
+  </data>
+  <data name="UpdateCheckLinkErrorTitle" xml:space="preserve">
+    <value>Link Error</value>
+  </data>
+  <data name="InvalidDockConfigMessage" xml:space="preserve">
+    <value>A required configuration file is invalid and has been deleted. Please restart the application.</value>
+  </data>
+  <data name="MainToolbarText" xml:space="preserve">
+    <value>Standard</value>
+  </data>
+  <data name="MainViewMenuToolbarSingle" xml:space="preserve">
+    <value>&amp;Toolbar</value>
+  </data>
+  <data name="SwitchClean" xml:space="preserve">
+    <value>clean</value>
+  </data>
+  <data name="OptionsGroupText" xml:space="preserve">
+    <value>Environment</value>
+  </data>
+  <data name="OptionsPageTextGeneral" xml:space="preserve">
+    <value>Global Settings</value>
+  </data>
+  <data name="OptionsAllowShellOpen" xml:space="preserve">
+    <value>Allow documents to be opened using &amp;Windows shell associations</value>
+  </data>
+  <data name="OptionsDocumentsGroupBox" xml:space="preserve">
+    <value>Document handling</value>
+  </data>
+  <data name="OptionsRestoreLastSession" xml:space="preserve">
+    <value>&amp;Restore documents from the previous session</value>
+  </data>
+  <data name="OptionsShowNoHandler" xml:space="preserve">
+    <value>&amp;Show a message when no document handler is available</value>
+  </data>
+  <data name="OptionsRestartRequired" xml:space="preserve">
+    <value>Restart the application to apply the settings on this page</value>
+  </data>
+  <data name="MainFileMenuRecentFiles" xml:space="preserve">
+    <value>Recent &amp;Files</value>
+  </data>
+  <data name="MainViewMenuFullScreen" xml:space="preserve">
+    <value>&amp;Full Screen</value>
+  </data>
+  <data name="FullScreen" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\FullScreen.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ThemeDefault" xml:space="preserve">
+    <value>Default Operating System Theme</value>
+  </data>
+  <data name="ThemeVS2008" xml:space="preserve">
+    <value>Visual Studio 2008 Theme</value>
+  </data>
+  <data name="OptionsThemeGroupBox" xml:space="preserve">
+    <value>Theme</value>
+  </data>
+  <data name="ThemeVS2010Basic" xml:space="preserve">
+    <value>Visual Studio 2010 Theme (Basic)</value>
+  </data>
+  <data name="VS2010ThemeBackground" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\VS2010ThemeBackground.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="VS2010ThemeMenuBackground" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\VS2010ThemeMenuBackground.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="VS2010ThemeToolbarBackground" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\VS2010ThemeToolbarBackground.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ThemeVS2010Enhanced" xml:space="preserve">
+    <value>Visual Studio 2010 Theme</value>
+  </data>
+  <data name="AllDocumentsFilter" xml:space="preserve">
+    <value>All Files (*.*)|*.*</value>
+  </data>
+  <data name="NullClientProfileMessage" xml:space="preserve">
+    <value>ClientProfile cannot be null</value>
+  </data>
+  <data name="OptionsShowDocumentPath" xml:space="preserve">
+    <value>Show &amp;document paths in status bar</value>
+  </data>
+  <data name="PluginDependencyError0" xml:space="preserve">
+    <value>Unable to load plugin: "{0}". Check for missing plugin dependencies and/or referenced assemblies.</value>
+  </data>
+</root>

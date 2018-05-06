@@ -1,0 +1,183 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="3.5" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.21022</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{D0E69758-095D-46E6-8F8F-AB9F33F71600}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>QuickSharp.Core</RootNamespace>
+    <AssemblyName>QuickSharp.Core</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Release\QuickSharp.Core.XML</DocumentationFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AboutForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AboutForm.Designer.cs">
+      <DependentUpon>AboutForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BaseFormProxy.cs" />
+    <Compile Include="GeneralOptionsPage.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ErrorFormProxy.cs" />
+    <Compile Include="BaseDockedForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Interfaces\IQuickSharpTheme.cs" />
+    <Compile Include="Managers\ApplicationStorage.cs" />
+    <Compile Include="Models\StringMap.cs" />
+    <Compile Include="Models\UserContent.cs" />
+    <Compile Include="OptionsFormProxy.cs" />
+    <Compile Include="Themes\BaseColorTable.cs" />
+    <Compile Include="Themes\BaseTheme.cs" />
+    <Compile Include="Themes\VS2010ThemeBasic.cs" />
+    <Compile Include="Themes\VS2010ThemeEnhanced.cs" />
+    <Compile Include="Themes\DefaultTheme.cs" />
+    <Compile Include="Themes\DisplayInformation.cs" />
+    <Compile Include="Themes\KnownColors.cs" />
+    <Compile Include="Themes\ThemeFlags.cs" />
+    <Compile Include="Themes\VS2008ColorTable.cs" />
+    <Compile Include="Themes\VS2008Theme.cs" />
+    <Compile Include="Themes\VS2010ColorTable.cs" />
+    <Compile Include="Themes\VS2010Theme.cs" />
+    <Compile Include="Themes\VSColorTable.cs" />
+    <Compile Include="UpdateCheckFormProxy.cs" />
+    <Compile Include="ErrorForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ErrorForm.Designer.cs">
+      <DependentUpon>ErrorForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AboutFormProxy.cs" />
+    <Compile Include="Interfaces\IPersistenceManager.cs" />
+    <Compile Include="Interfaces\IQuickSharpPlugin.cs" />
+    <Compile Include="MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Managers\PluginManager.cs" />
+    <Compile Include="Managers\ApplicationManager.cs" />
+    <Compile Include="Document.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Managers\RegistryPersistenceManager.cs" />
+    <Compile Include="Models\ClientFlags.cs" />
+    <Compile Include="Models\ClientProfile.cs" />
+    <Compile Include="Models\Constants.cs" />
+    <Compile Include="Models\DockedToolStrip.cs" />
+    <Compile Include="Models\ToolStripItemTag.cs" />
+    <Compile Include="Models\OptionsPage.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Models\Delegates.cs" />
+    <Compile Include="Models\DocumentType.cs" />
+    <Compile Include="Models\Plugin.cs" />
+    <Compile Include="Models\QuickSharpPlugins.cs" />
+    <Compile Include="Models\PluginModule.cs" />
+    <Compile Include="OptionsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OptionsForm.Designer.cs">
+      <DependentUpon>OptionsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Tools\FileTools.cs" />
+    <Compile Include="Tools\MenuTools.cs" />
+    <Compile Include="UpdateCheckForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UpdateCheckForm.Designer.cs">
+      <DependentUpon>UpdateCheckForm.cs</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\WinFormsUI\WinFormsUI.csproj">
+      <Project>{C75532C4-765B-418E-B09B-46D36B2ABDB1}</Project>
+      <Name>WinFormsUI</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\New.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Open.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Save.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SaveAll.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ErrorFormIcon.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\FullScreen.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\VS2010ThemeBackground.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\VS2010ThemeMenuBackground.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\VS2010ThemeToolbarBackground.bmp" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <PropertyGroup>
+    <PreBuildEvent>
+    </PreBuildEvent>
+  </PropertyGroup>
+</Project>

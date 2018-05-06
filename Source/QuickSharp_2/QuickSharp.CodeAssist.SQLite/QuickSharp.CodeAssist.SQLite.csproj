@@ -1,0 +1,91 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="3.5" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.21022</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{8BF0E3ED-3F1E-42F0-9942-8E79BE6E87A3}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>QuickSharp.CodeAssist.SQLite</RootNamespace>
+    <AssemblyName>QuickSharp.CodeAssist.SQLite</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Models\Constants.cs" />
+    <Compile Include="Models\DatabaseObjects.cs" />
+    <Compile Include="Module.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SQLiteCodeAssistProvider.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\QuickSharp.CodeAssist.SQL\QuickSharp.CodeAssist.Sql.csproj">
+      <Project>{16495591-C040-4385-9B8F-27886F53D475}</Project>
+      <Name>QuickSharp.CodeAssist.Sql</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\QuickSharp.CodeAssist\QuickSharp.CodeAssist.csproj">
+      <Project>{0FC8D7A3-8EC1-41DE-A399-FF2ACE7F1047}</Project>
+      <Name>QuickSharp.CodeAssist</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\QuickSharp.Core\QuickSharp.Core.csproj">
+      <Project>{D0E69758-095D-46E6-8F8F-AB9F33F71600}</Project>
+      <Name>QuickSharp.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\QuickSharp.Editor\QuickSharp.Editor.csproj">
+      <Project>{9E7EBD70-6545-486A-917D-22CBEE0CC4FF}</Project>
+      <Name>QuickSharp.Editor</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\QuickSharp.SqlManager\QuickSharp.SqlManager.csproj">
+      <Project>{FB9E4BC4-441C-4414-B12C-A4D0248C473A}</Project>
+      <Name>QuickSharp.SqlManager</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ScintillaNET\ScintillaNET.csproj">
+      <Project>{F9B6DABD-BBC1-4638-8CE6-A5C9506BFDCB}</Project>
+      <Name>ScintillaNET</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\WinFormsUI\WinFormsUI.csproj">
+      <Project>{C75532C4-765B-418E-B09B-46D36B2ABDB1}</Project>
+      <Name>WinFormsUI</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <PropertyGroup>
+    <PostBuildEvent>copy "$(TargetPath)" "$(SolutionDir)QuickSharp\bin\$(ConfigurationName)"</PostBuildEvent>
+  </PropertyGroup>
+</Project>

@@ -1,0 +1,121 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="3.5" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.21022</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{7A230C24-34D6-4ACE-A90B-2F843640CAEE}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>QuickSharp.BuildTools</RootNamespace>
+    <AssemblyName>QuickSharp.BuildTools</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Release\QuickSharp.BuildTools.XML</DocumentationFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BuildToolForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BuildToolForm.Designer.cs">
+      <DependentUpon>BuildToolForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BuildToolFormProxy.cs" />
+    <Compile Include="BuildToolOptionsPage.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="BuildSettingsOptionsPage.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Managers\BuildToolManager.cs" />
+    <Compile Include="Models\BuildCommand.cs" />
+    <Compile Include="Models\BuildCommandDelegateListItem.cs" />
+    <Compile Include="Models\BuildTool.cs" />
+    <Compile Include="Models\BuildToolCollection.cs" />
+    <Compile Include="Models\Constants.cs" />
+    <Compile Include="Models\Delegates.cs" />
+    <Compile Include="Models\OutputLineParserListItem.cs" />
+    <Compile Include="Models\DocumentTypeAction.cs" />
+    <Compile Include="Models\PinnedFile.cs" />
+    <Compile Include="Models\PinnedFilesCollection.cs" />
+    <Compile Include="Module.cs" />
+    <Compile Include="ModuleProxy.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\QuickSharp.Core\QuickSharp.Core.csproj">
+      <Project>{D0E69758-095D-46E6-8F8F-AB9F33F71600}</Project>
+      <Name>QuickSharp.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\QuickSharp.Output\QuickSharp.Output.csproj">
+      <Project>{179104B9-5294-4EB6-B7CD-5F866B1204B9}</Project>
+      <Name>QuickSharp.Output</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\WinFormsUI\WinFormsUI.csproj">
+      <Project>{C75532C4-765B-418E-B09B-46D36B2ABDB1}</Project>
+      <Name>WinFormsUI</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Compile.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Run.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Pin.bmp" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <PropertyGroup>
+    <PreBuildEvent>
+    </PreBuildEvent>
+    <PostBuildEvent>copy "$(TargetPath)" "$(SolutionDir)QuickSharp\bin\$(ConfigurationName)"</PostBuildEvent>
+  </PropertyGroup>
+</Project>

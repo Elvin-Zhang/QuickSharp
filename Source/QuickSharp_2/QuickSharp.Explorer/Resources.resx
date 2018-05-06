@@ -1,0 +1,454 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="Ascx" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\Ascx.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Ashx" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\Ashx.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Aspx" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\Aspx.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="BrowseFolderDialogText" xml:space="preserve">
+    <value>Select a new location for the root folder.</value>
+  </data>
+  <data name="C" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\C.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Cabinet" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\Cabinet.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Cpp" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\Cpp.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="CSharp" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\CSharp.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Css" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\Css.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Dbml" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\Dbml.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Dll" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\Dll.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Document" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\Document.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Exe" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\Exe.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ExplorerIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\ExplorerIcon.ico;System.Drawing.Icon, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ExplorerWindowTitle" xml:space="preserve">
+    <value>Explorer</value>
+  </data>
+  <data name="H" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\H.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Html" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\Html.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Image" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\Image.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Java" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\Java.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="MainViewMenuExplorer" xml:space="preserve">
+    <value>&amp;Explorer</value>
+  </data>
+  <data name="Msil" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\Msil.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Obj" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\Obj.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="OpenFolder" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\OpenFolder.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ParentFolder" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\ParentFolder.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Pdb" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\Pdb.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Proj" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\Proj.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Refresh" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\Refresh.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Resource" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\Resource.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Script" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\Script.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Sql" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\Sql.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Text" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\Text.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="VBNet" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\VBNet.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Xaml" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\Xaml.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Xml" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\Xml.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Xsd" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\Xsd.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ClosedFolder" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\ClosedFolder.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="OpenedFolder" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\OpenedFolder.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="TreeMenuOpen" xml:space="preserve">
+    <value>&amp;Open</value>
+  </data>
+  <data name="TreeMenuDelete" xml:space="preserve">
+    <value>&amp;Delete</value>
+  </data>
+  <data name="TreeMenuRename" xml:space="preserve">
+    <value>&amp;Rename...</value>
+  </data>
+  <data name="TreeMenuSetAsCurrentDir" xml:space="preserve">
+    <value>&amp;Set as Current Directory</value>
+  </data>
+  <data name="NewFolder" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\NewFolder.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="RenameButtonCancel" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="RenameButtonOK" xml:space="preserve">
+    <value>OK</value>
+  </data>
+  <data name="RenameErrorMessage" xml:space="preserve">
+    <value>Unable to rename:</value>
+  </data>
+  <data name="RenameErrorTitle" xml:space="preserve">
+    <value>Rename</value>
+  </data>
+  <data name="RenameNewName" xml:space="preserve">
+    <value>New name:</value>
+  </data>
+  <data name="RenameTitle" xml:space="preserve">
+    <value>Rename</value>
+  </data>
+  <data name="CreateFolderTitle" xml:space="preserve">
+    <value>Create Folder</value>
+  </data>
+  <data name="DeleteErrorMessage" xml:space="preserve">
+    <value>Unable to delete:</value>
+  </data>
+  <data name="DeleteErrorTitle" xml:space="preserve">
+    <value>Delete</value>
+  </data>
+  <data name="DeleteFileOpenMessage" xml:space="preserve">
+    <value>Delete {0}: close all editor instances?</value>
+  </data>
+  <data name="EnterKey" xml:space="preserve">
+    <value>Enter</value>
+  </data>
+  <data name="NewFolderErrorMessage" xml:space="preserve">
+    <value>Unable to create folder:</value>
+  </data>
+  <data name="NewFolderErrorTitle" xml:space="preserve">
+    <value>Create Folder</value>
+  </data>
+  <data name="NewFolderName" xml:space="preserve">
+    <value>New Folder</value>
+  </data>
+  <data name="ToolbarMoveRoot" xml:space="preserve">
+    <value>Set Different Folder as Root Directory</value>
+  </data>
+  <data name="ToolbarParentFolder" xml:space="preserve">
+    <value>Set Parent Folder as Root Directory</value>
+  </data>
+  <data name="ToolbarRefresh" xml:space="preserve">
+    <value>Refresh</value>
+  </data>
+  <data name="TreeMenuCreateFolder" xml:space="preserve">
+    <value>&amp;Create Folder...</value>
+  </data>
+  <data name="MoveErrorMessage" xml:space="preserve">
+    <value>Unable to move:</value>
+  </data>
+  <data name="MoveErrorTitle" xml:space="preserve">
+    <value>Move</value>
+  </data>
+  <data name="TreeMenuClone" xml:space="preserve">
+    <value>&amp;Clone</value>
+  </data>
+  <data name="CloneErrorMessage" xml:space="preserve">
+    <value>Unable to clone:</value>
+  </data>
+  <data name="CloneErrorTitle" xml:space="preserve">
+    <value>Clone</value>
+  </data>
+  <data name="MoveRootErrorMessage" xml:space="preserve">
+    <value>Unable to open selected folder:</value>
+  </data>
+  <data name="MoveRootErrorTitle" xml:space="preserve">
+    <value>Open</value>
+  </data>
+  <data name="Database" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\Database.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="LaunchExplorerErrorMessage" xml:space="preserve">
+    <value>Unable to launch Windows Explorer:{0}File "{1}" cannot be found.</value>
+  </data>
+  <data name="LaunchExplorerErrorTitle" xml:space="preserve">
+    <value>Windows Explorer</value>
+  </data>
+  <data name="LaunchShellErrorMessage" xml:space="preserve">
+    <value>Unable to launch Windows shell:{0}File "{1}" cannot be found.</value>
+  </data>
+  <data name="LaunchShellErrorTitle" xml:space="preserve">
+    <value>Windows Shell</value>
+  </data>
+  <data name="ToolbarLaunchExplorer" xml:space="preserve">
+    <value>Launch Windows Explorer</value>
+  </data>
+  <data name="ToolbarLaunchShell" xml:space="preserve">
+    <value>Launch Windows Shell</value>
+  </data>
+  <data name="Console" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\Console.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Explorer" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\Explorer.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="CopyErrorMessage" xml:space="preserve">
+    <value>Unable to copy:</value>
+  </data>
+  <data name="CopyErrorTitle" xml:space="preserve">
+    <value>Copy</value>
+  </data>
+  <data name="ToolbarFilter" xml:space="preserve">
+    <value>Apply File Name Filter</value>
+  </data>
+  <data name="FilterFiles" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\FilterFiles.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="OptionsGroupText" xml:space="preserve">
+    <value>Explorer</value>
+  </data>
+  <data name="OptionsPageTextFilters" xml:space="preserve">
+    <value>File Name Filters</value>
+  </data>
+  <data name="FilterDeleteMessage" xml:space="preserve">
+    <value>Delete {0}?</value>
+  </data>
+  <data name="FilterDeleteTitle" xml:space="preserve">
+    <value>Delete</value>
+  </data>
+  <data name="FilterMenuClone" xml:space="preserve">
+    <value>&amp;Clone</value>
+  </data>
+  <data name="FilterMenuDelete" xml:space="preserve">
+    <value>&amp;Delete</value>
+  </data>
+  <data name="FilterMenuEdit" xml:space="preserve">
+    <value>&amp;Edit...</value>
+  </data>
+  <data name="FilterMenuNew" xml:space="preserve">
+    <value>&amp;New...</value>
+  </data>
+  <data name="ListViewFilterColumn" xml:space="preserve">
+    <value>Filter Patterns</value>
+  </data>
+  <data name="ListViewNameColumn" xml:space="preserve">
+    <value>Filter Name</value>
+  </data>
+  <data name="CloneCopyName" xml:space="preserve">
+    <value>Copy of {0}</value>
+  </data>
+  <data name="FilterFormCancel" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="FilterFormFilterLabel" xml:space="preserve">
+    <value>&amp;Filter patterns:</value>
+  </data>
+  <data name="FilterFormNameLabel" xml:space="preserve">
+    <value>Filter &amp;name:</value>
+  </data>
+  <data name="FilterFormOK" xml:space="preserve">
+    <value>OK</value>
+  </data>
+  <data name="FilterFormTitle" xml:space="preserve">
+    <value>File Name Filter</value>
+  </data>
+  <data name="FilterRegexErrorMessage" xml:space="preserve">
+    <value>Error in file name filter pattern</value>
+  </data>
+  <data name="FilterRegexErrorTitle" xml:space="preserve">
+    <value>File Name Filter Error</value>
+  </data>
+  <data name="BackupDialogError" xml:space="preserve">
+    <value>Unable to create backup</value>
+  </data>
+  <data name="BackupDialogNoDisk" xml:space="preserve">
+    <value>Backup is not allowed for entire disk.</value>
+  </data>
+  <data name="BackupDialogSuccess" xml:space="preserve">
+    <value>Explorer backup created successfully</value>
+  </data>
+  <data name="BackupDialogTitle" xml:space="preserve">
+    <value>Explorer Backup</value>
+  </data>
+  <data name="BackupFolderMessage" xml:space="preserve">
+    <value>Select a location for the backup file.</value>
+  </data>
+  <data name="ToolbarBackup" xml:space="preserve">
+    <value>Backup Explorer Files to Zip Archive</value>
+  </data>
+  <data name="FileBackup" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\FileBackup.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="OptionsBackupDirectoryLabel" xml:space="preserve">
+    <value>&amp;Backup files to this directory:</value>
+  </data>
+  <data name="OptionsBackupDirectoryWarningLabel" xml:space="preserve">
+    <value>Warning: the saved path does not exist.</value>
+  </data>
+  <data name="OptionsPageTextExplorer" xml:space="preserve">
+    <value>Explorer Settings</value>
+  </data>
+  <data name="OptionsShowHiddenFiles" xml:space="preserve">
+    <value>Show &amp;hidden files</value>
+  </data>
+  <data name="OptionsShowSystemFiles" xml:space="preserve">
+    <value>Show &amp;system files</value>
+  </data>
+  <data name="OptionsShowFullPath" xml:space="preserve">
+    <value>Show &amp;full path in title bar</value>
+  </data>
+</root>

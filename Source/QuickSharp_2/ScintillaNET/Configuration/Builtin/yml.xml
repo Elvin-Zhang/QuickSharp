@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScintillaNET>
+    <Language Name="yml">
+
+        <Indentation 
+            TabWidth="4" 
+            UseSpaces="True"
+        />
+
+        <Lexer 
+            LexerName="yaml"
+            LineCommentPrefix="#"
+        />
+
+        <Styles>
+            <Style Name="IDENTIFIER" ForeColor="#2B91AF" />
+        </Styles>    
+
+    </Language>
+</ScintillaNET> 

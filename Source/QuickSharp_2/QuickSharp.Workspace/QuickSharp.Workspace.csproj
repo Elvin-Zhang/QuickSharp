@@ -1,0 +1,190 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="3.5" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.21022</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{16F35370-E0D4-4BF7-90EC-871E86AF0CA4}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>QuickSharp.Workspace</RootNamespace>
+    <AssemblyName>QuickSharp.Workspace</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Release\QuickSharp.Workspace.XML</DocumentationFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="ICSharpCode.SharpZLib, Version=0.86.0.518, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Runtime\ICSharpCode.SharpZLib.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Managers\SettingsManager.cs" />
+    <Compile Include="Models\Constants.cs" />
+    <Compile Include="Models\Delegates.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Module.cs" />
+    <Compile Include="RenameForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RenameForm.Designer.cs">
+      <DependentUpon>RenameForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="WorkspaceOptionsPage.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="WorkspaceForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WorkspaceForm.Designer.cs">
+      <DependentUpon>WorkspaceForm.cs</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\QuickSharp.Core\QuickSharp.Core.csproj">
+      <Project>{D0E69758-095D-46E6-8F8F-AB9F33F71600}</Project>
+      <Name>QuickSharp.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\WinFormsUI\WinFormsUI.csproj">
+      <Project>{C75532C4-765B-418E-B09B-46D36B2ABDB1}</Project>
+      <Name>WinFormsUI</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CSharp.bmp" />
+    <None Include="Resources\Css.bmp" />
+    <None Include="Resources\Dll.bmp" />
+    <None Include="Resources\Document.bmp" />
+    <None Include="Resources\Exe.bmp" />
+    <None Include="Resources\Folder.bmp" />
+    <None Include="Resources\Html.bmp" />
+    <None Include="Resources\Image.bmp" />
+    <None Include="Resources\Pdb.bmp" />
+    <None Include="Resources\Script.bmp" />
+    <None Include="Resources\Text.bmp" />
+    <None Include="Resources\VBNet.bmp" />
+    <None Include="Resources\Xml.bmp" />
+    <None Include="Resources\WorkspaceIcon.ico" />
+    <None Include="Resources\NewFolder.bmp" />
+    <None Include="Resources\OpenFolder.bmp" />
+    <None Include="Resources\ParentFolder.bmp" />
+    <None Include="Resources\Refresh.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Resource.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Msil.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Xsd.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\C.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Cpp.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Java.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\H.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Obj.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Ascx.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Ashx.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Aspx.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BackupWorkspace.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Xaml.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Sql.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Console.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SearchFolder.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ShowSourceOnly.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Proj.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Explorer.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Cabinet.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Dbml.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Database.bmp" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <PropertyGroup>
+    <PostBuildEvent>copy "$(TargetPath)" "$(SolutionDir)QuickSharp\bin\$(ConfigurationName)"</PostBuildEvent>
+    <PreBuildEvent>
+    </PreBuildEvent>
+  </PropertyGroup>
+</Project>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScintillaNET>
+    <Language Name="ini">
+
+        <Lexer LexerName="props"/>
+
+        <Styles>
+            <Style Number="0" ForeColor="Black" />              <!-- DEFAULT -->
+            <Style Number="1" ForeColor="Green" />              <!-- COMMENT -->
+            <Style Number="2" ForeColor="Black" Bold="True" />  <!-- SECTION -->
+            <Style Number="3" ForeColor="Black" />              <!-- ASSIGNMENT -->
+            <Style Number="4" ForeColor="Black" />              <!-- DEFVAL -->
+            <Style Number="5" ForeColor="Black" />              <!-- KEY -->
+        </Styles>
+
+    </Language>
+</ScintillaNET> 

@@ -1,0 +1,179 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ScintillaNET>
+    <Language Name="aspx">
+
+        <Lexer
+            LexerName="hypertext"
+            LineCommentPrefix="//"
+            StreamCommentPrefix="&lt;!-- " 
+            StreamCommentSuffix=" --&gt;">
+
+            <Keywords List="0" Name="HTML">!doctype runat
+a abbr accept accept-charset accesskey acronym action address align alink alt applet archive area article aside async audio autocomplete autofocus
+autoplay axis b background base basefont bdi bdo bgcolor big blockquote body border br button canvas caption cellpadding center challenge char
+charoff charset checkbox checked cite class classid clear code codebase codetype col colgroup color cols colspan command compact content
+contenteditable contextmenu controls coords crossorigin data datafld dataformatas datalist datapagesize datasrc datetime dd declare default defer
+del details dfn dir dirname disable disabled div dl draggable dropzone dt em embed enctype event face fieldset figcaption figure file font footer
+for form formaction formenctype formmethod formnovalidate formtarget frame frameborder frameset h1 h2 h3 h4 h5 h6 head header headers height
+hgroup hidden high hr href hreflang hspace html http-equiv i icon id iframe image img input ins isindex ismap kbd keygen keytype kind label
+lang language leftmargin legend li link list longdesc loop low manifest map marginheight marginwidth mark max maxlength media mediagroup menu
+meta meter method min multiple muted name nav noframes nohref noresize noscript noshade novalidate nowrap object ol onabort onafterprint
+onbeforeprint onbeforeunload onblur oncanplay oncanplaythrough onchange onclick oncontextmenu oncuechange ondblclick ondrag ondragend ondragenter
+ondragleave ondragover ondragstart ondrop ondurationchange onemptied onended onerror onfocus onhashchange oninput oninvalid onkeydown onkeypress
+onkeyup onload onloadeddata onloadedmetadata onloadstart onmessage onmousedown onmousemove onmouseout onmouseover onmouseup onmousewheel onoffline
+ononline onpagehide onpageshow onpause onplay onplaying onpopstate onprogress onratechange onreadystatechange onredo onreset onresize onscroll
+onseeked onseeking onselect onshow onstalled onstorage onsubmit onsuspend ontimeupdate onundo onunload onvolumechange onwaiting open optgroup
+optgroup optimum option output p param password pattern placeholder poster pre preload profile progress prompt pubdate public q radio radiogroup
+readonly rel required reset rev reversed rows rowspan rp rt ruby rules s samp sandbox scheme scope scoped script seamless section select
+selected shape site size sizes small source span spellcheck src srcdoc srclang standby start step strike strong style sub submit summary
+sup tabindex table target tbody td text textarea tfoot th thead time title topmargin tr track tt type u ul usemap valign value valuetype
+var version video vlink vspace wbr width wrap xml xmlns</Keywords>
+
+            <!--
+            Client side JavaScript and server side C# are presented
+            as JavaScript so include keywords for both.
+            -->
+            <Keywords List="1" Name="JavaScript">abstract alias as ascending base bool break by byte case catch char checked class const
+continue decimal default delegate descending do double else enum equals event explicit extern false finally fixed float for foreach from
+get global goto group if implicit in int into interface internal is let lock long namespace new null on operator orderby out override
+params partial private protected public readonly ref return sbyte sealed set short sizeof stackalloc static string struct switch this
+throw true try typeof uint ulong unchecked unsafe ushort using value var virtual void volatile while yield object instanceof with delete
+function boolean export extends super final native synchronized package throws transient debugger implements import</Keywords>
+
+            <Keywords List="2" Name="VBScript">addhandler addressof andalso alias and ansi as assembly attribute auto begin boolean byref byte byval call case catch cbool cbyte cchar cdate cdec cdbl char cint class clng cobj compare const continue cshort csng cstr ctype currency date decimal declare default delegate dim do double each else elseif end enum erase error event exit explicit false finally for friend function get gettype global gosub goto handles if implement implements imports in inherits integer interface is let lib like load long loop lset me mid mod module mustinherit mustoverride mybase myclass namespace new next not nothing notinheritable notoverridable object on option optional or orelse overloads overridable overrides paramarray preserve private property protected public raiseevent readonly redim rem removehandler rset resume return select set shadows shared short single static step stop string structure sub synclock then throw to true try type typeof unload unicode until variant wend when while with withevents writeonly xor</Keywords>
+            <Keywords List="3" Name="Python">and as assert break class continue def del elif else except exec finally for from global if import in is lambda None not or pass print raise return triple try while with yield</Keywords>
+            <Keywords List="4" Name="PHP">and or xor __file__ __line__ array as break case cfunction class const continue declare default die do echo else elseif empty enddeclare endfor endforeach endif endswitch endwhile eval exit extends for foreach function global if include include_once isset list new old_function print require require_once return static switch unset use var while __function__ __class__ php_version php_os default_include_path pear_install_dir pear_extension_dir php_extension_dir php_bindir php_libdir php_datadir php_sysconfdir php_localstatedir php_config_file_path php_output_handler_start php_output_handler_cont php_output_handler_end e_error e_warning e_parse e_notice e_core_error e_core_warning e_compile_error e_compile_warning e_user_error e_user_warning e_user_notice e_all true false bool boolean int integer float double real string array object resource null class extends parent stdclass directory __sleep __wakeup interface implements abstract public protected private</Keywords>
+
+        </Lexer>
+
+        <Styles>
+
+            <SubLanguage Name="HTML">
+                <Style Name="TAG" ForeColor="DarkRed"/>
+                <Style Name="TAGUNKNOWN" ForeColor="DarkRed"/>
+                <Style Name="ATTRIBUTE" ForeColor="Red"/>
+                <Style Name="ATTRIBUTEUNKNOWN" ForeColor="Red"/>        
+                <Style Name="DOUBLESTRING" ForeColor="Blue"/>
+                <Style Name="SINGLESTRING" ForeColor="Blue"/>
+                <Style Name="ASP" ForeColor="Black" BackColor="Yellow"/>
+                <Style Name="ASPAT" ForeColor="Black" BackColor="Yellow"/>
+                <Style Name="COMMENT" ForeColor="Green"/>
+            </SubLanguage>
+
+            <SubLanguage Name="SGML">
+                <Style Name="DEFAULT"/>
+                <Style Name="COMMAND"/>
+                <Style Name="1ST_PARAM"/>
+                <Style Name="DOUBLESTRING"/>
+                <Style Name="SIMPLESTRING"/>
+                <Style Name="ERROR"/>
+                <Style Name="SPECIAL"/>
+                <Style Name="ENTITY"/>
+                <Style Name="COMMENT"/>
+                <Style Name="1ST_PARAM_COMMENT"/>
+                <Style Name="BLOCK_DEFAULT"/>
+            </SubLanguage>
+
+            <SubLanguage Name="JavaScript">
+                <Style Name="START" BackColor="#f8f8f0" IsSelectionEOLFilled="True"/>
+                <Style Name="DOCUMENT_DEFAULT" BackColor="#f8f8f0" IsSelectionEOLFilled="True"/>
+                <Style Name="COMMENT" BackColor="#f8f8f0" IsSelectionEOLFilled="True"/>
+                <Style Name="COMMENTLINE" BackColor="#f8f8f0"/>
+                <Style Name="COMMENTDOC" BackColor="#f8f8f0"/>
+                <Style Name="NUMBER" ForeColor="Fuchsia" BackColor="#f8f8f0"/>
+                <Style Name="WORD" ForeColor="Black" BackColor="#f8f8f0"/>
+                <Style Name="KEYWORD" BackColor="#f8f8f0"/>
+                <Style Name="DOUBLESTRING" ForeColor="#A31515" BackColor="#f8f8f0"/>
+                <Style Name="SINGLESTRING" ForeColor="#A31515" BackColor="#f8f8f0"/>
+                <Style Name="SYMBOLS" BackColor="#f8f8f0"/>
+                <Style Name="STRINGEOL" BackColor="#f8f8f0" IsSelectionEOLFilled="True"/>
+                <Style Name="REGEX" ForeColor="#A31515" BackColor="#f8f8f0"/>
+            </SubLanguage>
+
+            <SubLanguage Name="ASP JavaScript">
+                <Style Name="START"/>
+                <Style Name="DEFAULT"/>
+                <Style Name="COMMENT"/>
+                <Style Name="COMMENTLINE"/>
+                <Style Name="COMMENTDOC"/>
+                <Style Name="NUMBER"/>
+                <Style Name="WORD"/>
+                <Style Name="KEYWORD"/>
+                <Style Name="DOUBLESTRING"/>
+                <Style Name="SINGLESTRING"/>
+                <Style Name="SYMBOLS"/>
+                <Style Name="STRINGEOL"/>
+                <Style Name="REGEX"/>
+            </SubLanguage>
+
+            <SubLanguage Name="VBScript">
+                <Style Name="START"/>
+                <Style Name="DEFAULT"/>
+                <Style Name="COMMENTLINE"/>
+                <Style Name="NUMBER"/>
+                <Style Name="WORD"/>
+                <Style Name="STRING"/>
+                <Style Name="IDENTIFIER"/>
+                <Style Name="STRINGEOL"/>
+            </SubLanguage>
+
+            <SubLanguage Name="ASP VBScript">
+                <Style Name="START"/>
+                <Style Name="DEFAULT"/>
+                <Style Name="COMMENTLINE"/>
+                <Style Name="NUMBER"/>
+                <Style Name="WORD"/>
+                <Style Name="STRING"/>
+                <Style Name="IDENTIFIER"/>
+                <Style Name="STRINGEOL"/>
+            </SubLanguage>
+
+            <SubLanguage Name="Python">
+                <Style Name="START"/>
+                <Style Name="DEFAULT"/>
+                <Style Name="COMMENTLINE"/>
+                <Style Name="NUMBER"/>
+                <Style Name="STRING"/>
+                <Style Name="CHARACTER"/>
+                <Style Name="WORD"/>
+                <Style Name="TRIPLE"/>
+                <Style Name="TRIPLEDOUBLE"/>
+                <Style Name="CLASSNAME"/>
+                <Style Name="DEFNAME"/>
+                <Style Name="OPERATOR"/>
+                <Style Name="IDENTIFIER"/>
+            </SubLanguage>
+
+            <SubLanguage Name="ASP Python">
+                <Style Name="START"/>
+                <Style Name="DEFAULT"/>
+                <Style Name="COMMENTLINE"/>
+                <Style Name="NUMBER"/>
+                <Style Name="STRING"/>
+                <Style Name="CHARACTER"/>
+                <Style Name="WORD"/>
+                <Style Name="TRIPLE"/>
+                <Style Name="TRIPLEDOUBLE"/>
+                <Style Name="CLASSNAME"/>
+                <Style Name="DEFNAME"/>
+                <Style Name="OPERATOR"/>
+                <Style Name="IDENTIFIER"/>
+            </SubLanguage>
+
+            <SubLanguage Name="PHP">
+                <Style Name="COMPLEX_VARIABLE" ForeColor="#2B91AF" BackColor="#f8f8f0"/>
+                <Style Name="DOCUMENT_DEFAULT" BackColor="#f8f8f0" IsSelectionEOLFilled="True"/>
+                <Style Name="HSTRING" ForeColor="#A31515" BackColor="#f8f8f0"/>
+                <Style Name="SIMPLESTRING" ForeColor="#A31515" BackColor="#f8f8f0"/>
+                <Style Name="WORD" BackColor="#f8f8f0"/>
+                <Style Name="NUMBER" ForeColor="Fuchsia" BackColor="#f8f8f0"/>
+                <Style Name="VARIABLE" BackColor="#f8f8f0"/>
+                <Style Name="COMMENT" BackColor="#f8f8f0" IsSelectionEOLFilled="True"/>
+                <Style Name="COMMENTLINE" BackColor="#f8f8f0"/>
+                <Style Name="HSTRING_VARIABLE" ForeColor="#2B91AF" BackColor="#f8f8f0"/>
+                <Style Name="OPERATOR" BackColor="#f8f8f0"/>
+            </SubLanguage>      
+
+        </Styles>
+    </Language>
+</ScintillaNET>

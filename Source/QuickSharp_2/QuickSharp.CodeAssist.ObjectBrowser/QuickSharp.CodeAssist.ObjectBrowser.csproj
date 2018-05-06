@@ -1,0 +1,172 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="3.5" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.21022</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{7BF7ED3E-FC3D-439E-A9D4-BC27DF394A1A}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>QuickSharp.CodeAssist.ObjectBrowser</RootNamespace>
+    <AssemblyName>QuickSharp.CodeAssist.ObjectBrowser</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Models\Constants.cs" />
+    <Compile Include="Module.cs" />
+    <Compile Include="ObjectBrowserForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ObjectBrowserForm.Designer.cs">
+      <DependentUpon>ObjectBrowserForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ObjectBrowserFormProxy.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Resources.Designer.cs">
+      <DependentUpon>Resources.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\QuickSharp.CodeAssist.DotNet\QuickSharp.CodeAssist.DotNet.csproj">
+      <Project>{77AFB845-6FA1-4780-8591-0FCA0BF86B2D}</Project>
+      <Name>QuickSharp.CodeAssist.DotNet</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\QuickSharp.Core\QuickSharp.Core.csproj">
+      <Project>{D0E69758-095D-46E6-8F8F-AB9F33F71600}</Project>
+      <Name>QuickSharp.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\WinFormsUI\WinFormsUI.csproj">
+      <Project>{C75532C4-765B-418E-B09B-46D36B2ABDB1}</Project>
+      <Name>WinFormsUI</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ShowWorkspaceOnly.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\ASSEMBLY.BMP" />
+    <Content Include="Resources\CLASS.BMP" />
+    <Content Include="Resources\CLASS_FRIEND.BMP" />
+    <Content Include="Resources\CLASS_PRIVATE.BMP" />
+    <Content Include="Resources\CLASS_PROTECTED.BMP" />
+    <Content Include="Resources\CLASS_SEALED.BMP" />
+    <Content Include="Resources\CONSTANT.BMP" />
+    <Content Include="Resources\CONSTANT_FRIEND.BMP" />
+    <Content Include="Resources\CONSTANT_PRIVATE.BMP" />
+    <Content Include="Resources\CONSTANT_PROTECTED.BMP" />
+    <Content Include="Resources\CONSTANT_SEALED.BMP" />
+    <Content Include="Resources\DELEGATE.BMP" />
+    <Content Include="Resources\DELEGATE_FRIEND.BMP" />
+    <Content Include="Resources\DELEGATE_PRIVATE.BMP" />
+    <Content Include="Resources\DELEGATE_PROTECTED.BMP" />
+    <Content Include="Resources\DELEGATE_SEALED.BMP" />
+    <Content Include="Resources\ENUM.BMP" />
+    <Content Include="Resources\ENUM_FRIEND.BMP" />
+    <Content Include="Resources\ENUM_PROTECTED.BMP" />
+    <Content Include="Resources\ENUM_SEALED.BMP" />
+    <Content Include="Resources\EVENT.BMP" />
+    <Content Include="Resources\EVENT_FRIEND.BMP" />
+    <Content Include="Resources\EVENT_PRIVATE.BMP" />
+    <Content Include="Resources\EVENT_PROTECTED.BMP" />
+    <Content Include="Resources\EVENT_SEALED.BMP" />
+    <Content Include="Resources\FIELD.BMP" />
+    <Content Include="Resources\FIELD_FRIEND.BMP" />
+    <Content Include="Resources\FIELD_PRIVATE.BMP" />
+    <Content Include="Resources\FIELD_PROTECTED.BMP" />
+    <Content Include="Resources\FIELD_SEALED.BMP" />
+    <Content Include="Resources\INTERFACE.BMP" />
+    <Content Include="Resources\INTERFACE_FRIEND.BMP" />
+    <Content Include="Resources\INTERFACE_PRIVATE.BMP" />
+    <Content Include="Resources\INTERFACE_PROTECTED.BMP" />
+    <Content Include="Resources\INTERFACE_SEALED.BMP" />
+    <Content Include="Resources\METHOD.BMP" />
+    <Content Include="Resources\METHODOVERLOAD.BMP" />
+    <Content Include="Resources\METHODOVERLOAD_FRIEND.BMP" />
+    <Content Include="Resources\METHODOVERLOAD_PRIVATE.BMP" />
+    <Content Include="Resources\METHODOVERLOAD_PROTECTED.BMP" />
+    <Content Include="Resources\METHODOVERLOAD_SEALED.BMP" />
+    <Content Include="Resources\METHOD_EXTENSION.BMP" />
+    <Content Include="Resources\METHOD_FRIEND.BMP" />
+    <Content Include="Resources\METHOD_PRIVATE.BMP" />
+    <Content Include="Resources\METHOD_PROTECTED.BMP" />
+    <Content Include="Resources\METHOD_SEALED.BMP" />
+    <Content Include="Resources\NAMESPACE.BMP" />
+    <Content Include="Resources\NAMESPACE_FRIEND.BMP" />
+    <Content Include="Resources\NAMESPACE_PRIVATE.BMP" />
+    <Content Include="Resources\NAMESPACE_PROTECTED.BMP" />
+    <Content Include="Resources\NAMESPACE_SEALED.BMP" />
+    <Content Include="Resources\ObjectBrowser.bmp" />
+    <Content Include="Resources\ObjectBrowserIcon.ico" />
+    <Content Include="Resources\PROPERTIES.BMP" />
+    <Content Include="Resources\PROPERTIES_FRIEND.BMP" />
+    <Content Include="Resources\PROPERTIES_PRIVATE.BMP" />
+    <Content Include="Resources\PROPERTIES_PROTECTED.BMP" />
+    <Content Include="Resources\PROPERTIES_SEALED.BMP" />
+    <Content Include="Resources\RefreshView.bmp" />
+    <Content Include="Resources\ShowHidden.bmp" />
+    <Content Include="Resources\ShowInherited.bmp" />
+    <Content Include="Resources\ShowNonPublic.bmp" />
+    <Content Include="Resources\STRUCTURE.BMP" />
+    <Content Include="Resources\STRUCTURE_FRIEND.BMP" />
+    <Content Include="Resources\STRUCTURE_PRIVATE.BMP" />
+    <Content Include="Resources\STRUCTURE_PROTECTED.BMP" />
+    <Content Include="Resources\STRUCTURE_SEALED.BMP" />
+    <Content Include="Resources\VALUETYPE.BMP" />
+    <Content Include="Resources\VALUETYPE_FRIEND.BMP" />
+    <Content Include="Resources\VALUETYPE_PRIVATE.BMP" />
+    <Content Include="Resources\VALUETYPE_PROTECTED.BMP" />
+    <Content Include="Resources\VALUETYPE_SEALED.BMP" />
+    <Content Include="Resources\ViewByContainer.bmp" />
+    <Content Include="Resources\ViewByNamespace.bmp" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <PropertyGroup>
+    <PreBuildEvent>
+    </PreBuildEvent>
+    <PostBuildEvent>copy "$(TargetPath)" "$(SolutionDir)QuickSharp\bin\$(ConfigurationName)"</PostBuildEvent>
+  </PropertyGroup>
+</Project>

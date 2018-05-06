@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScintillaNET>
+    <Language Name="c99">
+
+        <Indentation
+            TabWidth="4"
+            UseTabs="false"
+            BackspaceUnindents="true"
+            ShowGuides="false"
+            SmartIndentType="cpp"
+        />
+
+        <Lexer
+            LexerName="cpp"
+            LineCommentPrefix="//"
+            StreamCommentPrefix="/* "
+            StreamCommentSuffix=" */">
+
+            <Keywords List="0" Inherit="False">auto _Bool _Complex _Imaginary break case char const continue default do double else enum
+extern float for goto if inline int long register restrict return short signed sizeof static struct switch typedef union unsigned void
+volatile while</Keywords>
+
+        </Lexer>
+
+    </Language>
+</ScintillaNET>

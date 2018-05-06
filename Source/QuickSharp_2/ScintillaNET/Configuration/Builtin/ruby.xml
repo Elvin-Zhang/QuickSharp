@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScintillaNET>
+    <Language Name="ruby">
+
+        <Indentation TabWidth="4" UseSpaces="True"/>
+
+        <Lexer LineCommentPrefix="#">
+
+            <Keywords List="0" Inherit="False">__LINE__ case ensure not then __ENCODING__ class false or true
+__FILE__ def for redo undef BEGIN defined? if rescue unless END do in retry until alias else module return when
+and elsif next self while begin end nil super yield break</Keywords>
+
+        </Lexer>
+
+    </Language>
+</ScintillaNET> 

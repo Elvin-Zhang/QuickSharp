@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ScintillaNET>
+    <Language Name="sql">
+
+        <Lexer
+            LineCommentPrefix="--"
+            StreamCommentPrefix="/* "
+            StreamCommentSuffix=" */">
+
+            <Properties>
+                <Property Name="fold.comment" Value="1"/>
+            </Properties>
+
+            <!-- WORD T-SQL keywords -->
+            <Keywords List="0" Inherit="False">
+add all alter and any as asc authorization backup begin between break browse bulk by cascade case check checkpoint
+close clustered coalesce collate column commit compute constraint contains containstable continue convert create
+cross current current_date current_time current_timestamp current_user cursor database dbcc deallocate declare
+default delete deny desc disk distinct distributed double drop dummy dump else end errlvl escape except exec
+execute exists exit external fetch file fillfactor for foreign freetext freetexttable from full function goto
+grant group having holdlock identity identity_insert identitycol if in index inner insert intersect into is join
+key kill left like lineno load national nocheck nonclustered not null nullif of off offsets on open opendatasource
+openquery openrowset openxml option or order outer over percent pivot plan precision primary print proc procedure
+public raiserror read readtext reconfigure references replication restore restrict return revert revoke right
+rollback rowcount rowguidcol rule save schema select session_user set setuser shutdown some statistics system_user
+table tablesample textsize then to top tran transaction trigger truncate tsequal union unique unpivot update
+updatetext use user values varying view waitfor when where while with writetext</Keywords>
+
+            <!-- WORD2 T-SQL data types -->
+            <Keywords List="1" Inherit="False">
+bigint decimal int numeric smallint money tinyint smallmoney bit float real datetime smalldatetime char text
+varchar nchar ntext nvarchar binary image varbinary cursor timestamp sql_variant uniqueidentifier table xml</Keywords>
+
+            <!-- USER1 Additional types -->
+            <Keywords List="4" Inherit="False">
+            </Keywords>
+
+            <!-- USER2 Funtions -->
+            <Keywords List="5" Inherit="False">
+abs acos app_name ascii asin atan atn2 avg binary_checksum case cast
+ceiling char charindex checksum checksum_agg coalesce collationproperty
+col_length col_name columns_updated columnproperty convert cos cot count
+count_big current_timestamp current_user cursor_status databaseproperty
+databasepropertyex datalength dateadd datediff datename datepart day
+db_id db_name degrees difference exp file_id file_name filegroup_id
+filegroup_name filegroupproperty fileproperty floor fn_helpcollations
+fn_listextendedproperty fn_servershareddrives fn_trace_geteventinfo
+fn_trace_getfilterinfo fn_trace_getinfo fn_trace_gettable
+fn_virtualfilestats formatmessage fulltextcatalogproperty
+fulltextserviceproperty getansinull getdate getutcdate grouping
+has_dbaccess host_id host_name ident_current ident_incr ident_seed
+index_col indexkey_property indexproperty is_member is_srvrolemember
+isdate isnull isnumeric left len log log10 lower ltrim max min month
+nchar newid nullif object_id object_name objectproperty parsename
+patindex permissions pi power quotename radians rand replace replicate
+reverse right round rowcount_big rtrim scope_identity serverproperty
+sessionproperty session_user sign sin soundex space sqare
+sql_variant_property sqrt stats_date stdev stdevp str stuff substring
+sum suser_sid suser_sname system_user tan typeproperty unicode upper
+user_id user_name var varp year</Keywords>
+
+            <!-- USER3 -->
+            <Keywords List="6" Inherit="False">
+            </Keywords>
+
+            <!-- USER4 -->
+            <Keywords List="7" Inherit="False">
+            </Keywords>      
+
+        </Lexer>
+
+    </Language>
+</ScintillaNET>
+

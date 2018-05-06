@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ScintillaNET>
+    <Language Name="msil">
+
+        <Indentation
+            TabWidth="4"
+            UseTabs="false"
+            BackspaceUnindents="true"
+            ShowGuides="false"
+            SmartIndentType="cpp"
+        />
+
+        <Lexer
+            LexerName="cpp"
+            LineCommentPrefix="//"
+            StreamCommentPrefix=""
+            StreamCommentSuffix="">	
+
+            <Keywords List="0" Inherit="False">
+            </Keywords>
+
+        </Lexer>
+
+    </Language>
+</ScintillaNET> 

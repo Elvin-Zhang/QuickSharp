@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ScintillaNET>
+    <Language Name="js">
+
+        <Indentation
+            TabWidth="4"
+            SmartIndentType="cpp"/>
+
+        <Lexer 
+            LexerName="cpp" 
+            LineCommentPrefix="//"
+            StreamCommentPrefix="/* "
+            StreamCommentSuffix=" */">
+
+            <Keywords List="0" Inherit="False">
+break case catch class const continue debugger default delete do else export extends false finally
+for function if import in instanceof new null protected return super switch this throw true try typeof
+var while with abstract boolean byte char decimal double enum final float get implements int interface
+internal long package private protected public sbyte set short static uint ulong ushort void
+            </Keywords>
+
+
+        </Lexer>
+
+    </Language>
+</ScintillaNET> 

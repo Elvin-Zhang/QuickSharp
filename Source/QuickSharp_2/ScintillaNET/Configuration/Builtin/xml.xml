@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ScintillaNET>
+        <Language Name="xml">
+
+        <Lexer
+            StreamCommentPrefix="&lt;!-- "
+            StreamCommentSuffix=" --&gt;"
+       />
+
+        <Styles>
+
+            <SubLanguage Name="HTML">
+                <Style Name="DEFAULT"/>
+                <Style Name="TAG" ForeColor="DarkRed"/>
+                <Style Name="TAGUNKNOWN" ForeColor="DarkRed"/>
+                <Style Name="ATTRIBUTE"/>
+                <Style Name="ATTRIBUTEUNKNOWN"/>
+                <Style Name="NUMBER"/>
+                <Style Name="DOUBLESTRING" ForeColor="Blue"/>
+                <Style Name="SINGLESTRING" ForeColor="Blue"/>
+                <Style Name="OTHER"/>
+                <Style Name="COMMENT"/>
+                <Style Name="ENTITY"/>
+                <Style Name="TAGEND"/>
+                <Style Name="XMLSTART"/>
+                <Style Name="XMLEND"/>
+                <Style Name="SCRIPT"/>
+                <Style Name="ASP"/>
+                <Style Name="ASPAT"/>
+                <Style Name="CDATA"/>
+                <Style Name="QUESTION"/>
+                <Style Name="VALUE"/>
+                <Style Name="XCCOMMENT"/>
+            </SubLanguage>
+
+        </Styles>
+    </Language>
+</ScintillaNET>

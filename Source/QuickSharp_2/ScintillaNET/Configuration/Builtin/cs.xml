@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ScintillaNET>
+    <Language Name="cs">
+
+        <Indentation
+            TabWidth="4"
+            UseTabs="false"
+            BackspaceUnindents="true"
+            ShowGuides="false"
+            SmartIndentType="cpp"
+        />
+
+        <Lexer
+            LexerName="cpp"
+            LineCommentPrefix="//"
+            StreamCommentPrefix="/* "
+            StreamCommentSuffix=" */">
+
+            <Properties>
+                <Property Name="fold.preprocessor" Value="1"/>
+            </Properties>
+
+            <Keywords List="0" Inherit="False">abstract alias as ascending base bool break by byte case catch char checked
+class const continue decimal default delegate descending do double else enum equals event explicit extern false finally fixed
+float for foreach from get global goto group if implicit in int into interface internal is join let lock long namespace new null
+on operator orderby out override params partial private protected public readonly ref return sbyte sealed select set short sizeof
+stackalloc static string struct switch this throw true try typeof uint ulong unchecked unsafe ushort using value
+var virtual void volatile where while yield object dynamic</Keywords>
+        </Lexer>
+
+    </Language>
+</ScintillaNET>

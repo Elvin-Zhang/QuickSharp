@@ -1,0 +1,520 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="Copy" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\Copy.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Cut" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\Cut.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Find" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\Find.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="MainEditMenu" xml:space="preserve">
+    <value>&amp;Edit</value>
+  </data>
+  <data name="MainEditMenuAdvanced" xml:space="preserve">
+    <value>Ad&amp;vanced</value>
+  </data>
+  <data name="MainEditMenuBlockComment" xml:space="preserve">
+    <value>&amp;Block Comment</value>
+  </data>
+  <data name="MainEditMenuCopy" xml:space="preserve">
+    <value>&amp;Copy</value>
+  </data>
+  <data name="MainEditMenuCut" xml:space="preserve">
+    <value>Cu&amp;t</value>
+  </data>
+  <data name="MainEditMenuFind" xml:space="preserve">
+    <value>&amp;Find...</value>
+  </data>
+  <data name="MainEditMenuGoTo" xml:space="preserve">
+    <value>&amp;Go to Line...</value>
+  </data>
+  <data name="MainEditMenuLineComment" xml:space="preserve">
+    <value>Line &amp;Comment</value>
+  </data>
+  <data name="MainEditMenuMakeLowercase" xml:space="preserve">
+    <value>Make &amp;Lowercase</value>
+  </data>
+  <data name="MainEditMenuMakeUppercase" xml:space="preserve">
+    <value>Make &amp;Uppercase</value>
+  </data>
+  <data name="MainEditMenuPaste" xml:space="preserve">
+    <value>&amp;Paste</value>
+  </data>
+  <data name="MainEditMenuRedo" xml:space="preserve">
+    <value>&amp;Redo</value>
+  </data>
+  <data name="MainEditMenuReplace" xml:space="preserve">
+    <value>R&amp;eplace...</value>
+  </data>
+  <data name="MainEditMenuSelectAll" xml:space="preserve">
+    <value>Select &amp;All</value>
+  </data>
+  <data name="MainEditMenuSetReadOnly" xml:space="preserve">
+    <value>Set &amp;Read Only</value>
+  </data>
+  <data name="MainEditMenuUndo" xml:space="preserve">
+    <value>&amp;Undo</value>
+  </data>
+  <data name="MainEditMenuViewWhitespace" xml:space="preserve">
+    <value>Show &amp;White Space</value>
+  </data>
+  <data name="MainFileMenuPrint" xml:space="preserve">
+    <value>&amp;Print</value>
+  </data>
+  <data name="MainFileMenuPrintPreview" xml:space="preserve">
+    <value>P&amp;rint Preview</value>
+  </data>
+  <data name="OptionsArrows" xml:space="preserve">
+    <value>Arrows</value>
+  </data>
+  <data name="OptionsBackspaceUnindents" xml:space="preserve">
+    <value>Bac&amp;kspace unindents</value>
+  </data>
+  <data name="OptionsBoxPlusMinus" xml:space="preserve">
+    <value>Box plus minus</value>
+  </data>
+  <data name="OptionsCirclePlusMinus" xml:space="preserve">
+    <value>Circle plus minus</value>
+  </data>
+  <data name="OptionsOverrideConfigFiles" xml:space="preserve">
+    <value>&amp;Allow these settings to override configuration files</value>
+  </data>
+  <data name="OptionsFoldMarkerStyle" xml:space="preserve">
+    <value>Fold &amp;marker style:</value>
+  </data>
+  <data name="OptionsFoldStyle" xml:space="preserve">
+    <value>Fold &amp;style:</value>
+  </data>
+  <data name="OptionsGlobalSettings" xml:space="preserve">
+    <value>Global settings</value>
+  </data>
+  <data name="OptionsLineAfterContracted" xml:space="preserve">
+    <value>Line after contracted</value>
+  </data>
+  <data name="OptionsLineBeforeContracted" xml:space="preserve">
+    <value>Line before contracted</value>
+  </data>
+  <data name="OptionsMatchBraces" xml:space="preserve">
+    <value>Match &amp;braces</value>
+  </data>
+  <data name="OptionsNone" xml:space="preserve">
+    <value>None</value>
+  </data>
+  <data name="OptionsPlusMinus" xml:space="preserve">
+    <value>Plus minus</value>
+  </data>
+  <data name="OptionsShowFolding" xml:space="preserve">
+    <value>Show fol&amp;ding</value>
+  </data>
+  <data name="OptionsShowIndentationGuides" xml:space="preserve">
+    <value>Show indentation &amp;guides</value>
+  </data>
+  <data name="OptionsTabSize" xml:space="preserve">
+    <value>&amp;Tab size:</value>
+  </data>
+  <data name="OptionsPageTextEditor" xml:space="preserve">
+    <value>Editor Settings</value>
+  </data>
+  <data name="OptionsUseTabs" xml:space="preserve">
+    <value>&amp;Use tabs</value>
+  </data>
+  <data name="Paste" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\Paste.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Print" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\Print.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ReadWriteMessage" xml:space="preserve">
+    <value>There is an editable version of this file already available.</value>
+  </data>
+  <data name="ReadWriteTitle" xml:space="preserve">
+    <value>Set Read Only</value>
+  </data>
+  <data name="Redo" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\Redo.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="SaveChangesMessage" xml:space="preserve">
+    <value>{0} has changed. Save the changes?</value>
+  </data>
+  <data name="SaveChangesTitle" xml:space="preserve">
+    <value>Close</value>
+  </data>
+  <data name="SaveErrorMessage" xml:space="preserve">
+    <value>Unable to save:</value>
+  </data>
+  <data name="SaveErrorTitle" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="TabReadOnly" xml:space="preserve">
+    <value>Read Only</value>
+  </data>
+  <data name="Undo" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\Undo.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="MainFileMenuPageSetup" xml:space="preserve">
+    <value>Page Set&amp;up...</value>
+  </data>
+  <data name="PageSetup" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\PageSetup.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="MainEditMenuCollapseAll" xml:space="preserve">
+    <value>&amp;Collapse All</value>
+  </data>
+  <data name="MainEditMenuExpandAll" xml:space="preserve">
+    <value>&amp;Expand All</value>
+  </data>
+  <data name="MainEditMenuFolding" xml:space="preserve">
+    <value>Fo&amp;lding</value>
+  </data>
+  <data name="OptionsHideBOM" xml:space="preserve">
+    <value>&amp;Hide file BOM</value>
+  </data>
+  <data name="Folder" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\Folder.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="MainEditMenuSnippets" xml:space="preserve">
+    <value>&amp;Snippets</value>
+  </data>
+  <data name="MainEditMenuManageSnippets" xml:space="preserve">
+    <value>&amp;Manage Snippets...</value>
+  </data>
+  <data name="ManageSnippetsErrorDialogText" xml:space="preserve">
+    <value>Unable to open snippets folder</value>
+  </data>
+  <data name="ManageSnippetsErrorDialogTitle" xml:space="preserve">
+    <value>Manage Snippets</value>
+  </data>
+  <data name="MainEditMenuToggleFold" xml:space="preserve">
+    <value>&amp;Toggle Fold</value>
+  </data>
+  <data name="PrintErrorTitle" xml:space="preserve">
+    <value>Printing</value>
+  </data>
+  <data name="MainEditMenuEncoding" xml:space="preserve">
+    <value>File Enc&amp;oding</value>
+  </data>
+  <data name="MainEditMenuEncodingANSI" xml:space="preserve">
+    <value>&amp;ANSI</value>
+  </data>
+  <data name="MainEditMenuEncodingUTF16BE" xml:space="preserve">
+    <value>UTF-16 &amp;Big Endian</value>
+  </data>
+  <data name="MainEditMenuEncodingUTF16LE" xml:space="preserve">
+    <value>UTF-16 &amp;Little Endian</value>
+  </data>
+  <data name="MainEditMenuEncodingUTF8" xml:space="preserve">
+    <value>&amp;UTF-8</value>
+  </data>
+  <data name="MainEditMenuLineEnding" xml:space="preserve">
+    <value>Line Ending St&amp;yle</value>
+  </data>
+  <data name="MainEditMenuLineEndingCR" xml:space="preserve">
+    <value>&amp;Macintosh (CR)</value>
+  </data>
+  <data name="MainEditMenuLineEndingCRLF" xml:space="preserve">
+    <value>&amp;Windows (CR LF)</value>
+  </data>
+  <data name="MainEditMenuLineEndingLF" xml:space="preserve">
+    <value>&amp;Unix (LF)</value>
+  </data>
+  <data name="FileChangedMessage" xml:space="preserve">
+    <value>The file has been modified outside of the editor.</value>
+  </data>
+  <data name="FileChangedReloadMessage" xml:space="preserve">
+    <value>Do you want to reload it?</value>
+  </data>
+  <data name="FileChangedTitle" xml:space="preserve">
+    <value>File Modified</value>
+  </data>
+  <data name="FileChangedOverwriteMessage" xml:space="preserve">
+    <value>Do you want to overwrite the newer version?</value>
+  </data>
+  <data name="OptionsGroupText" xml:space="preserve">
+    <value>Text Editor</value>
+  </data>
+  <data name="OptionsPageTextGlobal" xml:space="preserve">
+    <value>Global Settings</value>
+  </data>
+  <data name="FileFutureDateMessage1" xml:space="preserve">
+    <value>The file has a timestamp from the future</value>
+  </data>
+  <data name="FileFutureDateTitle" xml:space="preserve">
+    <value>Temporal Anomaly</value>
+  </data>
+  <data name="MainEditMenuTrimWhitespace" xml:space="preserve">
+    <value>&amp;Trim Trailing White Space</value>
+  </data>
+  <data name="MainEditMenuWordWrap" xml:space="preserve">
+    <value>W&amp;ord Wrap</value>
+  </data>
+  <data name="OptionsWordWrap" xml:space="preserve">
+    <value>&amp;Word wrap</value>
+  </data>
+  <data name="MacroRecordEnd" xml:space="preserve">
+    <value>Macro recorded.</value>
+  </data>
+  <data name="MacroRecordStart" xml:space="preserve">
+    <value>Recording macro...</value>
+  </data>
+  <data name="MainEditMenuMacroPlay" xml:space="preserve">
+    <value>&amp;Play Macro</value>
+  </data>
+  <data name="MainEditMenuMacros" xml:space="preserve">
+    <value>&amp;Macros</value>
+  </data>
+  <data name="MainEditMenuMacroStartRecord" xml:space="preserve">
+    <value>&amp;Record Macro</value>
+  </data>
+  <data name="MainEditMenuMacroStopRecord" xml:space="preserve">
+    <value>&amp;Stop Recording</value>
+  </data>
+  <data name="MacroRecordCancelled" xml:space="preserve">
+    <value>Macro recording cancelled.</value>
+  </data>
+  <data name="MacroBufferEmpty" xml:space="preserve">
+    <value>Macro buffer is empty.</value>
+  </data>
+  <data name="MainEditMenuMacroLoad" xml:space="preserve">
+    <value>&amp;Load Macro...</value>
+  </data>
+  <data name="MainEditMenuMacroSave" xml:space="preserve">
+    <value>&amp;Save Macro...</value>
+  </data>
+  <data name="MacroDocumentsFilter" xml:space="preserve">
+    <value>Macros (*.macro)|*.macro|All Files (*.*)|*.*</value>
+  </data>
+  <data name="MacroFileExtension" xml:space="preserve">
+    <value>.macro</value>
+  </data>
+  <data name="MacroLoadError" xml:space="preserve">
+    <value>Unable to load macro: {0}</value>
+  </data>
+  <data name="MacroLoadTitle" xml:space="preserve">
+    <value>Load Macro</value>
+  </data>
+  <data name="MacroSaveError" xml:space="preserve">
+    <value>Unable to save macro: {0}</value>
+  </data>
+  <data name="MacroSaveTitle" xml:space="preserve">
+    <value>Save Macro</value>
+  </data>
+  <data name="MacroLoadOK" xml:space="preserve">
+    <value>Macro loaded.</value>
+  </data>
+  <data name="MacroSaveOK" xml:space="preserve">
+    <value>Macro saved.</value>
+  </data>
+  <data name="OptionsEditorSettings" xml:space="preserve">
+    <value>Editor settings</value>
+  </data>
+  <data name="OptionsLnMarginSize" xml:space="preserve">
+    <value>&amp;Line number margin size:</value>
+  </data>
+  <data name="OptionsFontName" xml:space="preserve">
+    <value>&amp;Font:</value>
+  </data>
+  <data name="FindDialogButtonClose" xml:space="preserve">
+    <value>Close</value>
+  </data>
+  <data name="FindDialogButtonFind" xml:space="preserve">
+    <value>Find Next</value>
+  </data>
+  <data name="FindDialogTitleFind" xml:space="preserve">
+    <value>Find</value>
+  </data>
+  <data name="FindDialogFindWhat" xml:space="preserve">
+    <value>&amp;Find what:</value>
+  </data>
+  <data name="FindDialogReplaceWith" xml:space="preserve">
+    <value>&amp;Replace with:</value>
+  </data>
+  <data name="FindDialogUseRegularExpression" xml:space="preserve">
+    <value>&amp;Use regular expression</value>
+  </data>
+  <data name="FindDialogButtonReplace" xml:space="preserve">
+    <value>Replace Next</value>
+  </data>
+  <data name="FindDialogTitleReplace" xml:space="preserve">
+    <value>Replace</value>
+  </data>
+  <data name="FindDialogExceptionMessage" xml:space="preserve">
+    <value>The search operation failed</value>
+  </data>
+  <data name="FindDialogMessageNotFound" xml:space="preserve">
+    <value>The search term could not be found.</value>
+  </data>
+  <data name="FindDialogMessageCantSearch" xml:space="preserve">
+    <value>The current document cannot be searched.</value>
+  </data>
+  <data name="FindDialogButtonFindAllReplace" xml:space="preserve">
+    <value>Replace All</value>
+  </data>
+  <data name="FindDialogMessageReplacedAllMulti" xml:space="preserve">
+    <value>Replaced the search term on {0} lines.</value>
+  </data>
+  <data name="FindDialogMessageReplacedAllSingle" xml:space="preserve">
+    <value>Replaced the search term on {0} line.</value>
+  </data>
+  <data name="MainEditMenuBookmarks" xml:space="preserve">
+    <value>&amp;Bookmarks</value>
+  </data>
+  <data name="MainEditMenuNextBookmark" xml:space="preserve">
+    <value>&amp;Next Bookmark</value>
+  </data>
+  <data name="MainEditMenuPreviousBookmark" xml:space="preserve">
+    <value>&amp;Previous Bookmark</value>
+  </data>
+  <data name="MainEditMenuToggleBookmark" xml:space="preserve">
+    <value>&amp;Toggle Bookmark</value>
+  </data>
+  <data name="MainEditMenuClearBookmarks" xml:space="preserve">
+    <value>&amp;Clear All Bookmarks</value>
+  </data>
+  <data name="FindDialogButtonFindAllFind" xml:space="preserve">
+    <value>Find All</value>
+  </data>
+  <data name="FindDialogMessageFoundMulti" xml:space="preserve">
+    <value>Found the search term on {0} lines.</value>
+  </data>
+  <data name="FindDialogMessageFoundSingle" xml:space="preserve">
+    <value>Found the search term on {0} line.</value>
+  </data>
+  <data name="FindDialogMatchCase" xml:space="preserve">
+    <value>&amp;Match case</value>
+  </data>
+  <data name="OptionsPrintingColorMode" xml:space="preserve">
+    <value>&amp;Printing:</value>
+  </data>
+  <data name="OptionsColorModeBlackOnWhite" xml:space="preserve">
+    <value>Black on white</value>
+  </data>
+  <data name="OptionsColorModeColorOnWhite" xml:space="preserve">
+    <value>Color on white</value>
+  </data>
+  <data name="OptionsColorModeNormal" xml:space="preserve">
+    <value>Normal</value>
+  </data>
+  <data name="FileFutureDateMessage2" xml:space="preserve">
+    <value>overwrite the file to prevent repeated modification warnings.</value>
+  </data>
+</root>
